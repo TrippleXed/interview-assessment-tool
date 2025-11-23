@@ -177,6 +177,14 @@ function initializeApp() {
     // Render position selector
     renderPositionSelector();
 
+    // Set active position to load questions
+    setActivePosition(currentIndustryId, currentPositionId);
+
+    // Update position field with current position name
+    const industry = industriesData[currentIndustryId];
+    const position = industry.positions[currentPositionId];
+    document.getElementById('position').value = position.name;
+
     // Render all questions
     renderQuestions();
 

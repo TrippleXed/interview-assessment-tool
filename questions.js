@@ -4635,6 +4635,14 @@ const industriesData = {
   }
 };
 
+// Current active questions for the selected position
+let interviewQuestions = [];
+
+// Set active position and load its questions
+function setActivePosition(industryId, positionId) {
+  interviewQuestions = getQuestions(industryId, positionId);
+}
+
 // Helper function to get all industries
 function getIndustries() {
   return Object.entries(industriesData).map(([id, data]) => ({
