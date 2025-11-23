@@ -166,9 +166,16 @@ function logout() {
 
 // ==================== Main Application ====================
 
+// Current selected position
+let currentIndustryId = 'aviation';
+let currentPositionId = 'fleet_admin';
+
 function initializeApp() {
     // Set today's date as default
     document.getElementById('interviewDate').valueAsDate = new Date();
+
+    // Render position selector
+    renderPositionSelector();
 
     // Render all questions
     renderQuestions();
@@ -181,6 +188,129 @@ function initializeApp() {
 
     // Update scores
     updateScores();
+}
+
+// ==================== Position Selector ====================
+
+function renderPositionSelector() {
+    const container = document.getElementById('industryBlocks');
+    container.innerHTML = '';
+
+    const industries = getIndustries();
+
+    industries.forEach(industry => {
+        const positions = getPositions(industry.id);
+        const block = document.createElement('div');
+        block.className = 'industry-block';
+        block.id = `industry-${industry.id}`;
+
+        block.innerHTML = `
+            <div class="industry-header" onclick="toggleIndustryBlock('${industry.id}')">
+                <span class="industry-icon">${industry.icon}</span>
+                <span class="industry-name">${industry.name}</span>
+                <span class="industry-toggle">▼</span>
+            </div>
+            <div class="industry-positions">
+                ${positions.map(pos => `
+                    <button class="position-btn ${industry.id === currentIndustryId && pos.id === currentPositionId ? 'active' : ''}"
+                            data-industry="${industry.id}"
+                            data-position="${pos.id}"
+                            onclick="selectPosition('${industry.id}', '${pos.id}')">
+                        ${pos.name}
+                    </button>
+                `).join('')}
+            </div>
+        `;
+
+        container.appendChild(block);
+    });
+
+    // Update the selected position display
+    updateSelectedPositionDisplay();
+}
+
+function toggleIndustryBlock(industryId) {
+    const block = document.getElementById(`industry-${industryId}`);
+    block.classList.toggle('collapsed');
+}
+
+function selectPosition(industryId, positionId) {
+    // Check if there's unsaved assessment data
+    const hasData = checkForAssessmentData();
+    if (hasData) {
+        if (!confirm('Changing position will clear current assessment. Continue?')) {
+            return;
+        }
+    }
+
+    // Update current selection
+    currentIndustryId = industryId;
+    currentPositionId = positionId;
+
+    // Set active questions
+    setActivePosition(industryId, positionId);
+
+    // Update UI
+    updatePositionButtons();
+    updateSelectedPositionDisplay();
+
+    // Update position field
+    const industry = industriesData[industryId];
+    const position = industry.positions[positionId];
+    document.getElementById('position').value = position.name;
+
+    // Clear and re-render questions
+    clearAssessmentData();
+    renderQuestions();
+    updateScores();
+}
+
+function checkForAssessmentData() {
+    // Check if any scores have been selected
+    const selectedScores = document.querySelectorAll('.score-btn.selected');
+    return selectedScores.length > 0;
+}
+
+function clearAssessmentData() {
+    // Clear scores
+    document.querySelectorAll('.score-btn.selected').forEach(btn => {
+        btn.classList.remove('selected');
+    });
+
+    // Clear notes
+    document.querySelectorAll('.notes-section textarea').forEach(textarea => {
+        textarea.value = '';
+    });
+
+    // Clear red flags
+    document.querySelectorAll('[id^="redflag-check-"]').forEach(checkbox => {
+        checkbox.checked = false;
+    });
+
+    // Clear localStorage for this assessment
+    localStorage.removeItem('interviewData');
+}
+
+function updatePositionButtons() {
+    // Remove active class from all buttons
+    document.querySelectorAll('.position-btn').forEach(btn => {
+        btn.classList.remove('active');
+    });
+
+    // Add active class to selected button
+    const activeBtn = document.querySelector(
+        `.position-btn[data-industry="${currentIndustryId}"][data-position="${currentPositionId}"]`
+    );
+    if (activeBtn) {
+        activeBtn.classList.add('active');
+    }
+}
+
+function updateSelectedPositionDisplay() {
+    const industry = industriesData[currentIndustryId];
+    const position = industry.positions[currentPositionId];
+    const display = document.getElementById('selectedPosition');
+    display.textContent = `${industry.icon} ${industry.name} - ${position.name}`;
 }
 
 function renderQuestions() {
@@ -518,24 +648,22 @@ function clearForm() {
 
     // Clear form fields
     document.getElementById('candidateName').value = '';
-    document.getElementById('position').value = 'Officer - Fleet Administration';
     document.getElementById('interviewDate').valueAsDate = new Date();
     document.getElementById('interviewer').value = '';
 
-    // Clear scores
-    document.querySelectorAll('.score-btn.selected').forEach(btn => {
-        btn.classList.remove('selected');
-    });
+    // Reset to default position
+    currentIndustryId = 'aviation';
+    currentPositionId = 'fleet_admin';
+    setActivePosition(currentIndustryId, currentPositionId);
+    updatePositionButtons();
+    updateSelectedPositionDisplay();
 
-    // Clear notes
-    document.querySelectorAll('.notes-section textarea').forEach(textarea => {
-        textarea.value = '';
-    });
+    const industry = industriesData[currentIndustryId];
+    const position = industry.positions[currentPositionId];
+    document.getElementById('position').value = position.name;
 
-    // Clear red flags
-    document.querySelectorAll('[id^="redflag-check-"]').forEach(checkbox => {
-        checkbox.checked = false;
-    });
+    // Re-render questions for default position
+    renderQuestions();
 
     // Expand all categories
     document.querySelectorAll('.category').forEach(cat => {
