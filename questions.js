@@ -5354,6 +5354,155 @@ const industriesData = {
             ]
           }
         ]
+      },
+      social_media_manager: {
+        name: "Social Media Manager",
+        categories: [
+          {
+            id: 'strategy',
+            title: '1. Social Media Strategy',
+            questions: [
+              {
+                id: 'q1',
+                text: 'How do you develop a social media strategy for a brand?',
+                expectedAnswers: ['Audience research', 'Platform selection', 'Content pillars', 'Goals and KPIs', 'Competitive analysis'],
+                redFlags: ['No strategy', 'Copy competitors', 'No goals', 'Same for all platforms']
+              },
+              {
+                id: 'q2',
+                text: 'How do you decide which social media platforms to prioritize?',
+                expectedAnswers: ['Audience demographics', 'Content fit', 'Resource constraints', 'Business goals', 'Competitor presence'],
+                redFlags: ['All platforms equally', 'Ignore data', 'Personal preference', 'No prioritization']
+              },
+              {
+                id: 'q3',
+                text: 'Describe your content planning process.',
+                expectedAnswers: ['Content calendar', 'Theme planning', 'Audience needs', 'Variety of formats', 'Timely content'],
+                redFlags: ['No planning', 'Random posting', 'Same content type', 'Miss opportunities']
+              },
+              {
+                id: 'q4',
+                text: 'How do you balance promotional content with engagement content?',
+                expectedAnswers: ['80/20 rule or similar', 'Value-first approach', 'Audience feedback', 'Test and adjust', 'Brand voice consistency'],
+                redFlags: ['All promotional', 'No balance', 'Ignore audience', 'Inconsistent']
+              },
+              {
+                id: 'q5',
+                text: 'How do you stay current with social media trends and algorithm changes?',
+                expectedAnswers: ['Industry resources', 'Platform updates', 'Testing', 'Professional networks', 'Continuous learning'],
+                redFlags: ['Outdated tactics', 'Ignore changes', 'No learning', 'Same old approach']
+              }
+            ]
+          },
+          {
+            id: 'content',
+            title: '2. Content Creation & Management',
+            questions: [
+              {
+                id: 'q6',
+                text: 'Describe your process for creating engaging social media content.',
+                expectedAnswers: ['Audience understanding', 'Strong visuals', 'Compelling copy', 'Call to action', 'Platform optimization'],
+                redFlags: ['Generic content', 'Poor quality', 'No optimization', 'Ignore engagement']
+              },
+              {
+                id: 'q7',
+                text: 'How do you maintain brand voice consistency across platforms?',
+                expectedAnswers: ['Style guide', 'Team training', 'Review process', 'Templates', 'Regular audits'],
+                redFlags: ['Inconsistent voice', 'No guidelines', 'No review', 'Different personalities']
+              },
+              {
+                id: 'q8',
+                text: 'What tools do you use for social media management?',
+                expectedAnswers: ['Scheduling tools', 'Analytics platforms', 'Design tools', 'Listening tools', 'Collaboration tools'],
+                redFlags: ['No tools', 'Manual everything', 'Outdated tools', 'Limited capabilities']
+              },
+              {
+                id: 'q9',
+                text: 'How do you handle user-generated content?',
+                expectedAnswers: ['Encourage creation', 'Permission process', 'Curation', 'Credit creators', 'Legal compliance'],
+                redFlags: ['Ignore UGC', 'No permission', 'No credit', 'Legal risks']
+              },
+              {
+                id: 'q10',
+                text: 'Describe your approach to video content for social media.',
+                expectedAnswers: ['Platform-specific', 'Mobile-first', 'Attention-grabbing', 'Captions', 'Various formats'],
+                redFlags: ['No video', 'One-size-fits-all', 'Poor quality', 'No optimization']
+              }
+            ]
+          },
+          {
+            id: 'engagement',
+            title: '3. Community Engagement',
+            questions: [
+              {
+                id: 'q11',
+                text: 'How do you build and engage an online community?',
+                expectedAnswers: ['Authentic interaction', 'Timely responses', 'Encourage discussion', 'Value creation', 'Community guidelines'],
+                redFlags: ['Ignore followers', 'Slow response', 'One-way communication', 'No community building']
+              },
+              {
+                id: 'q12',
+                text: 'How do you handle negative comments or complaints on social media?',
+                expectedAnswers: ['Quick response', 'Take offline when needed', 'Professional tone', 'Resolution focus', 'Learn from feedback'],
+                redFlags: ['Delete negative comments', 'Argue publicly', 'Slow response', 'Defensive']
+              },
+              {
+                id: 'q13',
+                text: 'Describe your experience with influencer partnerships.',
+                expectedAnswers: ['Selection criteria', 'Relationship building', 'Clear agreements', 'Performance tracking', 'Compliance'],
+                redFlags: ['No vetting', 'No agreements', 'No tracking', 'Ignore compliance']
+              },
+              {
+                id: 'q14',
+                text: 'How do you handle a social media crisis?',
+                expectedAnswers: ['Crisis plan', 'Quick assessment', 'Stakeholder communication', 'Transparent response', 'Post-crisis analysis'],
+                redFlags: ['No plan', 'Panic', 'Hide or delete', 'No learning']
+              },
+              {
+                id: 'q15',
+                text: 'How do you increase organic reach and engagement?',
+                expectedAnswers: ['Quality content', 'Optimal timing', 'Hashtag strategy', 'Engagement encouragement', 'Algorithm understanding'],
+                redFlags: ['Pay only approach', 'Ignore algorithms', 'Generic content', 'No strategy']
+              }
+            ]
+          },
+          {
+            id: 'analytics',
+            title: '4. Analytics & Reporting',
+            questions: [
+              {
+                id: 'q16',
+                text: 'What metrics do you track to measure social media success?',
+                expectedAnswers: ['Engagement rate', 'Reach and impressions', 'Conversions', 'Follower growth', 'Share of voice'],
+                redFlags: ['Vanity metrics only', 'No tracking', 'Wrong metrics', 'No benchmarks']
+              },
+              {
+                id: 'q17',
+                text: 'How do you report social media performance to stakeholders?',
+                expectedAnswers: ['Clear dashboards', 'Business context', 'Insights not just data', 'Recommendations', 'Regular cadence'],
+                redFlags: ['Data dump', 'No insights', 'No recommendations', 'Irregular reporting']
+              },
+              {
+                id: 'q18',
+                text: 'How do you use data to improve social media performance?',
+                expectedAnswers: ['A/B testing', 'Content analysis', 'Audience insights', 'Trend identification', 'Strategy adjustment'],
+                redFlags: ['Ignore data', 'No testing', 'Same approach always', 'No optimization']
+              },
+              {
+                id: 'q19',
+                text: 'How do you measure ROI on social media efforts?',
+                expectedAnswers: ['Attribution models', 'Conversion tracking', 'Cost per result', 'Brand metrics', 'Business impact'],
+                redFlags: ['Cannot measure', 'Vanity metrics', 'No attribution', 'No business connection']
+              },
+              {
+                id: 'q20',
+                text: 'Describe a time when data led you to change your social media approach.',
+                expectedAnswers: ['Specific example', 'Data identified issue', 'Strategic change', 'Measured improvement', 'Learning applied'],
+                redFlags: ['No example', 'Ignore data', 'No change made', 'No improvement']
+              }
+            ]
+          }
+        ]
       }
     }
   },
@@ -5506,6 +5655,155 @@ const industriesData = {
                 text: 'How do you handle pressure to sell inappropriate products?',
                 expectedAnswers: ['Refuse', 'Document concerns', 'Report if needed', 'Client protection', 'Know regulations'],
                 redFlags: ['Comply', 'No pushback', 'Ignore ethics', 'Fear retaliation']
+              }
+            ]
+          }
+        ]
+      },
+      claims_adjuster: {
+        name: "Claims Adjuster",
+        categories: [
+          {
+            id: 'investigation',
+            title: '1. Claims Investigation',
+            questions: [
+              {
+                id: 'q1',
+                text: 'Describe your process for investigating a new claim.',
+                expectedAnswers: ['Review policy', 'Gather documentation', 'Interview claimant', 'Inspect damage', 'Verify coverage'],
+                redFlags: ['Skip steps', 'Rush decisions', 'No verification', 'Incomplete investigation']
+              },
+              {
+                id: 'q2',
+                text: 'How do you determine the scope of a loss?',
+                expectedAnswers: ['Physical inspection', 'Expert consultation', 'Documentation review', 'Cause analysis', 'Complete assessment'],
+                redFlags: ['Incomplete assessment', 'No inspection', 'Miss damage', 'Superficial review']
+              },
+              {
+                id: 'q3',
+                text: 'How do you identify potential fraud indicators?',
+                expectedAnswers: ['Red flag awareness', 'Documentation inconsistencies', 'Pattern recognition', 'Verification steps', 'SIU referral'],
+                redFlags: ['Miss indicators', 'No verification', 'Ignore red flags', 'No referral']
+              },
+              {
+                id: 'q4',
+                text: 'Describe your experience with different types of claims.',
+                expectedAnswers: ['Property claims', 'Auto claims', 'Liability claims', 'Specialty claims', 'Complex losses'],
+                redFlags: ['Limited experience', 'One type only', 'No complexity', 'No examples']
+              },
+              {
+                id: 'q5',
+                text: 'How do you handle claims with coverage questions?',
+                expectedAnswers: ['Policy analysis', 'Supervisor consultation', 'Documentation', 'Clear communication', 'Proper denial if needed'],
+                redFlags: ['Guess coverage', 'No consultation', 'Poor communication', 'Improper denials']
+              }
+            ]
+          },
+          {
+            id: 'negotiation',
+            title: '2. Negotiation & Settlement',
+            questions: [
+              {
+                id: 'q6',
+                text: 'How do you determine fair settlement values?',
+                expectedAnswers: ['Market research', 'Comparable analysis', 'Expert estimates', 'Policy limits', 'Documentation support'],
+                redFlags: ['Arbitrary values', 'No research', 'Underpay claims', 'No documentation']
+              },
+              {
+                id: 'q7',
+                text: 'Describe your negotiation approach with claimants.',
+                expectedAnswers: ['Fair treatment', 'Clear explanation', 'Documentation basis', 'Flexibility', 'Resolution focus'],
+                redFlags: ['Adversarial', 'Lowball offers', 'No explanation', 'Rigid approach']
+              },
+              {
+                id: 'q8',
+                text: 'How do you handle a claimant who disagrees with your assessment?',
+                expectedAnswers: ['Listen to concerns', 'Review evidence', 'Explain reasoning', 'Consider alternatives', 'Escalate if needed'],
+                redFlags: ['Dismiss concerns', 'Refuse review', 'Defensive', 'No escalation']
+              },
+              {
+                id: 'q9',
+                text: 'How do you work with attorneys on claims?',
+                expectedAnswers: ['Professional communication', 'Documentation', 'Policy knowledge', 'Negotiate fairly', 'Know limits'],
+                redFlags: ['Intimidated', 'Poor documentation', 'Over-settle', 'Under-settle']
+              },
+              {
+                id: 'q10',
+                text: 'Describe a complex claim negotiation you handled.',
+                expectedAnswers: ['Specific example', 'Strategy used', 'Challenges faced', 'Resolution achieved', 'Lessons learned'],
+                redFlags: ['No examples', 'Simple claims only', 'No strategy', 'Poor outcomes']
+              }
+            ]
+          },
+          {
+            id: 'documentation',
+            title: '3. Documentation & Compliance',
+            questions: [
+              {
+                id: 'q11',
+                text: 'How do you maintain thorough claim files?',
+                expectedAnswers: ['Complete documentation', 'Organized structure', 'Timely updates', 'Activity logs', 'Supporting evidence'],
+                redFlags: ['Incomplete files', 'Disorganized', 'Late documentation', 'Missing evidence']
+              },
+              {
+                id: 'q12',
+                text: 'How do you ensure regulatory compliance in claims handling?',
+                expectedAnswers: ['Know regulations', 'Timeline compliance', 'Required communications', 'Documentation', 'Training'],
+                redFlags: ['Ignore regulations', 'Miss deadlines', 'Non-compliant practices', 'No training']
+              },
+              {
+                id: 'q13',
+                text: 'Describe your experience with claims management systems.',
+                expectedAnswers: ['System proficiency', 'Documentation', 'Diary management', 'Reporting', 'Workflow compliance'],
+                redFlags: ['System struggles', 'Incomplete entries', 'Miss diaries', 'Poor reporting']
+              },
+              {
+                id: 'q14',
+                text: 'How do you handle claims with potential bad faith exposure?',
+                expectedAnswers: ['Prompt handling', 'Thorough documentation', 'Fair evaluation', 'Supervisor involvement', 'Legal consultation'],
+                redFlags: ['Delay claims', 'Poor documentation', 'Unfair practices', 'No escalation']
+              },
+              {
+                id: 'q15',
+                text: 'How do you prepare for claim audits?',
+                expectedAnswers: ['Complete files', 'Compliance verification', 'Self-review', 'Correct issues', 'Learn from findings'],
+                redFlags: ['Unprepared', 'Incomplete files', 'Compliance issues', 'No improvement']
+              }
+            ]
+          },
+          {
+            id: 'customer-service',
+            title: '4. Customer Service',
+            questions: [
+              {
+                id: 'q16',
+                text: 'How do you communicate with claimants throughout the process?',
+                expectedAnswers: ['Regular updates', 'Clear explanations', 'Prompt responses', 'Empathy', 'Set expectations'],
+                redFlags: ['No communication', 'Unclear', 'Slow response', 'Dismissive']
+              },
+              {
+                id: 'q17',
+                text: 'How do you handle an emotional or upset claimant?',
+                expectedAnswers: ['Listen actively', 'Show empathy', 'Stay professional', 'Address concerns', 'De-escalate'],
+                redFlags: ['Dismissive', 'Argumentative', 'Unprofessional', 'Escalate tension']
+              },
+              {
+                id: 'q18',
+                text: 'How do you balance efficiency with quality customer service?',
+                expectedAnswers: ['Prioritize effectively', 'Communicate timelines', 'Quality standards', 'Process efficiency', 'Customer focus'],
+                redFlags: ['Rush claims', 'Ignore customers', 'Poor quality', 'Miss deadlines']
+              },
+              {
+                id: 'q19',
+                text: 'Describe how you handle a claim denial conversation.',
+                expectedAnswers: ['Clear explanation', 'Policy reference', 'Empathy', 'Appeal options', 'Documentation'],
+                redFlags: ['Avoid conversation', 'No explanation', 'Defensive', 'No options provided']
+              },
+              {
+                id: 'q20',
+                text: 'How do you handle workload pressure while maintaining service quality?',
+                expectedAnswers: ['Prioritization', 'Organization', 'Communication', 'Quality standards', 'Ask for help'],
+                redFlags: ['Quality suffers', 'Miss deadlines', 'Poor communication', 'Burnout']
               }
             ]
           }
@@ -5666,6 +5964,155 @@ const industriesData = {
             ]
           }
         ]
+      },
+      administrative_officer: {
+        name: "Administrative Officer",
+        categories: [
+          {
+            id: 'admin-ops',
+            title: '1. Administrative Operations',
+            questions: [
+              {
+                id: 'q1',
+                text: 'Describe your experience managing office operations in a government setting.',
+                expectedAnswers: ['Process management', 'Policy compliance', 'Staff coordination', 'Resource management', 'Service delivery'],
+                redFlags: ['No government experience', 'Ignore policies', 'Poor coordination', 'Inefficient']
+              },
+              {
+                id: 'q2',
+                text: 'How do you ensure compliance with government regulations and procedures?',
+                expectedAnswers: ['Know regulations', 'Regular training', 'Process audits', 'Documentation', 'Continuous updates'],
+                redFlags: ['Ignore regulations', 'Outdated knowledge', 'No audits', 'Poor documentation']
+              },
+              {
+                id: 'q3',
+                text: 'Describe your experience with government procurement processes.',
+                expectedAnswers: ['Procurement rules', 'Vendor management', 'Documentation', 'Competitive bidding', 'Contract management'],
+                redFlags: ['No experience', 'Ignore rules', 'Poor documentation', 'Favoritism']
+              },
+              {
+                id: 'q4',
+                text: 'How do you manage records and documentation in a government office?',
+                expectedAnswers: ['Records management policy', 'Retention schedules', 'FOIA compliance', 'Secure storage', 'Access controls'],
+                redFlags: ['Poor organization', 'No policy', 'Security issues', 'Non-compliant']
+              },
+              {
+                id: 'q5',
+                text: 'How do you handle budget management for your department?',
+                expectedAnswers: ['Budget planning', 'Expenditure tracking', 'Variance analysis', 'Reporting', 'Fiscal responsibility'],
+                redFlags: ['Overspending', 'No tracking', 'Poor reporting', 'Waste']
+              }
+            ]
+          },
+          {
+            id: 'staff-mgmt',
+            title: '2. Staff Management',
+            questions: [
+              {
+                id: 'q6',
+                text: 'How do you manage staff in a civil service environment?',
+                expectedAnswers: ['Understand civil service rules', 'Fair treatment', 'Performance management', 'Development', 'Union relations'],
+                redFlags: ['Ignore rules', 'Unfair treatment', 'No management', 'Poor relations']
+              },
+              {
+                id: 'q7',
+                text: 'Describe your approach to performance evaluations in government.',
+                expectedAnswers: ['Objective criteria', 'Regular feedback', 'Documentation', 'Development plans', 'Fair process'],
+                redFlags: ['Subjective', 'No feedback', 'Poor documentation', 'Unfair']
+              },
+              {
+                id: 'q8',
+                text: 'How do you handle disciplinary issues with government employees?',
+                expectedAnswers: ['Follow procedures', 'Documentation', 'Due process', 'HR involvement', 'Progressive discipline'],
+                redFlags: ['Skip procedures', 'No documentation', 'Ignore due process', 'Arbitrary']
+              },
+              {
+                id: 'q9',
+                text: 'How do you promote professional development for staff?',
+                expectedAnswers: ['Training opportunities', 'Career paths', 'Mentoring', 'Skill assessment', 'Support growth'],
+                redFlags: ['No development', 'No training', 'Block advancement', 'No support']
+              },
+              {
+                id: 'q10',
+                text: 'How do you ensure diversity and inclusion in your workplace?',
+                expectedAnswers: ['EEO compliance', 'Inclusive practices', 'Diverse hiring', 'Training', 'Address issues'],
+                redFlags: ['Ignore diversity', 'Non-compliant', 'Exclusive practices', 'No training']
+              }
+            ]
+          },
+          {
+            id: 'public-service',
+            title: '3. Public Service',
+            questions: [
+              {
+                id: 'q11',
+                text: 'How do you ensure quality service delivery to the public?',
+                expectedAnswers: ['Service standards', 'Staff training', 'Feedback systems', 'Process improvement', 'Accessibility'],
+                redFlags: ['No standards', 'Poor training', 'Ignore feedback', 'Barriers to service']
+              },
+              {
+                id: 'q12',
+                text: 'How do you handle citizen complaints?',
+                expectedAnswers: ['Listen respectfully', 'Document concerns', 'Investigate', 'Respond timely', 'Follow up'],
+                redFlags: ['Dismiss complaints', 'No documentation', 'Slow response', 'No follow-up']
+              },
+              {
+                id: 'q13',
+                text: 'Describe your experience with public meetings or hearings.',
+                expectedAnswers: ['Meeting preparation', 'Public notice', 'Professional conduct', 'Documentation', 'Follow-up actions'],
+                redFlags: ['Unprepared', 'Inadequate notice', 'Unprofessional', 'No follow-up']
+              },
+              {
+                id: 'q14',
+                text: 'How do you balance transparency with confidentiality in government?',
+                expectedAnswers: ['Know what is public', 'Protect confidential', 'FOIA compliance', 'Clear policies', 'Seek guidance'],
+                redFlags: ['Over-disclose', 'Over-withhold', 'Non-compliant', 'No judgment']
+              },
+              {
+                id: 'q15',
+                text: 'How do you handle requests for information from elected officials?',
+                expectedAnswers: ['Timely response', 'Accurate information', 'Proper channels', 'Documentation', 'Non-partisan'],
+                redFlags: ['Slow response', 'Inaccurate', 'Bypass channels', 'Political bias']
+              }
+            ]
+          },
+          {
+            id: 'ethics',
+            title: '4. Ethics & Accountability',
+            questions: [
+              {
+                id: 'q16',
+                text: 'How do you maintain ethical standards in your work?',
+                expectedAnswers: ['Know ethics rules', 'Lead by example', 'Report concerns', 'Training', 'Consistent application'],
+                redFlags: ['Ethics violations', 'Poor example', 'Ignore concerns', 'No training']
+              },
+              {
+                id: 'q17',
+                text: 'How do you handle situations where you disagree with a policy you must implement?',
+                expectedAnswers: ['Voice concerns appropriately', 'Implement faithfully', 'Suggest improvements', 'Document concerns', 'Follow chain of command'],
+                redFlags: ['Sabotage policy', 'Public criticism', 'Refuse to implement', 'Insubordination']
+              },
+              {
+                id: 'q18',
+                text: 'Describe how you ensure accountability in your department.',
+                expectedAnswers: ['Clear expectations', 'Performance tracking', 'Regular reporting', 'Audit readiness', 'Corrective action'],
+                redFlags: ['No accountability', 'No tracking', 'Hide problems', 'No reporting']
+              },
+              {
+                id: 'q19',
+                text: 'How do you handle suspected fraud, waste, or abuse?',
+                expectedAnswers: ['Report through proper channels', 'Document concerns', 'Protect whistleblowers', 'Cooperate with investigations', 'Prevent recurrence'],
+                redFlags: ['Ignore concerns', 'Cover up', 'Retaliate', 'No reporting']
+              },
+              {
+                id: 'q20',
+                text: 'How do you handle political pressure in your administrative role?',
+                expectedAnswers: ['Maintain neutrality', 'Follow proper channels', 'Document requests', 'Know boundaries', 'Seek guidance'],
+                redFlags: ['Political favoritism', 'Ignore boundaries', 'No documentation', 'Inappropriate action']
+              }
+            ]
+          }
+        ]
       }
     }
   },
@@ -5818,6 +6265,155 @@ const industriesData = {
                 text: 'How do you maintain mission alignment in day-to-day work?',
                 expectedAnswers: ['Connect work to mission', 'Regular reminders', 'Decision framework', 'Celebrate impact', 'Lead by example'],
                 redFlags: ['Lost connection', 'Mission drift', 'Just tasks', 'No celebration']
+              }
+            ]
+          }
+        ]
+      },
+      volunteer_coordinator: {
+        name: "Volunteer Coordinator",
+        categories: [
+          {
+            id: 'recruitment',
+            title: '1. Volunteer Recruitment',
+            questions: [
+              {
+                id: 'q1',
+                text: 'Describe your approach to recruiting volunteers.',
+                expectedAnswers: ['Multiple channels', 'Clear messaging', 'Target audiences', 'Community partnerships', 'Ongoing effort'],
+                redFlags: ['Wait for volunteers', 'No strategy', 'Limited outreach', 'Inconsistent']
+              },
+              {
+                id: 'q2',
+                text: 'How do you screen and select volunteers?',
+                expectedAnswers: ['Application process', 'Background checks', 'Interview', 'Reference checks', 'Position matching'],
+                redFlags: ['No screening', 'Skip background checks', 'Accept everyone', 'Poor matching']
+              },
+              {
+                id: 'q3',
+                text: 'How do you attract diverse volunteers?',
+                expectedAnswers: ['Inclusive messaging', 'Diverse partnerships', 'Remove barriers', 'Flexible opportunities', 'Cultural competence'],
+                redFlags: ['Homogeneous volunteers', 'No effort', 'Barriers exist', 'Not welcoming']
+              },
+              {
+                id: 'q4',
+                text: 'How do you match volunteers with appropriate opportunities?',
+                expectedAnswers: ['Skills assessment', 'Interest inventory', 'Organization needs', 'Trial periods', 'Ongoing adjustment'],
+                redFlags: ['Random placement', 'Ignore preferences', 'No assessment', 'Force fit']
+              },
+              {
+                id: 'q5',
+                text: 'How do you handle a volunteer application from someone who may not be a good fit?',
+                expectedAnswers: ['Honest conversation', 'Alternative options', 'Clear feedback', 'Respectful decline', 'Document decision'],
+                redFlags: ['Accept anyway', 'Ghost applicant', 'No feedback', 'Disrespectful']
+              }
+            ]
+          },
+          {
+            id: 'training',
+            title: '2. Training & Development',
+            questions: [
+              {
+                id: 'q6',
+                text: 'How do you onboard new volunteers?',
+                expectedAnswers: ['Orientation program', 'Mission introduction', 'Role training', 'Mentor assignment', 'Gradual responsibility'],
+                redFlags: ['No orientation', 'Throw in deep end', 'No training', 'No support']
+              },
+              {
+                id: 'q7',
+                text: 'Describe your volunteer training program.',
+                expectedAnswers: ['Initial training', 'Ongoing development', 'Skill building', 'Role-specific', 'Quality delivery'],
+                redFlags: ['No training', 'One-time only', 'Generic', 'Poor quality']
+              },
+              {
+                id: 'q8',
+                text: 'How do you ensure volunteers are prepared for their roles?',
+                expectedAnswers: ['Clear expectations', 'Adequate training', 'Resources provided', 'Competency verification', 'Support available'],
+                redFlags: ['Unprepared volunteers', 'No expectations', 'No resources', 'No verification']
+              },
+              {
+                id: 'q9',
+                text: 'How do you provide feedback to volunteers?',
+                expectedAnswers: ['Regular check-ins', 'Constructive feedback', 'Recognition', 'Growth opportunities', 'Two-way dialogue'],
+                redFlags: ['No feedback', 'Only criticism', 'Ignore volunteers', 'One-way communication']
+              },
+              {
+                id: 'q10',
+                text: 'How do you help volunteers grow and develop?',
+                expectedAnswers: ['Leadership opportunities', 'Skill development', 'New responsibilities', 'Career support', 'Recognition'],
+                redFlags: ['No growth', 'Same tasks always', 'No advancement', 'Ignore potential']
+              }
+            ]
+          },
+          {
+            id: 'management',
+            title: '3. Volunteer Management',
+            questions: [
+              {
+                id: 'q11',
+                text: 'How do you schedule and coordinate volunteers?',
+                expectedAnswers: ['Scheduling system', 'Communication tools', 'Flexibility', 'Coverage planning', 'Confirmation process'],
+                redFlags: ['Chaos', 'No system', 'Poor communication', 'No coverage']
+              },
+              {
+                id: 'q12',
+                text: 'How do you handle a volunteer who is not meeting expectations?',
+                expectedAnswers: ['Private conversation', 'Understand issues', 'Clear expectations', 'Support offered', 'Progressive action'],
+                redFlags: ['Ignore problem', 'Public criticism', 'No support', 'Immediate dismissal']
+              },
+              {
+                id: 'q13',
+                text: 'How do you retain good volunteers?',
+                expectedAnswers: ['Recognition', 'Meaningful work', 'Community building', 'Flexibility', 'Impact communication'],
+                redFlags: ['High turnover', 'Take for granted', 'No recognition', 'No community']
+              },
+              {
+                id: 'q14',
+                text: 'How do you handle conflicts between volunteers?',
+                expectedAnswers: ['Address promptly', 'Listen to all parties', 'Mediate fairly', 'Clear resolution', 'Prevent recurrence'],
+                redFlags: ['Ignore conflicts', 'Take sides', 'No resolution', 'Let fester']
+              },
+              {
+                id: 'q15',
+                text: 'How do you track volunteer hours and contributions?',
+                expectedAnswers: ['Tracking system', 'Accurate records', 'Regular updates', 'Reporting capability', 'Volunteer access'],
+                redFlags: ['No tracking', 'Inaccurate', 'No records', 'Cannot report']
+              }
+            ]
+          },
+          {
+            id: 'recognition',
+            title: '4. Recognition & Appreciation',
+            questions: [
+              {
+                id: 'q16',
+                text: 'Describe your volunteer recognition program.',
+                expectedAnswers: ['Formal recognition', 'Informal appreciation', 'Milestone acknowledgment', 'Public recognition', 'Personal thanks'],
+                redFlags: ['No recognition', 'Inconsistent', 'Forgotten', 'Token only']
+              },
+              {
+                id: 'q17',
+                text: 'How do you show appreciation for volunteers on a limited budget?',
+                expectedAnswers: ['Personal thank you', 'Impact stories', 'Flexible recognition', 'Community celebration', 'References/recommendations'],
+                redFlags: ['No appreciation', 'Only expensive options', 'Ignore budget', 'No creativity']
+              },
+              {
+                id: 'q18',
+                text: 'How do you communicate impact to volunteers?',
+                expectedAnswers: ['Regular updates', 'Success stories', 'Data sharing', 'Beneficiary feedback', 'Personal connection'],
+                redFlags: ['No communication', 'No impact sharing', 'Disconnect', 'Just tasks']
+              },
+              {
+                id: 'q19',
+                text: 'How do you handle volunteer departures gracefully?',
+                expectedAnswers: ['Exit conversation', 'Thank you', 'Door open', 'Feedback sought', 'Transition support'],
+                redFlags: ['Ignore departures', 'No thanks', 'Burned bridges', 'No feedback']
+              },
+              {
+                id: 'q20',
+                text: 'How do you measure volunteer program success?',
+                expectedAnswers: ['Retention rates', 'Volunteer satisfaction', 'Program impact', 'Hours contributed', 'Quality metrics'],
+                redFlags: ['No measurement', 'Hours only', 'No satisfaction data', 'No improvement']
               }
             ]
           }
