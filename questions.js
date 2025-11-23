@@ -3382,6 +3382,304 @@ const industriesData = {
             ]
           }
         ]
+      },
+      quality_control: {
+        name: "Quality Control Inspector",
+        categories: [
+          {
+            id: 'inspection',
+            title: '1. Inspection & Testing',
+            questions: [
+              {
+                id: 'q1',
+                text: 'Describe your approach to conducting quality inspections.',
+                expectedAnswers: ['Systematic methodology', 'Follow standards', 'Document findings', 'Use proper equipment', 'Consistent criteria'],
+                redFlags: ['Random approach', 'Skip steps', 'No documentation', 'Inconsistent standards']
+              },
+              {
+                id: 'q2',
+                text: 'How do you determine which products or processes to inspect?',
+                expectedAnswers: ['Statistical sampling', 'Risk-based selection', 'Critical control points', 'Customer requirements', 'Historical data'],
+                redFlags: ['No methodology', 'Only when problems', 'Random selection', 'Ignore data']
+              },
+              {
+                id: 'q3',
+                text: 'What testing methods have you used to verify product quality?',
+                expectedAnswers: ['Destructive testing', 'Non-destructive testing', 'Dimensional checks', 'Functional testing', 'Material analysis'],
+                redFlags: ['Limited experience', 'Only visual', 'No calibration', 'Skip validation']
+              },
+              {
+                id: 'q4',
+                text: 'How do you handle a situation where you find a defect in a nearly completed batch?',
+                expectedAnswers: ['Stop production', 'Assess scope', 'Trace root cause', 'Quarantine affected', 'Document and report'],
+                redFlags: ['Let it pass', 'Hide findings', 'No escalation', 'Blame others']
+              },
+              {
+                id: 'q5',
+                text: 'Describe your experience with measurement tools and calibration.',
+                expectedAnswers: ['Various instruments', 'Calibration schedules', 'Traceability', 'Proper handling', 'Accuracy verification'],
+                redFlags: ['Limited tools', 'Ignore calibration', 'No traceability', 'Improper use']
+              }
+            ]
+          },
+          {
+            id: 'standards',
+            title: '2. Standards & Compliance',
+            questions: [
+              {
+                id: 'q6',
+                text: 'What quality standards or certifications are you familiar with?',
+                expectedAnswers: ['ISO 9001', 'Industry specific standards', 'Customer specs', 'Regulatory requirements', 'Internal standards'],
+                redFlags: ['No knowledge', 'Outdated standards', 'Ignore regulations', 'No certification awareness']
+              },
+              {
+                id: 'q7',
+                text: 'How do you stay current with changing quality requirements?',
+                expectedAnswers: ['Regular training', 'Industry publications', 'Professional networks', 'Audit findings', 'Customer feedback'],
+                redFlags: ['Dont update', 'Rely on others', 'No initiative', 'Outdated knowledge']
+              },
+              {
+                id: 'q8',
+                text: 'Describe your experience with quality audits.',
+                expectedAnswers: ['Internal audits', 'External audits', 'Preparation', 'Corrective actions', 'Follow-up'],
+                redFlags: ['No experience', 'Fear audits', 'No preparation', 'Ignore findings']
+              },
+              {
+                id: 'q9',
+                text: 'How do you ensure compliance with specifications?',
+                expectedAnswers: ['Clear procedures', 'Training', 'Verification checks', 'Documentation', 'Continuous monitoring'],
+                redFlags: ['Assumption compliance', 'No verification', 'Poor documentation', 'Reactive only']
+              },
+              {
+                id: 'q10',
+                text: 'How do you handle non-conforming products?',
+                expectedAnswers: ['Segregation', 'Documentation', 'Root cause analysis', 'Disposition process', 'Prevention measures'],
+                redFlags: ['Mix with good', 'No tracking', 'Skip analysis', 'No prevention']
+              }
+            ]
+          },
+          {
+            id: 'documentation',
+            title: '3. Documentation & Reporting',
+            questions: [
+              {
+                id: 'q11',
+                text: 'How do you document inspection results?',
+                expectedAnswers: ['Standardized forms', 'Clear descriptions', 'Measurements recorded', 'Photos when needed', 'Timely completion'],
+                redFlags: ['Incomplete records', 'Vague descriptions', 'Missing data', 'Delayed documentation']
+              },
+              {
+                id: 'q12',
+                text: 'Describe a quality report you have created.',
+                expectedAnswers: ['Clear format', 'Data analysis', 'Trend identification', 'Recommendations', 'Action items'],
+                redFlags: ['No reporting', 'Data dump only', 'No analysis', 'No recommendations']
+              },
+              {
+                id: 'q13',
+                text: 'How do you track quality metrics over time?',
+                expectedAnswers: ['KPI tracking', 'Trend charts', 'Statistical analysis', 'Regular reviews', 'Benchmark comparisons'],
+                redFlags: ['No tracking', 'No trends', 'Only when asked', 'No benchmarks']
+              },
+              {
+                id: 'q14',
+                text: 'How do you communicate quality issues to production teams?',
+                expectedAnswers: ['Timely notification', 'Clear explanation', 'Visual evidence', 'Collaborative approach', 'Follow-up'],
+                redFlags: ['Delayed communication', 'Blame language', 'No evidence', 'Confrontational']
+              },
+              {
+                id: 'q15',
+                text: 'How do you maintain traceability in your quality records?',
+                expectedAnswers: ['Lot tracking', 'Date stamps', 'Personnel identification', 'Equipment records', 'Material certificates'],
+                redFlags: ['No traceability', 'Missing links', 'Incomplete records', 'No system']
+              }
+            ]
+          },
+          {
+            id: 'problem-solving',
+            title: '4. Problem Solving & Improvement',
+            questions: [
+              {
+                id: 'q16',
+                text: 'Describe your approach to root cause analysis.',
+                expectedAnswers: ['5 Whys', 'Fishbone diagram', 'Data collection', 'Team involvement', 'Verification of cause'],
+                redFlags: ['Blame individuals', 'Surface level', 'No methodology', 'Skip verification']
+              },
+              {
+                id: 'q17',
+                text: 'Tell me about a quality improvement you implemented.',
+                expectedAnswers: ['Identified problem', 'Analyzed data', 'Proposed solution', 'Measured results', 'Sustained improvement'],
+                redFlags: ['No examples', 'Others did work', 'No measurement', 'Improvement not sustained']
+              },
+              {
+                id: 'q18',
+                text: 'How do you prioritize quality issues?',
+                expectedAnswers: ['Safety first', 'Customer impact', 'Frequency', 'Cost impact', 'Root cause severity'],
+                redFlags: ['No prioritization', 'Random selection', 'Ignore severity', 'Only easy fixes']
+              },
+              {
+                id: 'q19',
+                text: 'How do you work with suppliers on quality issues?',
+                expectedAnswers: ['Clear communication', 'Evidence sharing', 'Collaborative resolution', 'Corrective actions', 'Follow-up verification'],
+                redFlags: ['Confrontational', 'No follow-up', 'Accept excuses', 'No documentation']
+              },
+              {
+                id: 'q20',
+                text: 'Describe a time you prevented a quality issue before it reached the customer.',
+                expectedAnswers: ['Early detection', 'Quick action', 'Root cause fix', 'Prevention measures', 'Communication'],
+                redFlags: ['No examples', 'Reactive only', 'No prevention', 'Missed opportunities']
+              }
+            ]
+          }
+        ]
+      },
+      warehouse_supervisor: {
+        name: "Warehouse Supervisor",
+        categories: [
+          {
+            id: 'operations',
+            title: '1. Warehouse Operations',
+            questions: [
+              {
+                id: 'q1',
+                text: 'How do you organize and optimize warehouse layout?',
+                expectedAnswers: ['Product velocity analysis', 'Logical flow', 'Safety considerations', 'Accessibility', 'Space utilization'],
+                redFlags: ['No organization', 'Ignore flow', 'Safety hazards', 'Wasted space']
+              },
+              {
+                id: 'q2',
+                text: 'Describe your experience with inventory management systems.',
+                expectedAnswers: ['WMS experience', 'Barcode/RFID', 'Cycle counting', 'Accuracy tracking', 'System troubleshooting'],
+                redFlags: ['No system experience', 'Manual only', 'Ignore accuracy', 'Technology resistant']
+              },
+              {
+                id: 'q3',
+                text: 'How do you manage receiving and put-away processes?',
+                expectedAnswers: ['Verification procedures', 'Quality checks', 'Timely put-away', 'Documentation', 'Exception handling'],
+                redFlags: ['No verification', 'Skip checks', 'Backlogs', 'Poor documentation']
+              },
+              {
+                id: 'q4',
+                text: 'What is your approach to order picking and packing?',
+                expectedAnswers: ['Efficient methods', 'Accuracy focus', 'Batch picking', 'Quality verification', 'Productivity tracking'],
+                redFlags: ['High error rates', 'Slow methods', 'No verification', 'No metrics']
+              },
+              {
+                id: 'q5',
+                text: 'How do you handle shipping and dispatch operations?',
+                expectedAnswers: ['Carrier coordination', 'Documentation accuracy', 'Loading supervision', 'Schedule adherence', 'Customer communication'],
+                redFlags: ['Late shipments', 'Documentation errors', 'Poor coordination', 'No tracking']
+              }
+            ]
+          },
+          {
+            id: 'inventory',
+            title: '2. Inventory Control',
+            questions: [
+              {
+                id: 'q6',
+                text: 'How do you maintain inventory accuracy?',
+                expectedAnswers: ['Regular cycle counts', 'Discrepancy investigation', 'Process controls', 'Staff training', 'System reconciliation'],
+                redFlags: ['No counts', 'Ignore discrepancies', 'No controls', 'Blame staff']
+              },
+              {
+                id: 'q7',
+                text: 'Describe your approach to managing stock levels.',
+                expectedAnswers: ['Demand forecasting', 'Reorder points', 'Safety stock', 'Slow mover management', 'Overstock prevention'],
+                redFlags: ['Stockouts common', 'Excessive inventory', 'No planning', 'Reactive only']
+              },
+              {
+                id: 'q8',
+                text: 'How do you handle damaged or obsolete inventory?',
+                expectedAnswers: ['Identification process', 'Segregation', 'Documentation', 'Disposition procedures', 'Prevention measures'],
+                redFlags: ['Ignore damage', 'No tracking', 'Keep obsolete', 'No process']
+              },
+              {
+                id: 'q9',
+                text: 'What strategies do you use to reduce shrinkage?',
+                expectedAnswers: ['Security measures', 'Process controls', 'Staff accountability', 'Regular audits', 'Root cause analysis'],
+                redFlags: ['Accept shrinkage', 'No controls', 'Blame only', 'No investigation']
+              },
+              {
+                id: 'q10',
+                text: 'How do you manage FIFO/FEFO requirements?',
+                expectedAnswers: ['System setup', 'Physical organization', 'Staff training', 'Monitoring compliance', 'Exception handling'],
+                redFlags: ['Ignore rotation', 'No system', 'Expired products', 'No monitoring']
+              }
+            ]
+          },
+          {
+            id: 'team-mgmt',
+            title: '3. Team Management',
+            questions: [
+              {
+                id: 'q11',
+                text: 'How do you schedule warehouse staff effectively?',
+                expectedAnswers: ['Demand forecasting', 'Skill matching', 'Flexibility', 'Fair distribution', 'Contingency planning'],
+                redFlags: ['Understaffing', 'Overstaffing', 'No flexibility', 'Favoritism']
+              },
+              {
+                id: 'q12',
+                text: 'Describe how you train new warehouse employees.',
+                expectedAnswers: ['Structured program', 'Safety first', 'Hands-on practice', 'Mentor assignment', 'Progress tracking'],
+                redFlags: ['Sink or swim', 'Safety skipped', 'No structure', 'No follow-up']
+              },
+              {
+                id: 'q13',
+                text: 'How do you motivate your warehouse team?',
+                expectedAnswers: ['Recognition', 'Clear goals', 'Team involvement', 'Fair treatment', 'Growth opportunities'],
+                redFlags: ['Only criticism', 'No recognition', 'Favoritism', 'No engagement']
+              },
+              {
+                id: 'q14',
+                text: 'How do you handle performance issues with warehouse staff?',
+                expectedAnswers: ['Early intervention', 'Clear expectations', 'Documentation', 'Support and training', 'Progressive discipline'],
+                redFlags: ['Ignore issues', 'Public criticism', 'No documentation', 'Immediate termination']
+              },
+              {
+                id: 'q15',
+                text: 'How do you manage daily warehouse meetings or briefings?',
+                expectedAnswers: ['Regular schedule', 'Key information', 'Two-way communication', 'Brief and focused', 'Follow-up on issues'],
+                redFlags: ['No meetings', 'One-way only', 'Too long', 'No follow-up']
+              }
+            ]
+          },
+          {
+            id: 'safety',
+            title: '4. Safety & Compliance',
+            questions: [
+              {
+                id: 'q16',
+                text: 'How do you ensure warehouse safety compliance?',
+                expectedAnswers: ['Regular inspections', 'Training programs', 'Equipment maintenance', 'Incident reporting', 'Safety culture'],
+                redFlags: ['Ignore safety', 'No training', 'Skip inspections', 'Hide incidents']
+              },
+              {
+                id: 'q17',
+                text: 'Describe your experience with forklift and equipment safety.',
+                expectedAnswers: ['Certification requirements', 'Pre-shift inspections', 'Safe operation rules', 'Maintenance schedules', 'Incident investigation'],
+                redFlags: ['Uncertified operators', 'Skip inspections', 'Ignore rules', 'No maintenance']
+              },
+              {
+                id: 'q18',
+                text: 'How do you handle a safety incident in the warehouse?',
+                expectedAnswers: ['Immediate response', 'Medical attention', 'Scene preservation', 'Investigation', 'Corrective actions'],
+                redFlags: ['Delay response', 'No investigation', 'Blame victim', 'No prevention']
+              },
+              {
+                id: 'q19',
+                text: 'What housekeeping standards do you maintain?',
+                expectedAnswers: ['Clean aisles', 'Proper storage', 'Regular cleaning', 'Staff accountability', 'Inspection routines'],
+                redFlags: ['Cluttered areas', 'Blocked exits', 'No standards', 'No enforcement']
+              },
+              {
+                id: 'q20',
+                text: 'How do you handle hazardous materials in the warehouse?',
+                expectedAnswers: ['Proper storage', 'Labeling', 'Staff training', 'Emergency procedures', 'Regulatory compliance'],
+                redFlags: ['Improper storage', 'No labeling', 'No training', 'Ignore regulations']
+              }
+            ]
+          }
+        ]
       }
     }
   },
@@ -3538,6 +3836,304 @@ const industriesData = {
             ]
           }
         ]
+      },
+      site_supervisor: {
+        name: "Site Supervisor",
+        categories: [
+          {
+            id: 'site-management',
+            title: '1. Site Management',
+            questions: [
+              {
+                id: 'q1',
+                text: 'How do you organize a construction site for maximum efficiency?',
+                expectedAnswers: ['Logical material staging', 'Clear access routes', 'Equipment positioning', 'Work zone planning', 'Safety considerations'],
+                redFlags: ['No planning', 'Chaotic layout', 'Safety hazards', 'Inefficient flow']
+              },
+              {
+                id: 'q2',
+                text: 'Describe your approach to daily site inspections.',
+                expectedAnswers: ['Consistent routine', 'Safety focus', 'Quality checks', 'Progress monitoring', 'Documentation'],
+                redFlags: ['Skip inspections', 'Inconsistent', 'Miss safety issues', 'No documentation']
+              },
+              {
+                id: 'q3',
+                text: 'How do you coordinate multiple trades working simultaneously?',
+                expectedAnswers: ['Clear scheduling', 'Communication meetings', 'Conflict resolution', 'Space allocation', 'Sequence planning'],
+                redFlags: ['Trade conflicts', 'No coordination', 'Delays', 'Poor communication']
+              },
+              {
+                id: 'q4',
+                text: 'How do you manage material deliveries and storage?',
+                expectedAnswers: ['Delivery scheduling', 'Quality verification', 'Proper storage', 'Inventory tracking', 'Theft prevention'],
+                redFlags: ['Material damage', 'No verification', 'Missing materials', 'No tracking']
+              },
+              {
+                id: 'q5',
+                text: 'Describe how you handle site access and security.',
+                expectedAnswers: ['Access controls', 'Visitor management', 'Security measures', 'After-hours protection', 'Incident response'],
+                redFlags: ['Open access', 'No controls', 'Theft issues', 'No security']
+              }
+            ]
+          },
+          {
+            id: 'crew-management',
+            title: '2. Crew Management',
+            questions: [
+              {
+                id: 'q6',
+                text: 'How do you assign work to crews each day?',
+                expectedAnswers: ['Clear instructions', 'Match skills to tasks', 'Consider productivity', 'Balance workloads', 'Follow-up on progress'],
+                redFlags: ['Unclear assignments', 'Poor skill matching', 'Unbalanced loads', 'No follow-up']
+              },
+              {
+                id: 'q7',
+                text: 'How do you handle a crew member who is not performing adequately?',
+                expectedAnswers: ['Private discussion', 'Identify issues', 'Clear expectations', 'Support and training', 'Documentation'],
+                redFlags: ['Public criticism', 'Ignore performance', 'No documentation', 'Immediate termination']
+              },
+              {
+                id: 'q8',
+                text: 'Describe how you ensure crew productivity.',
+                expectedAnswers: ['Clear goals', 'Remove obstacles', 'Provide resources', 'Monitor progress', 'Recognition'],
+                redFlags: ['No goals', 'Ignore obstacles', 'Inadequate resources', 'Only criticism']
+              },
+              {
+                id: 'q9',
+                text: 'How do you handle conflicts between crew members?',
+                expectedAnswers: ['Address promptly', 'Listen to both sides', 'Mediate fairly', 'Document issues', 'Follow company policy'],
+                redFlags: ['Ignore conflicts', 'Take sides', 'Public resolution', 'No documentation']
+              },
+              {
+                id: 'q10',
+                text: 'How do you communicate with crews who speak different languages?',
+                expectedAnswers: ['Visual aids', 'Bilingual leads', 'Simple clear instructions', 'Demonstration', 'Confirm understanding'],
+                redFlags: ['No adaptation', 'Assume understanding', 'Frustration', 'Safety risks']
+              }
+            ]
+          },
+          {
+            id: 'safety-quality',
+            title: '3. Safety & Quality',
+            questions: [
+              {
+                id: 'q11',
+                text: 'How do you enforce safety requirements on site?',
+                expectedAnswers: ['Lead by example', 'Consistent enforcement', 'Training', 'Recognition', 'Progressive discipline'],
+                redFlags: ['Selective enforcement', 'Ignore violations', 'No training', 'Punitive only']
+              },
+              {
+                id: 'q12',
+                text: 'Describe how you conduct toolbox talks.',
+                expectedAnswers: ['Regular schedule', 'Relevant topics', 'Interactive discussion', 'Documentation', 'Follow-up'],
+                redFlags: ['Skip meetings', 'Irrelevant topics', 'One-way lecture', 'No documentation']
+              },
+              {
+                id: 'q13',
+                text: 'How do you ensure quality workmanship?',
+                expectedAnswers: ['Clear standards', 'Regular inspections', 'Immediate correction', 'Training', 'Pride in work'],
+                redFlags: ['Accept poor work', 'No inspections', 'Delay corrections', 'No standards']
+              },
+              {
+                id: 'q14',
+                text: 'What do you do when you discover defective work?',
+                expectedAnswers: ['Stop work', 'Assess extent', 'Determine cause', 'Plan correction', 'Prevent recurrence'],
+                redFlags: ['Cover up', 'Continue work', 'Blame only', 'No correction']
+              },
+              {
+                id: 'q15',
+                text: 'How do you handle inclement weather on site?',
+                expectedAnswers: ['Safety first', 'Protect work', 'Communicate changes', 'Alternative tasks', 'Documentation'],
+                redFlags: ['Unsafe work', 'Damage to work', 'Poor communication', 'No planning']
+              }
+            ]
+          },
+          {
+            id: 'documentation',
+            title: '4. Documentation & Reporting',
+            questions: [
+              {
+                id: 'q16',
+                text: 'How do you maintain daily site reports?',
+                expectedAnswers: ['Complete daily', 'Accurate details', 'Weather conditions', 'Crew counts', 'Work progress'],
+                redFlags: ['Incomplete', 'Delayed', 'Inaccurate', 'Missing information']
+              },
+              {
+                id: 'q17',
+                text: 'Describe how you track and report progress.',
+                expectedAnswers: ['Quantity tracking', 'Photo documentation', 'Schedule updates', 'Issue reporting', 'Regular submission'],
+                redFlags: ['No tracking', 'No photos', 'Late reports', 'Inaccurate progress']
+              },
+              {
+                id: 'q18',
+                text: 'How do you document safety incidents?',
+                expectedAnswers: ['Immediate documentation', 'Witness statements', 'Photos', 'Root cause', 'Corrective actions'],
+                redFlags: ['Delayed documentation', 'Incomplete', 'No follow-up', 'Hide incidents']
+              },
+              {
+                id: 'q19',
+                text: 'How do you manage change orders on site?',
+                expectedAnswers: ['Document changes', 'Get approval', 'Track costs', 'Update schedule', 'Communicate to crew'],
+                redFlags: ['Undocumented work', 'No approval', 'No tracking', 'Poor communication']
+              },
+              {
+                id: 'q20',
+                text: 'How do you handle punch list items at project completion?',
+                expectedAnswers: ['Systematic tracking', 'Prioritize items', 'Assign responsibility', 'Verify completion', 'Documentation'],
+                redFlags: ['Ignore items', 'No tracking', 'Incomplete work', 'No verification']
+              }
+            ]
+          }
+        ]
+      },
+      safety_officer: {
+        name: "Safety Officer",
+        categories: [
+          {
+            id: 'safety-programs',
+            title: '1. Safety Programs',
+            questions: [
+              {
+                id: 'q1',
+                text: 'How do you develop and implement a site safety plan?',
+                expectedAnswers: ['Hazard identification', 'Risk assessment', 'Control measures', 'Training requirements', 'Emergency procedures'],
+                redFlags: ['Generic plans', 'No site-specific', 'Incomplete', 'No implementation']
+              },
+              {
+                id: 'q2',
+                text: 'Describe your approach to conducting safety orientations.',
+                expectedAnswers: ['Site-specific hazards', 'Emergency procedures', 'PPE requirements', 'Reporting procedures', 'Verify understanding'],
+                redFlags: ['Generic content', 'Rush through', 'No verification', 'Incomplete coverage']
+              },
+              {
+                id: 'q3',
+                text: 'How do you keep safety programs current and effective?',
+                expectedAnswers: ['Regular reviews', 'Incident analysis', 'Regulatory updates', 'Worker feedback', 'Continuous improvement'],
+                redFlags: ['Outdated programs', 'No review', 'Ignore feedback', 'Static approach']
+              },
+              {
+                id: 'q4',
+                text: 'What safety certifications and training do you maintain?',
+                expectedAnswers: ['OSHA certifications', 'First aid/CPR', 'Specialized training', 'Continuing education', 'Industry credentials'],
+                redFlags: ['Outdated certifications', 'Minimal training', 'No continuing ed', 'Basic only']
+              },
+              {
+                id: 'q5',
+                text: 'How do you manage subcontractor safety compliance?',
+                expectedAnswers: ['Pre-qualification', 'Safety requirements', 'Monitoring', 'Joint meetings', 'Enforcement'],
+                redFlags: ['No oversight', 'Different standards', 'No monitoring', 'Ignore violations']
+              }
+            ]
+          },
+          {
+            id: 'inspections',
+            title: '2. Inspections & Audits',
+            questions: [
+              {
+                id: 'q6',
+                text: 'How do you conduct safety inspections?',
+                expectedAnswers: ['Regular schedule', 'Comprehensive checklist', 'Document findings', 'Immediate hazard correction', 'Follow-up'],
+                redFlags: ['Irregular', 'Superficial', 'No documentation', 'No follow-up']
+              },
+              {
+                id: 'q7',
+                text: 'Describe how you handle finding a serious safety violation.',
+                expectedAnswers: ['Stop work if needed', 'Document violation', 'Immediate correction', 'Root cause analysis', 'Prevent recurrence'],
+                redFlags: ['Ignore violation', 'Delay action', 'No documentation', 'No follow-through']
+              },
+              {
+                id: 'q8',
+                text: 'How do you prepare for regulatory inspections?',
+                expectedAnswers: ['Regular compliance checks', 'Documentation ready', 'Staff prepared', 'Accompany inspector', 'Address findings'],
+                redFlags: ['Scramble to prepare', 'Missing documentation', 'Unprepared', 'Defensive']
+              },
+              {
+                id: 'q9',
+                text: 'What do you look for in a fall protection inspection?',
+                expectedAnswers: ['Equipment condition', 'Proper use', 'Anchorage points', 'Training verification', 'Rescue plan'],
+                redFlags: ['Superficial check', 'Miss defects', 'No rescue plan', 'Untrained workers']
+              },
+              {
+                id: 'q10',
+                text: 'How do you conduct equipment safety inspections?',
+                expectedAnswers: ['Pre-use inspections', 'Maintenance records', 'Operator certification', 'Defect reporting', 'Lockout procedures'],
+                redFlags: ['Skip inspections', 'No records', 'Uncertified operators', 'Use defective equipment']
+              }
+            ]
+          },
+          {
+            id: 'incident-mgmt',
+            title: '3. Incident Management',
+            questions: [
+              {
+                id: 'q11',
+                text: 'Describe your incident investigation process.',
+                expectedAnswers: ['Secure scene', 'Gather facts', 'Interview witnesses', 'Root cause analysis', 'Corrective actions'],
+                redFlags: ['Blame focused', 'Surface investigation', 'No root cause', 'No corrective action']
+              },
+              {
+                id: 'q12',
+                text: 'How do you handle a serious injury on site?',
+                expectedAnswers: ['Emergency response', 'Medical attention', 'Scene preservation', 'Notifications', 'Investigation'],
+                redFlags: ['Delayed response', 'Disturb scene', 'Late notification', 'Cover up']
+              },
+              {
+                id: 'q13',
+                text: 'How do you track and analyze incident trends?',
+                expectedAnswers: ['Data collection', 'Trend analysis', 'Leading indicators', 'Report to management', 'Action plans'],
+                redFlags: ['No tracking', 'No analysis', 'Reactive only', 'No reporting']
+              },
+              {
+                id: 'q14',
+                text: 'Describe how you manage near-miss reporting.',
+                expectedAnswers: ['Encourage reporting', 'No blame culture', 'Investigate all', 'Share lessons', 'Recognize reporters'],
+                redFlags: ['Discourage reporting', 'Punish reporters', 'Ignore near-misses', 'No learning']
+              },
+              {
+                id: 'q15',
+                text: 'How do you communicate lessons learned from incidents?',
+                expectedAnswers: ['Safety alerts', 'Toolbox talks', 'Training updates', 'Visual reminders', 'Company-wide sharing'],
+                redFlags: ['No communication', 'Limited audience', 'No follow-through', 'Forget lessons']
+              }
+            ]
+          },
+          {
+            id: 'training',
+            title: '4. Training & Culture',
+            questions: [
+              {
+                id: 'q16',
+                text: 'How do you assess training needs on a project?',
+                expectedAnswers: ['Hazard analysis', 'Competency assessment', 'Regulatory requirements', 'Incident history', 'New worker needs'],
+                redFlags: ['No assessment', 'Same training always', 'Ignore gaps', 'Regulatory only']
+              },
+              {
+                id: 'q17',
+                text: 'Describe how you deliver effective safety training.',
+                expectedAnswers: ['Interactive methods', 'Hands-on practice', 'Language considerations', 'Verify competency', 'Refresher training'],
+                redFlags: ['Lecture only', 'No practice', 'No verification', 'One-time only']
+              },
+              {
+                id: 'q18',
+                text: 'How do you build a positive safety culture?',
+                expectedAnswers: ['Leadership commitment', 'Worker involvement', 'Recognition', 'Open communication', 'Continuous improvement'],
+                redFlags: ['Top-down only', 'Punitive approach', 'No involvement', 'Blame culture']
+              },
+              {
+                id: 'q19',
+                text: 'How do you handle resistance to safety requirements?',
+                expectedAnswers: ['Understand concerns', 'Explain reasons', 'Find solutions', 'Consistent enforcement', 'Lead by example'],
+                redFlags: ['Force compliance', 'Ignore resistance', 'Inconsistent', 'Give up']
+              },
+              {
+                id: 'q20',
+                text: 'How do you measure safety program effectiveness?',
+                expectedAnswers: ['Leading indicators', 'Lagging indicators', 'Worker perception', 'Audit results', 'Benchmarking'],
+                redFlags: ['Injury rates only', 'No measurement', 'No benchmarking', 'Ignore trends']
+              }
+            ]
+          }
+        ]
       }
     }
   },
@@ -3690,6 +4286,304 @@ const industriesData = {
                 text: 'How do you communicate changes to your logistics team?',
                 expectedAnswers: ['Clear messaging', 'Explain reasons', 'Two-way dialogue', 'Training if needed', 'Follow up'],
                 redFlags: ['No communication', 'Dictate changes', 'No training', 'No follow up']
+              }
+            ]
+          }
+        ]
+      },
+      supply_chain_analyst: {
+        name: "Supply Chain Analyst",
+        categories: [
+          {
+            id: 'analysis',
+            title: '1. Data Analysis & Forecasting',
+            questions: [
+              {
+                id: 'q1',
+                text: 'Describe your approach to demand forecasting.',
+                expectedAnswers: ['Historical analysis', 'Statistical methods', 'Market factors', 'Collaboration with sales', 'Accuracy tracking'],
+                redFlags: ['Gut feel only', 'No methodology', 'Ignore trends', 'No accuracy tracking']
+              },
+              {
+                id: 'q2',
+                text: 'What tools and systems have you used for supply chain analysis?',
+                expectedAnswers: ['ERP systems', 'Advanced Excel', 'BI tools', 'Statistical software', 'Database queries'],
+                redFlags: ['Limited tools', 'Basic Excel only', 'No system experience', 'Technology resistant']
+              },
+              {
+                id: 'q3',
+                text: 'How do you identify supply chain bottlenecks?',
+                expectedAnswers: ['Data analysis', 'Process mapping', 'Stakeholder input', 'KPI monitoring', 'Root cause analysis'],
+                redFlags: ['No methodology', 'Reactive only', 'Ignore data', 'No follow-through']
+              },
+              {
+                id: 'q4',
+                text: 'Describe a data-driven recommendation you made that improved operations.',
+                expectedAnswers: ['Clear analysis', 'Actionable insights', 'Implementation support', 'Measured results', 'Stakeholder buy-in'],
+                redFlags: ['No examples', 'Analysis only', 'No implementation', 'No results tracking']
+              },
+              {
+                id: 'q5',
+                text: 'How do you handle incomplete or inaccurate data?',
+                expectedAnswers: ['Data validation', 'Source verification', 'Gap analysis', 'Assumptions documented', 'Continuous improvement'],
+                redFlags: ['Use bad data', 'No validation', 'Ignore gaps', 'No documentation']
+              }
+            ]
+          },
+          {
+            id: 'optimization',
+            title: '2. Process Optimization',
+            questions: [
+              {
+                id: 'q6',
+                text: 'How do you approach inventory optimization?',
+                expectedAnswers: ['ABC analysis', 'Safety stock calculations', 'Lead time analysis', 'Service level targets', 'Cost balancing'],
+                redFlags: ['No methodology', 'One-size-fits-all', 'Ignore costs', 'No service consideration']
+              },
+              {
+                id: 'q7',
+                text: 'Describe your experience with transportation cost analysis.',
+                expectedAnswers: ['Mode comparison', 'Route optimization', 'Carrier analysis', 'Total cost view', 'Service trade-offs'],
+                redFlags: ['Rate focus only', 'Ignore service', 'No total cost view', 'Limited analysis']
+              },
+              {
+                id: 'q8',
+                text: 'How do you evaluate supplier performance?',
+                expectedAnswers: ['Scorecard metrics', 'Quality data', 'Delivery performance', 'Cost analysis', 'Relationship factors'],
+                redFlags: ['Price only', 'No metrics', 'Subjective only', 'No tracking']
+              },
+              {
+                id: 'q9',
+                text: 'What KPIs do you track for supply chain performance?',
+                expectedAnswers: ['Fill rate', 'Inventory turns', 'On-time delivery', 'Total cost', 'Cycle time'],
+                redFlags: ['No KPIs', 'Too many metrics', 'No targets', 'Not actionable']
+              },
+              {
+                id: 'q10',
+                text: 'How do you balance cost reduction with service level maintenance?',
+                expectedAnswers: ['Total cost analysis', 'Service impact modeling', 'Stakeholder input', 'Phased approach', 'Monitor trade-offs'],
+                redFlags: ['Cost only focus', 'Ignore service', 'No analysis', 'No monitoring']
+              }
+            ]
+          },
+          {
+            id: 'reporting',
+            title: '3. Reporting & Communication',
+            questions: [
+              {
+                id: 'q11',
+                text: 'How do you present complex supply chain data to non-technical stakeholders?',
+                expectedAnswers: ['Visual presentations', 'Business context', 'Key takeaways', 'Actionable recommendations', 'Appropriate detail'],
+                redFlags: ['Data overload', 'No context', 'Too technical', 'No recommendations']
+              },
+              {
+                id: 'q12',
+                text: 'Describe the regular reports you have created or maintained.',
+                expectedAnswers: ['Clear purpose', 'Appropriate frequency', 'Actionable content', 'Stakeholder focused', 'Continuous improvement'],
+                redFlags: ['Report for sake of it', 'No action taken', 'Outdated reports', 'No feedback']
+              },
+              {
+                id: 'q13',
+                text: 'How do you communicate analysis findings to drive action?',
+                expectedAnswers: ['Clear recommendations', 'Business case', 'Implementation steps', 'Risk identification', 'Follow-up'],
+                redFlags: ['Analysis only', 'No recommendations', 'No follow-up', 'Unclear communication']
+              },
+              {
+                id: 'q14',
+                text: 'How do you handle disagreement with your analysis conclusions?',
+                expectedAnswers: ['Open to feedback', 'Review methodology', 'Consider alternatives', 'Data-driven discussion', 'Professional response'],
+                redFlags: ['Defensive', 'Ignore feedback', 'Take personally', 'Inflexible']
+              },
+              {
+                id: 'q15',
+                text: 'Describe how you document your analysis methodology.',
+                expectedAnswers: ['Clear documentation', 'Assumptions stated', 'Reproducible process', 'Version control', 'Knowledge sharing'],
+                redFlags: ['No documentation', 'Undocumented assumptions', 'Only in head', 'No sharing']
+              }
+            ]
+          },
+          {
+            id: 'projects',
+            title: '4. Project Work',
+            questions: [
+              {
+                id: 'q16',
+                text: 'Describe a supply chain improvement project you led or contributed to.',
+                expectedAnswers: ['Clear scope', 'Stakeholder management', 'Data-driven approach', 'Implementation', 'Results measured'],
+                redFlags: ['No examples', 'Analysis only role', 'No implementation', 'No results']
+              },
+              {
+                id: 'q17',
+                text: 'How do you prioritize multiple analysis requests?',
+                expectedAnswers: ['Business impact', 'Urgency assessment', 'Stakeholder alignment', 'Resource consideration', 'Communication'],
+                redFlags: ['First come first served', 'No prioritization', 'Over-commit', 'Poor communication']
+              },
+              {
+                id: 'q18',
+                text: 'How do you approach a new supply chain analysis project?',
+                expectedAnswers: ['Understand objectives', 'Scope definition', 'Data requirements', 'Stakeholder identification', 'Timeline planning'],
+                redFlags: ['Jump to analysis', 'No scoping', 'No stakeholder input', 'No planning']
+              },
+              {
+                id: 'q19',
+                text: 'How do you stay current with supply chain best practices?',
+                expectedAnswers: ['Professional development', 'Industry publications', 'Networking', 'Certifications', 'Continuous learning'],
+                redFlags: ['No development', 'Outdated knowledge', 'No initiative', 'Stagnant']
+              },
+              {
+                id: 'q20',
+                text: 'Describe your experience supporting system implementations or upgrades.',
+                expectedAnswers: ['Requirements gathering', 'Testing', 'Data migration', 'User training', 'Change management'],
+                redFlags: ['No experience', 'Passive role', 'No testing', 'Poor adoption']
+              }
+            ]
+          }
+        ]
+      },
+      dispatcher: {
+        name: "Dispatcher",
+        categories: [
+          {
+            id: 'dispatch-ops',
+            title: '1. Dispatch Operations',
+            questions: [
+              {
+                id: 'q1',
+                text: 'How do you prioritize dispatching decisions when multiple orders are urgent?',
+                expectedAnswers: ['Customer priority', 'Geographic efficiency', 'Resource availability', 'Deadline assessment', 'Communication'],
+                redFlags: ['Random selection', 'No criteria', 'Ignore deadlines', 'Poor communication']
+              },
+              {
+                id: 'q2',
+                text: 'Describe your approach to route planning.',
+                expectedAnswers: ['Geographic optimization', 'Time windows', 'Load considerations', 'Traffic patterns', 'Driver input'],
+                redFlags: ['No planning', 'Ignore constraints', 'Inefficient routes', 'No optimization']
+              },
+              {
+                id: 'q3',
+                text: 'How do you handle last-minute changes or cancellations?',
+                expectedAnswers: ['Quick assessment', 'Re-routing', 'Customer communication', 'Driver notification', 'Documentation'],
+                redFlags: ['Panic', 'No communication', 'Inefficient response', 'No documentation']
+              },
+              {
+                id: 'q4',
+                text: 'What dispatch systems or technology have you used?',
+                expectedAnswers: ['TMS experience', 'GPS tracking', 'Communication systems', 'Scheduling software', 'Reporting tools'],
+                redFlags: ['No system experience', 'Technology resistant', 'Manual only', 'Limited skills']
+              },
+              {
+                id: 'q5',
+                text: 'How do you ensure on-time delivery performance?',
+                expectedAnswers: ['Realistic scheduling', 'Buffer time', 'Proactive monitoring', 'Early warning', 'Root cause analysis'],
+                redFlags: ['Over-promise', 'No monitoring', 'Reactive only', 'Blame drivers']
+              }
+            ]
+          },
+          {
+            id: 'driver-mgmt',
+            title: '2. Driver Management',
+            questions: [
+              {
+                id: 'q6',
+                text: 'How do you communicate effectively with drivers throughout the day?',
+                expectedAnswers: ['Clear instructions', 'Appropriate frequency', 'Two-way communication', 'Respect their time', 'Emergency protocols'],
+                redFlags: ['Excessive contact', 'Unclear instructions', 'One-way only', 'Disrespectful']
+              },
+              {
+                id: 'q7',
+                text: 'How do you handle a driver reporting a vehicle breakdown?',
+                expectedAnswers: ['Safety first', 'Assess situation', 'Alternative arrangements', 'Customer communication', 'Documentation'],
+                redFlags: ['Blame driver', 'No backup plan', 'Poor communication', 'No documentation']
+              },
+              {
+                id: 'q8',
+                text: 'How do you balance driver workloads fairly?',
+                expectedAnswers: ['Track assignments', 'Consider preferences', 'Rotate difficult routes', 'Transparent process', 'Address concerns'],
+                redFlags: ['Favoritism', 'Uneven loads', 'Ignore complaints', 'No tracking']
+              },
+              {
+                id: 'q9',
+                text: 'How do you handle driver complaints about dispatching decisions?',
+                expectedAnswers: ['Listen actively', 'Explain reasoning', 'Consider feedback', 'Fair resolution', 'Follow up'],
+                redFlags: ['Dismiss complaints', 'Defensive', 'No explanation', 'No follow-up']
+              },
+              {
+                id: 'q10',
+                text: 'How do you ensure drivers comply with hours-of-service regulations?',
+                expectedAnswers: ['Monitor hours', 'Proactive scheduling', 'System alerts', 'Driver communication', 'Documentation'],
+                redFlags: ['Ignore regulations', 'Pressure drivers', 'No monitoring', 'No documentation']
+              }
+            ]
+          },
+          {
+            id: 'customer-comm',
+            title: '3. Customer Communication',
+            questions: [
+              {
+                id: 'q11',
+                text: 'How do you communicate delivery status to customers?',
+                expectedAnswers: ['Proactive updates', 'Accurate ETAs', 'Problem notification', 'Professional manner', 'Documentation'],
+                redFlags: ['No updates', 'Inaccurate information', 'Hide problems', 'Unprofessional']
+              },
+              {
+                id: 'q12',
+                text: 'How do you handle an unhappy customer regarding delivery issues?',
+                expectedAnswers: ['Listen first', 'Apologize appropriately', 'Find solutions', 'Follow through', 'Prevent recurrence'],
+                redFlags: ['Defensive', 'Blame others', 'No solution focus', 'No follow-up']
+              },
+              {
+                id: 'q13',
+                text: 'Describe how you manage customer delivery expectations.',
+                expectedAnswers: ['Realistic commitments', 'Clear communication', 'Early warning', 'Alternative options', 'Consistent follow-up'],
+                redFlags: ['Over-promise', 'Poor communication', 'Last-minute surprises', 'No alternatives']
+              },
+              {
+                id: 'q14',
+                text: 'How do you handle special delivery requests?',
+                expectedAnswers: ['Assess feasibility', 'Clear communication', 'Coordinate resources', 'Document requirements', 'Confirm completion'],
+                redFlags: ['Refuse without consideration', 'No communication', 'Miss requirements', 'No confirmation']
+              },
+              {
+                id: 'q15',
+                text: 'How do you prioritize customer service versus operational efficiency?',
+                expectedAnswers: ['Balance both', 'Case-by-case', 'Clear guidelines', 'Escalation process', 'Track trade-offs'],
+                redFlags: ['One at expense of other', 'No balance', 'No guidelines', 'No escalation']
+              }
+            ]
+          },
+          {
+            id: 'problem-solving',
+            title: '4. Problem Solving',
+            questions: [
+              {
+                id: 'q16',
+                text: 'Describe a challenging dispatch situation and how you resolved it.',
+                expectedAnswers: ['Clear problem', 'Quick assessment', 'Creative solution', 'Communication', 'Lessons learned'],
+                redFlags: ['No examples', 'Panic response', 'No resolution', 'No learning']
+              },
+              {
+                id: 'q17',
+                text: 'How do you handle multiple emergencies occurring simultaneously?',
+                expectedAnswers: ['Prioritize safety', 'Quick triage', 'Delegate when possible', 'Clear communication', 'Stay calm'],
+                redFlags: ['Panic', 'Poor prioritization', 'Try to do everything', 'Poor communication']
+              },
+              {
+                id: 'q18',
+                text: 'How do you handle capacity constraints during peak periods?',
+                expectedAnswers: ['Advance planning', 'Priority management', 'Customer communication', 'Alternative resources', 'Post-analysis'],
+                redFlags: ['No planning', 'First come first served', 'No communication', 'No alternatives']
+              },
+              {
+                id: 'q19',
+                text: 'How do you identify and address recurring dispatch problems?',
+                expectedAnswers: ['Track patterns', 'Root cause analysis', 'Process improvement', 'Stakeholder input', 'Monitor results'],
+                redFlags: ['Same problems repeat', 'No tracking', 'Blame others', 'No improvement']
+              },
+              {
+                id: 'q20',
+                text: 'How do you maintain accuracy under pressure?',
+                expectedAnswers: ['Double-check critical items', 'Systematic approach', 'Use checklists', 'Stay organized', 'Know limits'],
+                redFlags: ['Rush through', 'Frequent errors', 'No verification', 'Disorganized']
               }
             ]
           }
