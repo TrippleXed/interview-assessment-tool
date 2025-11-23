@@ -1,8 +1,170 @@
 // Interview Assessment Tool - Main Application
 
+// Session storage key
+const SESSION_KEY = 'interview_session';
+
 document.addEventListener('DOMContentLoaded', function() {
-    initializeApp();
+    // Check for existing session
+    checkSession();
+
+    // Set up login form
+    setupLoginForm();
 });
+
+// ==================== Authentication ====================
+
+function checkSession() {
+    const session = getSession();
+    if (session && session.expiresAt) {
+        // Check if subscription is still valid
+        if (new Date(session.expiresAt) > new Date()) {
+            showMainApp(session);
+        } else {
+            // Session expired
+            clearSession();
+            showLoginError('Your subscription has expired. Please renew to continue.');
+        }
+    }
+}
+
+function getSession() {
+    try {
+        return JSON.parse(sessionStorage.getItem(SESSION_KEY));
+    } catch {
+        return null;
+    }
+}
+
+function saveSession(data) {
+    sessionStorage.setItem(SESSION_KEY, JSON.stringify(data));
+}
+
+function clearSession() {
+    sessionStorage.removeItem(SESSION_KEY);
+}
+
+function setupLoginForm() {
+    const form = document.getElementById('loginForm');
+    form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        await handleLogin();
+    });
+}
+
+async function handleLogin() {
+    const passwordInput = document.getElementById('accessPassword');
+    const password = passwordInput.value.trim();
+    const submitBtn = document.querySelector('#loginForm button[type="submit"]');
+    const errorDiv = document.getElementById('loginError');
+
+    if (!password) {
+        showLoginError('Please enter your access password');
+        return;
+    }
+
+    // Show loading state
+    submitBtn.disabled = true;
+    submitBtn.classList.add('loading');
+    errorDiv.textContent = '';
+
+    try {
+        const response = await fetch('/api/validate-password', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ password })
+        });
+
+        const data = await response.json();
+
+        if (response.ok && data.success) {
+            // Save session
+            saveSession({
+                ...data.subscription,
+                password: password,
+                loginTime: new Date().toISOString()
+            });
+
+            // Show main app
+            showMainApp(data.subscription);
+        } else {
+            if (data.expired) {
+                showLoginError('Your subscription has expired. Please contact us to renew.');
+            } else {
+                showLoginError(data.error || 'Invalid password. Please try again.');
+            }
+        }
+    } catch (error) {
+        console.error('Login error:', error);
+        showLoginError('Unable to connect. Please check your internet connection.');
+    } finally {
+        submitBtn.disabled = false;
+        submitBtn.classList.remove('loading');
+    }
+}
+
+function showLoginError(message) {
+    const errorDiv = document.getElementById('loginError');
+    errorDiv.textContent = message;
+}
+
+function showMainApp(subscription) {
+    // Hide login screen
+    document.getElementById('loginScreen').style.display = 'none';
+
+    // Show main app
+    document.getElementById('mainApp').style.display = 'block';
+
+    // Display subscription info
+    displaySubscriptionInfo(subscription);
+
+    // Initialize the app
+    initializeApp();
+}
+
+function displaySubscriptionInfo(subscription) {
+    const infoDiv = document.getElementById('subscriptionInfo');
+    if (!subscription) return;
+
+    let expiryText = '';
+    if (subscription.expiresAt) {
+        const expiry = new Date(subscription.expiresAt);
+        const now = new Date();
+        const daysLeft = Math.ceil((expiry - now) / (1000 * 60 * 60 * 24));
+
+        if (daysLeft <= 7) {
+            infoDiv.classList.add('expiring-soon');
+            expiryText = `Expires in ${daysLeft} day${daysLeft !== 1 ? 's' : ''}`;
+        } else {
+            expiryText = `Valid until ${expiry.toLocaleDateString()}`;
+        }
+    } else {
+        expiryText = 'Lifetime access';
+    }
+
+    infoDiv.innerHTML = `
+        <span>${subscription.name || 'Subscriber'}</span> |
+        <span>${expiryText}</span>
+    `;
+}
+
+function logout() {
+    clearSession();
+    localStorage.removeItem('interviewData');
+
+    // Hide main app
+    document.getElementById('mainApp').style.display = 'none';
+
+    // Show login screen
+    document.getElementById('loginScreen').style.display = 'flex';
+
+    // Clear password input
+    document.getElementById('accessPassword').value = '';
+    document.getElementById('loginError').textContent = '';
+}
+
+// ==================== Main Application ====================
 
 function initializeApp() {
     // Set today's date as default
@@ -259,6 +421,13 @@ function setupEventListeners() {
     document.getElementById('clearForm').addEventListener('click', () => {
         if (confirm('Are you sure you want to clear all data? This cannot be undone.')) {
             clearForm();
+        }
+    });
+
+    // Logout
+    document.getElementById('logout').addEventListener('click', () => {
+        if (confirm('Are you sure you want to logout?')) {
+            logout();
         }
     });
 }

@@ -1,0 +1,11 @@
+{
+  "name": "interview-assessment-tool",
+  "version": "1.0.0",
+  "description": "Interview assessment tool with password-protected access",
+  "scripts": {
+    "dev": "vercel dev"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.39.0"
+  }
+}
