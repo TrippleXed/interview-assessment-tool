@@ -68,16 +68,19 @@
 
         <div class="score-summary">
             <div class="total-score">
-                <span>Overall Score:</span>
+                <span>Score:</span>
                 <span id="overallScore">0</span>
                 <span>/</span>
                 <span id="maxScore">0</span>
                 <span>(<span id="percentage">0</span>%)</span>
             </div>
-            <div class="recommendation" id="recommendation">Complete the assessment to see recommendation</div>
+            <div class="questions-answered">
+                <span id="answeredCount">0</span> of <span id="totalQuestions">0</span> questions answered
+            </div>
         </div>
 
         <div class="actions">
+            <button id="completeInterview" class="btn btn-success">Complete Interview</button>
             <button id="expandAll" class="btn btn-secondary">Expand All</button>
             <button id="collapseAll" class="btn btn-secondary">Collapse All</button>
             <button id="exportPdf" class="btn btn-primary">Export to PDF</button>
@@ -86,6 +89,57 @@
         </div>
 
         <div id="questionsContainer"></div>
+    </div>
+
+    <!-- Interview Summary Modal -->
+    <div id="summaryModal" class="modal" style="display: none;">
+        <div class="modal-content summary-modal">
+            <div class="modal-header">
+                <h2>Interview Summary</h2>
+                <button class="modal-close" onclick="closeSummaryModal()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="summary-candidate">
+                    <h3 id="summaryCandidateName">Candidate Name</h3>
+                    <p id="summaryPosition">Position</p>
+                    <p id="summaryDate">Date</p>
+                </div>
+
+                <div class="summary-scores">
+                    <div class="summary-score-box">
+                        <div class="score-label">Questions Answered</div>
+                        <div class="score-value" id="summaryAnswered">0/0</div>
+                    </div>
+                    <div class="summary-score-box">
+                        <div class="score-label">Total Score</div>
+                        <div class="score-value" id="summaryScore">0/0</div>
+                    </div>
+                    <div class="summary-score-box highlight">
+                        <div class="score-label">Percentage</div>
+                        <div class="score-value" id="summaryPercentage">0%</div>
+                    </div>
+                </div>
+
+                <div class="summary-recommendation" id="summaryRecommendation">
+                    <div class="recommendation-badge" id="recommendationBadge">-</div>
+                    <div class="recommendation-text" id="recommendationText">Complete the assessment</div>
+                </div>
+
+                <div class="summary-red-flags" id="summaryRedFlags" style="display: none;">
+                    <h4>Red Flags Noted</h4>
+                    <ul id="redFlagsList"></ul>
+                </div>
+
+                <div class="summary-notes" id="summaryNotes" style="display: none;">
+                    <h4>Key Notes</h4>
+                    <div id="notesList"></div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-primary" onclick="exportToPdf()">Export to PDF</button>
+                <button class="btn btn-secondary" onclick="closeSummaryModal()">Close</button>
+            </div>
+        </div>
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>

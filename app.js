@@ -435,19 +435,25 @@ function setScore(questionId, score) {
 
 function updateScores() {
     let totalScore = 0;
-    let maxScore = 0;
+    let answeredMaxScore = 0;
+    let answeredCount = 0;
     let redFlagCount = 0;
+    let totalQuestions = 0;
 
     interviewQuestions.forEach(category => {
         let categoryScore = 0;
-        let categoryMax = category.questions.length * 5;
+        let categoryAnswered = 0;
 
         category.questions.forEach(q => {
+            totalQuestions++;
             const selectedBtn = document.querySelector(`[data-question="${q.id}"].selected`);
             if (selectedBtn) {
                 const score = parseInt(selectedBtn.dataset.score);
                 categoryScore += score;
                 totalScore += score;
+                answeredMaxScore += 5;
+                answeredCount++;
+                categoryAnswered++;
             }
 
             const redFlagCheck = document.getElementById(`redflag-check-${q.id}`);
@@ -456,72 +462,201 @@ function updateScores() {
             }
         });
 
-        maxScore += categoryMax;
-
-        // Update category score display
+        // Update category score display (only for answered questions)
         const categoryScoreEl = document.getElementById(`score-${category.id}`);
         if (categoryScoreEl) {
-            categoryScoreEl.textContent = `${categoryScore} / ${categoryMax}`;
+            const categoryMax = categoryAnswered * 5;
+            categoryScoreEl.textContent = categoryAnswered > 0
+                ? `${categoryScore} / ${categoryMax}`
+                : `0 / 0`;
         }
     });
 
-    // Update overall score
+    // Update overall score (based on answered questions only)
     document.getElementById('overallScore').textContent = totalScore;
-    document.getElementById('maxScore').textContent = maxScore;
+    document.getElementById('maxScore').textContent = answeredMaxScore;
+    document.getElementById('answeredCount').textContent = answeredCount;
+    document.getElementById('totalQuestions').textContent = totalQuestions;
 
-    const percentage = maxScore > 0 ? Math.round((totalScore / maxScore) * 100) : 0;
+    const percentage = answeredMaxScore > 0 ? Math.round((totalScore / answeredMaxScore) * 100) : 0;
     document.getElementById('percentage').textContent = percentage;
-
-    // Update recommendation
-    updateRecommendation(percentage, redFlagCount);
 }
 
-function updateRecommendation(percentage, redFlagCount) {
-    const recEl = document.getElementById('recommendation');
-    recEl.className = 'recommendation';
+// Get assessment data for summary
+function getAssessmentData() {
+    let totalScore = 0;
+    let answeredMaxScore = 0;
+    let answeredCount = 0;
+    let redFlagCount = 0;
+    let totalQuestions = 0;
+    const redFlags = [];
+    const notes = [];
 
-    // Count how many questions have been scored
-    let scoredCount = 0;
     interviewQuestions.forEach(category => {
         category.questions.forEach(q => {
-            if (document.querySelector(`[data-question="${q.id}"].selected`)) {
-                scoredCount++;
+            totalQuestions++;
+            const selectedBtn = document.querySelector(`[data-question="${q.id}"].selected`);
+            if (selectedBtn) {
+                const score = parseInt(selectedBtn.dataset.score);
+                totalScore += score;
+                answeredMaxScore += 5;
+                answeredCount++;
+            }
+
+            const redFlagCheck = document.getElementById(`redflag-check-${q.id}`);
+            if (redFlagCheck && redFlagCheck.checked) {
+                redFlagCount++;
+                redFlags.push({
+                    question: q.text,
+                    category: category.title
+                });
+            }
+
+            // Get notes
+            const notesEl = document.getElementById(`notes-${q.id}`);
+            if (notesEl && notesEl.value.trim()) {
+                notes.push({
+                    question: q.text,
+                    note: notesEl.value.trim()
+                });
             }
         });
     });
 
-    const totalQuestions = interviewQuestions.reduce((sum, c) => sum + c.questions.length, 0);
+    const percentage = answeredMaxScore > 0 ? Math.round((totalScore / answeredMaxScore) * 100) : 0;
 
-    if (scoredCount < totalQuestions) {
-        recEl.textContent = `Complete assessment (${scoredCount}/${totalQuestions} questions scored)`;
+    return {
+        totalScore,
+        answeredMaxScore,
+        answeredCount,
+        totalQuestions,
+        redFlagCount,
+        redFlags,
+        notes,
+        percentage
+    };
+}
+
+// Get recommendation based on assessment data
+function getRecommendation(data) {
+    const { percentage, answeredCount, totalQuestions, redFlagCount } = data;
+    const minQuestionsRequired = Math.ceil(totalQuestions * 0.3); // At least 30% of questions
+
+    if (answeredCount < minQuestionsRequired) {
+        return {
+            badge: 'INSUFFICIENT DATA',
+            badgeClass: 'insufficient',
+            text: `Only ${answeredCount} of ${totalQuestions} questions answered. Answer at least ${minQuestionsRequired} questions for a recommendation.`
+        };
+    }
+
+    if (redFlagCount >= 3) {
+        return {
+            badge: 'DO NOT HIRE',
+            badgeClass: 'no-hire',
+            text: `${redFlagCount} red flags noted. Significant concerns raised during interview.`
+        };
+    }
+
+    if (percentage >= 85 && redFlagCount === 0) {
+        return {
+            badge: 'STRONG HIRE',
+            badgeClass: 'strong-hire',
+            text: 'Excellent candidate. Demonstrated strong competencies across all areas assessed.'
+        };
+    }
+
+    if (percentage >= 70 && redFlagCount <= 1) {
+        return {
+            badge: 'HIRE',
+            badgeClass: 'hire',
+            text: `Good candidate with solid responses.${redFlagCount > 0 ? ' One minor concern noted.' : ''}`
+        };
+    }
+
+    if (percentage >= 55) {
+        return {
+            badge: 'MAYBE',
+            badgeClass: 'maybe',
+            text: `Consider carefully. Average performance.${redFlagCount > 0 ? ` ${redFlagCount} concern(s) noted.` : ''}`
+        };
+    }
+
+    return {
+        badge: 'DO NOT HIRE',
+        badgeClass: 'no-hire',
+        text: 'Below requirements. Did not demonstrate required competencies.'
+    };
+}
+
+// Complete Interview - show summary
+function completeInterview() {
+    const data = getAssessmentData();
+
+    if (data.answeredCount === 0) {
+        alert('Please answer at least one question before completing the interview.');
         return;
     }
 
-    let recommendation = '';
-    let className = '';
+    const candidateName = document.getElementById('candidateName').value || 'Not provided';
+    const position = document.getElementById('position').value || 'Not specified';
+    const interviewDate = document.getElementById('interviewDate').value || 'Not specified';
 
-    if (redFlagCount >= 3) {
-        recommendation = `DO NOT HIRE - ${redFlagCount} red flags noted`;
-        className = 'no';
-    } else if (percentage >= 85 && redFlagCount === 0) {
-        recommendation = 'STRONG HIRE - Excellent candidate';
-        className = 'strong-yes';
-    } else if (percentage >= 70 && redFlagCount <= 1) {
-        recommendation = 'HIRE - Good candidate';
-        className = 'yes';
-    } else if (percentage >= 55) {
-        recommendation = `MAYBE - Consider carefully${redFlagCount > 0 ? ` (${redFlagCount} red flags)` : ''}`;
-        className = 'maybe';
+    // Update summary modal
+    document.getElementById('summaryCandidateName').textContent = candidateName;
+    document.getElementById('summaryPosition').textContent = position;
+    document.getElementById('summaryDate').textContent = interviewDate;
+
+    document.getElementById('summaryAnswered').textContent = `${data.answeredCount} / ${data.totalQuestions}`;
+    document.getElementById('summaryScore').textContent = `${data.totalScore} / ${data.answeredMaxScore}`;
+    document.getElementById('summaryPercentage').textContent = `${data.percentage}%`;
+
+    // Update recommendation
+    const recommendation = getRecommendation(data);
+    const badgeEl = document.getElementById('recommendationBadge');
+    badgeEl.textContent = recommendation.badge;
+    badgeEl.className = 'recommendation-badge ' + recommendation.badgeClass;
+    document.getElementById('recommendationText').textContent = recommendation.text;
+
+    // Update red flags
+    const redFlagsSection = document.getElementById('summaryRedFlags');
+    const redFlagsList = document.getElementById('redFlagsList');
+    if (data.redFlags.length > 0) {
+        redFlagsSection.style.display = 'block';
+        redFlagsList.innerHTML = data.redFlags.map(rf =>
+            `<li>${rf.question.substring(0, 60)}...</li>`
+        ).join('');
     } else {
-        recommendation = 'DO NOT HIRE - Below requirements';
-        className = 'no';
+        redFlagsSection.style.display = 'none';
     }
 
-    recEl.textContent = recommendation;
-    recEl.classList.add(className);
+    // Update notes
+    const notesSection = document.getElementById('summaryNotes');
+    const notesList = document.getElementById('notesList');
+    if (data.notes.length > 0) {
+        notesSection.style.display = 'block';
+        notesList.innerHTML = data.notes.map(n => `
+            <div class="note-item">
+                <div class="note-question">${n.question.substring(0, 50)}...</div>
+                <div class="note-text">${n.note}</div>
+            </div>
+        `).join('');
+    } else {
+        notesSection.style.display = 'none';
+    }
+
+    // Show modal
+    document.getElementById('summaryModal').style.display = 'flex';
+}
+
+function closeSummaryModal() {
+    document.getElementById('summaryModal').style.display = 'none';
 }
 
 function setupEventListeners() {
+    // Complete Interview
+    document.getElementById('completeInterview').addEventListener('click', completeInterview);
+
     // Expand All
     document.getElementById('expandAll').addEventListener('click', () => {
         document.querySelectorAll('.category').forEach(cat => {
@@ -552,6 +687,13 @@ function setupEventListeners() {
     document.getElementById('logout').addEventListener('click', () => {
         if (confirm('Are you sure you want to logout?')) {
             logout();
+        }
+    });
+
+    // Close modal on background click
+    document.getElementById('summaryModal').addEventListener('click', (e) => {
+        if (e.target.id === 'summaryModal') {
+            closeSummaryModal();
         }
     });
 }
