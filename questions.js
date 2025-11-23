@@ -1982,6 +1982,155 @@ const industriesData = {
             ]
           }
         ]
+      },
+      sales_associate: {
+        name: "Sales Associate",
+        categories: [
+          {
+            id: 'sales-skills',
+            title: '1. Sales Skills',
+            questions: [
+              {
+                id: 'q1',
+                text: 'Describe your approach to greeting and engaging customers.',
+                expectedAnswers: ['Warm greeting', 'Read customer cues', 'Offer assistance appropriately', 'Not pushy', 'Build rapport'],
+                redFlags: ['Ignore customers', 'Too aggressive', 'Scripted only', 'Disinterested']
+              },
+              {
+                id: 'q2',
+                text: 'How do you identify what a customer is looking for?',
+                expectedAnswers: ['Ask open questions', 'Listen actively', 'Observe behavior', 'Clarify needs', 'Suggest options'],
+                redFlags: ['Assume needs', 'Dont ask', 'Push products', 'Ignore cues']
+              },
+              {
+                id: 'q3',
+                text: 'Describe your experience with upselling and cross-selling.',
+                expectedAnswers: ['Relevant suggestions', 'Customer benefit focus', 'Natural approach', 'Respect no', 'Add value'],
+                redFlags: ['Pushy', 'Irrelevant items', 'Ignore customer needs', 'Pressure tactics']
+              },
+              {
+                id: 'q4',
+                text: 'How do you handle a customer who is just browsing?',
+                expectedAnswers: ['Acknowledge them', 'Give space', 'Stay available', 'Check back appropriately', 'No pressure'],
+                redFlags: ['Ignore them', 'Follow constantly', 'Pressure to buy', 'Give up immediately']
+              },
+              {
+                id: 'q5',
+                text: 'Tell me about a time you exceeded a sales goal.',
+                expectedAnswers: ['Specific example', 'Actions taken', 'Customer focus', 'Results achieved', 'What learned'],
+                redFlags: ['No example', 'Luck only', 'Pushy tactics', 'No customer focus']
+              }
+            ]
+          },
+          {
+            id: 'customer-service',
+            title: '2. Customer Service',
+            questions: [
+              {
+                id: 'q6',
+                text: 'How do you handle a customer complaint about a product?',
+                expectedAnswers: ['Listen fully', 'Empathize', 'Find solution', 'Follow policy', 'Follow up'],
+                redFlags: ['Defensive', 'Blame customer', 'Dismiss concern', 'No solution']
+              },
+              {
+                id: 'q7',
+                text: 'Describe a time you turned an unhappy customer into a satisfied one.',
+                expectedAnswers: ['Listened to issue', 'Took ownership', 'Found solution', 'Exceeded expectations', 'Positive outcome'],
+                redFlags: ['No example', 'Blamed others', 'No resolution', 'Customer left unhappy']
+              },
+              {
+                id: 'q8',
+                text: 'How do you handle multiple customers at once?',
+                expectedAnswers: ['Acknowledge all', 'Prioritize appropriately', 'Efficient service', 'Ask for help if needed', 'Apologize for waits'],
+                redFlags: ['Ignore some', 'Rush everyone', 'Get flustered', 'Dont ask for help']
+              },
+              {
+                id: 'q9',
+                text: 'How do you handle a customer who wants something you cannot provide?',
+                expectedAnswers: ['Empathize', 'Explain clearly', 'Offer alternatives', 'Escalate if appropriate', 'Positive end'],
+                redFlags: ['Just say no', 'No alternatives', 'Get frustrated', 'Blame policy']
+              },
+              {
+                id: 'q10',
+                text: 'How do you maintain energy and positivity during a long shift?',
+                expectedAnswers: ['Self-care', 'Stay engaged', 'Take breaks', 'Positive mindset', 'Support colleagues'],
+                redFlags: ['Visibly tired', 'Negative attitude', 'No strategies', 'Affect customers']
+              }
+            ]
+          },
+          {
+            id: 'product-knowledge',
+            title: '3. Product Knowledge',
+            questions: [
+              {
+                id: 'q11',
+                text: 'How do you learn about new products?',
+                expectedAnswers: ['Read materials', 'Ask questions', 'Hands-on experience', 'Training sessions', 'Stay curious'],
+                redFlags: ['Wait to be told', 'No initiative', 'Dont care', 'Outdated knowledge']
+              },
+              {
+                id: 'q12',
+                text: 'How do you handle a question about a product you dont know?',
+                expectedAnswers: ['Admit honestly', 'Find out', 'Ask colleague', 'Follow up', 'Learn for next time'],
+                redFlags: ['Make up answer', 'Dismiss question', 'Dont follow up', 'Get embarrassed']
+              },
+              {
+                id: 'q13',
+                text: 'How do you help a customer compare products?',
+                expectedAnswers: ['Understand needs', 'Highlight differences', 'Honest recommendations', 'Let customer decide', 'Answer questions'],
+                redFlags: ['Push expensive option', 'Confuse customer', 'Dismiss cheaper options', 'No real help']
+              },
+              {
+                id: 'q14',
+                text: 'Describe explaining a complex product feature to a customer.',
+                expectedAnswers: ['Simple language', 'Focus on benefits', 'Check understanding', 'Patient', 'Use examples'],
+                redFlags: ['Technical jargon', 'Condescending', 'Impatient', 'No confirmation of understanding']
+              },
+              {
+                id: 'q15',
+                text: 'How do you stay informed about competitor products?',
+                expectedAnswers: ['Research', 'Customer feedback', 'Industry awareness', 'Know differences', 'Honest comparisons'],
+                redFlags: ['No awareness', 'Badmouth competitors', 'Misinformation', 'Dont care']
+              }
+            ]
+          },
+          {
+            id: 'operations',
+            title: '4. Store Operations',
+            questions: [
+              {
+                id: 'q16',
+                text: 'How do you handle cash register transactions accurately?',
+                expectedAnswers: ['Count carefully', 'Verify amounts', 'Follow procedures', 'Handle discrepancies', 'Stay focused'],
+                redFlags: ['Careless', 'Frequent errors', 'Ignore procedures', 'Shortages']
+              },
+              {
+                id: 'q17',
+                text: 'Describe your approach to store cleanliness and organization.',
+                expectedAnswers: ['Proactive', 'Attention to detail', 'Throughout shift', 'Team effort', 'Customer experience focus'],
+                redFlags: ['Only when told', 'Ignore messes', 'Not my job attitude', 'Low standards']
+              },
+              {
+                id: 'q18',
+                text: 'How do you handle inventory or restocking responsibilities?',
+                expectedAnswers: ['Systematic approach', 'Accurate counts', 'Timely restocking', 'Report issues', 'Organized displays'],
+                redFlags: ['Inaccurate', 'Ignore low stock', 'Messy restocking', 'No reporting']
+              },
+              {
+                id: 'q19',
+                text: 'How do you handle suspected shoplifting?',
+                expectedAnswers: ['Follow store policy', 'Observe safely', 'Alert management', 'Dont confront directly', 'Customer service approach'],
+                redFlags: ['Confront directly', 'Ignore policy', 'Accuse customers', 'Take risks']
+              },
+              {
+                id: 'q20',
+                text: 'How do you prioritize tasks during slow periods?',
+                expectedAnswers: ['Restocking', 'Cleaning', 'Learning products', 'Organizing', 'Ready for customers'],
+                redFlags: ['Do nothing', 'Phone use', 'Chat only', 'Hide in back']
+              }
+            ]
+          }
+        ]
       }
     }
   },
@@ -2295,6 +2444,155 @@ const industriesData = {
                 text: 'Describe automating a repetitive analytical task.',
                 expectedAnswers: ['Identified opportunity', 'Built solution', 'Time saved', 'Quality maintained', 'Shared with others'],
                 redFlags: ['No automation', 'Prefer manual', 'No efficiency thinking', 'Cannot give example']
+              }
+            ]
+          }
+        ]
+      },
+      bank_teller: {
+        name: "Bank Teller",
+        categories: [
+          {
+            id: 'transactions',
+            title: '1. Transaction Processing',
+            questions: [
+              {
+                id: 'q1',
+                text: 'Describe your approach to processing transactions accurately.',
+                expectedAnswers: ['Verify amounts', 'Follow procedures', 'Double-check entries', 'Attention to detail', 'Balance drawer'],
+                redFlags: ['Careless', 'Skip verification', 'Frequent errors', 'Imbalanced drawer']
+              },
+              {
+                id: 'q2',
+                text: 'How do you handle a discrepancy in your cash drawer?',
+                expectedAnswers: ['Report immediately', 'Review transactions', 'Find source', 'Document', 'Follow policy'],
+                redFlags: ['Hide discrepancy', 'Delay reporting', 'Cover up', 'Blame others']
+              },
+              {
+                id: 'q3',
+                text: 'Describe your experience with different types of bank transactions.',
+                expectedAnswers: ['Deposits', 'Withdrawals', 'Transfers', 'Payments', 'Foreign currency'],
+                redFlags: ['Limited experience', 'Only basic transactions', 'No variety', 'Uncomfortable with complexity']
+              },
+              {
+                id: 'q4',
+                text: 'How do you verify customer identity for transactions?',
+                expectedAnswers: ['Check ID', 'Verify signatures', 'Security questions', 'Follow protocols', 'Fraud awareness'],
+                redFlags: ['Skip verification', 'Casual about security', 'Ignore procedures', 'Fraud risk']
+              },
+              {
+                id: 'q5',
+                text: 'How do you handle a large cash transaction?',
+                expectedAnswers: ['Follow CTR requirements', 'Count carefully', 'Verify customer', 'Document properly', 'Security awareness'],
+                redFlags: ['Ignore requirements', 'Rush through', 'Poor documentation', 'Security lapses']
+              }
+            ]
+          },
+          {
+            id: 'customer-service',
+            title: '2. Customer Service',
+            questions: [
+              {
+                id: 'q6',
+                text: 'How do you greet customers and make them feel welcome?',
+                expectedAnswers: ['Warm greeting', 'Eye contact', 'Professional manner', 'Efficient service', 'Personal touch'],
+                redFlags: ['Cold greeting', 'Impersonal', 'Rush customers', 'Disinterested']
+              },
+              {
+                id: 'q7',
+                text: 'How do you handle a long line of waiting customers?',
+                expectedAnswers: ['Efficient processing', 'Acknowledge wait', 'Stay calm', 'Call for help', 'Apologize for wait'],
+                redFlags: ['Get flustered', 'Rush and make errors', 'Ignore customers', 'Dont ask for help']
+              },
+              {
+                id: 'q8',
+                text: 'Describe handling a customer complaint about fees or charges.',
+                expectedAnswers: ['Listen fully', 'Explain clearly', 'Offer solutions', 'Escalate if needed', 'Professional manner'],
+                redFlags: ['Defensive', 'Dismiss concern', 'Argue', 'Poor explanation']
+              },
+              {
+                id: 'q9',
+                text: 'How do you identify opportunities to help customers with banking products?',
+                expectedAnswers: ['Listen to needs', 'Ask questions', 'Relevant suggestions', 'Not pushy', 'Refer to specialist'],
+                redFlags: ['Ignore opportunities', 'Too pushy', 'Irrelevant products', 'Miss customer needs']
+              },
+              {
+                id: 'q10',
+                text: 'How do you handle a customer who is confused about their account?',
+                expectedAnswers: ['Patient explanation', 'Review together', 'Clear language', 'Verify understanding', 'Offer follow-up'],
+                redFlags: ['Impatient', 'Confusing explanation', 'Rush customer', 'Dismiss questions']
+              }
+            ]
+          },
+          {
+            id: 'security',
+            title: '3. Security & Compliance',
+            questions: [
+              {
+                id: 'q11',
+                text: 'How do you identify potential fraud or suspicious activity?',
+                expectedAnswers: ['Know red flags', 'Trust instincts', 'Ask questions', 'Report concerns', 'Follow procedures'],
+                redFlags: ['Miss red flags', 'Ignore suspicions', 'Dont report', 'Skip verification']
+              },
+              {
+                id: 'q12',
+                text: 'Describe your understanding of banking regulations you must follow.',
+                expectedAnswers: ['BSA/AML', 'Privacy regulations', 'CTR requirements', 'Hold policies', 'Compliance training'],
+                redFlags: ['No knowledge', 'Ignore regulations', 'No training', 'Compliance violations']
+              },
+              {
+                id: 'q13',
+                text: 'How do you protect customer information?',
+                expectedAnswers: ['Confidentiality', 'Secure handling', 'Privacy screens', 'Proper disposal', 'No sharing'],
+                redFlags: ['Careless with info', 'Share inappropriately', 'Poor security', 'Privacy violations']
+              },
+              {
+                id: 'q14',
+                text: 'How would you handle a robbery situation?',
+                expectedAnswers: ['Follow procedures', 'Stay calm', 'Comply with demands', 'Observe details', 'Cooperate with authorities'],
+                redFlags: ['Panic', 'Be a hero', 'Ignore procedures', 'Risk safety']
+              },
+              {
+                id: 'q15',
+                text: 'Describe how you would handle a customer trying to cash a suspicious check.',
+                expectedAnswers: ['Verify carefully', 'Ask questions', 'Consult supervisor', 'Follow policy', 'Document concerns'],
+                redFlags: ['Cash without verification', 'Ignore red flags', 'Skip procedures', 'No documentation']
+              }
+            ]
+          },
+          {
+            id: 'professionalism',
+            title: '4. Professionalism',
+            questions: [
+              {
+                id: 'q16',
+                text: 'How do you maintain accuracy during a busy day?',
+                expectedAnswers: ['Stay focused', 'Follow procedures', 'Take breaks', 'Verify work', 'Ask for help'],
+                redFlags: ['Errors increase', 'Skip steps', 'Get overwhelmed', 'Dont ask for help']
+              },
+              {
+                id: 'q17',
+                text: 'How do you handle pressure to meet sales goals while serving customers?',
+                expectedAnswers: ['Balance both', 'Customer first', 'Natural suggestions', 'Quality service', 'Ethical approach'],
+                redFlags: ['Push products', 'Sacrifice service', 'Unethical pressure', 'Ignore customer needs']
+              },
+              {
+                id: 'q18',
+                text: 'Describe working as part of a branch team.',
+                expectedAnswers: ['Support colleagues', 'Share work', 'Communicate', 'Positive attitude', 'Help when busy'],
+                redFlags: ['Work alone', 'Dont help others', 'Negative attitude', 'Poor communication']
+              },
+              {
+                id: 'q19',
+                text: 'How do you stay current with banking products and procedures?',
+                expectedAnswers: ['Training', 'Read updates', 'Ask questions', 'Practice', 'Stay informed'],
+                redFlags: ['Outdated knowledge', 'Skip training', 'No initiative', 'Dont ask']
+              },
+              {
+                id: 'q20',
+                text: 'Describe a time you went above and beyond for a customer.',
+                expectedAnswers: ['Specific example', 'Customer need identified', 'Extra effort', 'Positive outcome', 'Within guidelines'],
+                redFlags: ['No example', 'Basic service only', 'Violated policy', 'No customer focus']
               }
             ]
           }
@@ -3222,6 +3520,155 @@ const industriesData = {
                 text: 'How do you stay competitive in the restaurant industry?',
                 expectedAnswers: ['Know competition', 'Guest feedback', 'Menu innovation', 'Service excellence', 'Industry trends'],
                 redFlags: ['Ignore competition', 'No innovation', 'Static menu', 'Outdated practices']
+              }
+            ]
+          }
+        ]
+      },
+      front_desk_agent: {
+        name: "Front Desk Agent",
+        categories: [
+          {
+            id: 'guest-service',
+            title: '1. Guest Service',
+            questions: [
+              {
+                id: 'q1',
+                text: 'Describe your approach to welcoming guests at check-in.',
+                expectedAnswers: ['Warm greeting', 'Efficient process', 'Information sharing', 'Anticipate needs', 'Professional manner'],
+                redFlags: ['Cold greeting', 'Slow process', 'No information', 'Disinterested']
+              },
+              {
+                id: 'q2',
+                text: 'How do you handle a guest who is unhappy with their room?',
+                expectedAnswers: ['Listen to concerns', 'Apologize sincerely', 'Offer solutions', 'Follow up', 'Document issue'],
+                redFlags: ['Defensive', 'No solutions', 'Argue', 'No follow-up']
+              },
+              {
+                id: 'q3',
+                text: 'How do you handle multiple guests arriving at once?',
+                expectedAnswers: ['Acknowledge all', 'Efficient processing', 'Stay calm', 'Ask for help', 'Apologize for wait'],
+                redFlags: ['Ignore some', 'Get flustered', 'Rush and make errors', 'Dont ask for help']
+              },
+              {
+                id: 'q4',
+                text: 'Describe providing excellent check-out service.',
+                expectedAnswers: ['Review charges', 'Ask about stay', 'Handle issues', 'Thank guest', 'Invite return'],
+                redFlags: ['Rush through', 'Surprise charges', 'Ignore feedback', 'Impersonal']
+              },
+              {
+                id: 'q5',
+                text: 'How do you handle guest requests for special accommodations?',
+                expectedAnswers: ['Listen carefully', 'Check availability', 'Communicate clearly', 'Follow through', 'Confirm satisfaction'],
+                redFlags: ['Refuse quickly', 'Dont check options', 'No follow-through', 'Poor communication']
+              }
+            ]
+          },
+          {
+            id: 'operations',
+            title: '2. Front Desk Operations',
+            questions: [
+              {
+                id: 'q6',
+                text: 'Describe your experience with property management systems.',
+                expectedAnswers: ['System proficiency', 'Reservation handling', 'Guest profiles', 'Reporting', 'Troubleshooting'],
+                redFlags: ['No experience', 'Limited proficiency', 'Avoid technology', 'Cannot troubleshoot']
+              },
+              {
+                id: 'q7',
+                text: 'How do you handle reservation errors or overbookings?',
+                expectedAnswers: ['Stay calm', 'Find solutions', 'Walk procedure', 'Compensate guest', 'Document and report'],
+                redFlags: ['Panic', 'Blame others', 'No solution', 'Poor handling']
+              },
+              {
+                id: 'q8',
+                text: 'Describe your cash handling and payment processing experience.',
+                expectedAnswers: ['Accuracy', 'Verification', 'Security', 'Reconciliation', 'Follow procedures'],
+                redFlags: ['Errors', 'Careless', 'Poor security', 'Dont balance']
+              },
+              {
+                id: 'q9',
+                text: 'How do you ensure accurate room inventory and availability?',
+                expectedAnswers: ['System updates', 'Housekeeping coordination', 'Block management', 'Verify accuracy', 'Communication'],
+                redFlags: ['Inaccurate inventory', 'Poor coordination', 'No verification', 'Overbookings']
+              },
+              {
+                id: 'q10',
+                text: 'Describe handling guest mail, packages, and messages.',
+                expectedAnswers: ['Secure storage', 'Accurate logging', 'Timely delivery', 'Confidentiality', 'Follow procedures'],
+                redFlags: ['Lost items', 'No logging', 'Delayed delivery', 'Privacy issues']
+              }
+            ]
+          },
+          {
+            id: 'communication',
+            title: '3. Communication',
+            questions: [
+              {
+                id: 'q11',
+                text: 'How do you communicate with housekeeping and other departments?',
+                expectedAnswers: ['Clear communication', 'Timely updates', 'Use proper channels', 'Follow up', 'Team approach'],
+                redFlags: ['Poor communication', 'Delayed updates', 'Bypass channels', 'No teamwork']
+              },
+              {
+                id: 'q12',
+                text: 'How do you handle phone calls professionally?',
+                expectedAnswers: ['Professional greeting', 'Listen carefully', 'Take accurate messages', 'Transfer appropriately', 'Follow up'],
+                redFlags: ['Unprofessional', 'Miss information', 'Wrong transfers', 'No follow-up']
+              },
+              {
+                id: 'q13',
+                text: 'Describe providing local information and recommendations to guests.',
+                expectedAnswers: ['Know area well', 'Listen to preferences', 'Personalized suggestions', 'Make reservations', 'Follow up'],
+                redFlags: ['No knowledge', 'Generic suggestions', 'Cant help', 'No follow-through']
+              },
+              {
+                id: 'q14',
+                text: 'How do you handle language barriers with international guests?',
+                expectedAnswers: ['Patience', 'Clear speech', 'Visual aids', 'Translation resources', 'Verify understanding'],
+                redFlags: ['Impatient', 'Give up', 'No resources', 'Assume understanding']
+              },
+              {
+                id: 'q15',
+                text: 'How do you communicate shift information to the next team?',
+                expectedAnswers: ['Written handoff', 'Key issues highlighted', 'Pending items', 'Guest notes', 'Verbal update'],
+                redFlags: ['No handoff', 'Miss information', 'Incomplete', 'No communication']
+              }
+            ]
+          },
+          {
+            id: 'problem-solving',
+            title: '4. Problem Solving',
+            questions: [
+              {
+                id: 'q16',
+                text: 'Describe handling an emergency situation at the front desk.',
+                expectedAnswers: ['Stay calm', 'Follow procedures', 'Notify appropriate parties', 'Guest safety first', 'Document incident'],
+                redFlags: ['Panic', 'Ignore procedures', 'Poor response', 'No documentation']
+              },
+              {
+                id: 'q17',
+                text: 'How do you handle a VIP or special guest?',
+                expectedAnswers: ['Pre-arrival preparation', 'Personal attention', 'Anticipate needs', 'Coordinate departments', 'Follow up'],
+                redFlags: ['No preparation', 'Standard treatment', 'Miss expectations', 'No coordination']
+              },
+              {
+                id: 'q18',
+                text: 'Describe handling a guest complaint about noise or disturbance.',
+                expectedAnswers: ['Empathize', 'Take action', 'Contact security if needed', 'Follow up', 'Offer compensation'],
+                redFlags: ['Dismiss complaint', 'No action', 'Dont follow up', 'Ignore issue']
+              },
+              {
+                id: 'q19',
+                text: 'How do you handle a guest who has lost their room key?',
+                expectedAnswers: ['Verify identity', 'Issue new key', 'Follow security procedures', 'Document', 'Deactivate old key'],
+                redFlags: ['No verification', 'Skip procedures', 'Security risk', 'No documentation']
+              },
+              {
+                id: 'q20',
+                text: 'Describe working the overnight/night audit shift.',
+                expectedAnswers: ['Balancing', 'Reports', 'Security awareness', 'Guest service', 'Emergency readiness'],
+                redFlags: ['Cannot balance', 'Miss reports', 'Security lapses', 'Poor service']
               }
             ]
           }
