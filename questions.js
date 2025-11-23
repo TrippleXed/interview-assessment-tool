@@ -5,6 +5,55 @@ const industriesData = {
   aviation: {
     name: "Aviation",
     icon: "✈️",
+    aircraftTypes: {
+      // Boeing 737 Family
+      b737_300: { name: "Boeing 737-300", abbrev: "B733", family: "B737 Classic" },
+      b737_400: { name: "Boeing 737-400", abbrev: "B734", family: "B737 Classic" },
+      b737_500: { name: "Boeing 737-500", abbrev: "B735", family: "B737 Classic" },
+      b737_700: { name: "Boeing 737-700", abbrev: "B737", family: "B737 NG" },
+      b737_800: { name: "Boeing 737-800", abbrev: "B738", family: "B737 NG" },
+      b737_900: { name: "Boeing 737-900", abbrev: "B739", family: "B737 NG" },
+      b737_max8: { name: "Boeing 737 MAX 8", abbrev: "B38M", family: "B737 MAX" },
+      b737_max9: { name: "Boeing 737 MAX 9", abbrev: "B39M", family: "B737 MAX" },
+      // Boeing Wide Body
+      b747_400: { name: "Boeing 747-400", abbrev: "B744", family: "B747" },
+      b747_8: { name: "Boeing 747-8", abbrev: "B748", family: "B747" },
+      b767_300: { name: "Boeing 767-300", abbrev: "B763", family: "B767" },
+      b777_200: { name: "Boeing 777-200", abbrev: "B772", family: "B777" },
+      b777_300: { name: "Boeing 777-300ER", abbrev: "B77W", family: "B777" },
+      b787_8: { name: "Boeing 787-8", abbrev: "B788", family: "B787" },
+      b787_9: { name: "Boeing 787-9", abbrev: "B789", family: "B787" },
+      b787_10: { name: "Boeing 787-10", abbrev: "B78X", family: "B787" },
+      // Airbus A320 Family
+      a318: { name: "Airbus A318", abbrev: "A318", family: "A320" },
+      a319: { name: "Airbus A319", abbrev: "A319", family: "A320" },
+      a320: { name: "Airbus A320", abbrev: "A320", family: "A320" },
+      a320neo: { name: "Airbus A320neo", abbrev: "A20N", family: "A320neo" },
+      a321: { name: "Airbus A321", abbrev: "A321", family: "A320" },
+      a321neo: { name: "Airbus A321neo", abbrev: "A21N", family: "A320neo" },
+      // Airbus Wide Body
+      a330_200: { name: "Airbus A330-200", abbrev: "A332", family: "A330" },
+      a330_300: { name: "Airbus A330-300", abbrev: "A333", family: "A330" },
+      a330_900: { name: "Airbus A330-900neo", abbrev: "A339", family: "A330neo" },
+      a340_300: { name: "Airbus A340-300", abbrev: "A343", family: "A340" },
+      a340_600: { name: "Airbus A340-600", abbrev: "A346", family: "A340" },
+      a350_900: { name: "Airbus A350-900", abbrev: "A359", family: "A350" },
+      a350_1000: { name: "Airbus A350-1000", abbrev: "A35K", family: "A350" },
+      a380: { name: "Airbus A380", abbrev: "A388", family: "A380" },
+      // Regional Jets
+      crj_200: { name: "Bombardier CRJ-200", abbrev: "CRJ2", family: "CRJ" },
+      crj_700: { name: "Bombardier CRJ-700", abbrev: "CRJ7", family: "CRJ" },
+      crj_900: { name: "Bombardier CRJ-900", abbrev: "CRJ9", family: "CRJ" },
+      e170: { name: "Embraer E170", abbrev: "E170", family: "E-Jet" },
+      e175: { name: "Embraer E175", abbrev: "E175", family: "E-Jet" },
+      e190: { name: "Embraer E190", abbrev: "E190", family: "E-Jet" },
+      e195: { name: "Embraer E195", abbrev: "E195", family: "E-Jet" },
+      // Turboprops
+      atr42: { name: "ATR 42", abbrev: "AT45", family: "ATR" },
+      atr72: { name: "ATR 72", abbrev: "AT76", family: "ATR" },
+      dash8_q400: { name: "De Havilland Dash 8 Q400", abbrev: "DH8D", family: "Dash 8" },
+      saab340: { name: "Saab 340", abbrev: "SF34", family: "Saab" }
+    },
     positions: {
       fleet_admin: {
         name: "Fleet Administration Officer",
@@ -364,162 +413,448 @@ const industriesData = {
           }
         ]
       },
-      pilot: {
-        name: "Pilot / First Officer",
+      captain: {
+        name: "Captain",
         categories: [
           {
-            id: 'technical',
-            title: '1. Technical Competence',
+            id: 'command',
+            title: '1. Command & Leadership',
             questions: [
               {
                 id: 'q1',
-                text: 'Describe your approach to pre-flight preparation.',
-                expectedAnswers: ['Systematic checklists', 'Weather review', 'Fuel calculations', 'Route alternatives', 'Aircraft status review'],
-                redFlags: ['Rushed preparation', 'Over-reliance on automation', 'Skip steps when pressured', 'No weather consideration']
+                text: 'Describe your command philosophy and leadership style in the cockpit.',
+                expectedAnswers: ['Open communication', 'Clear authority with approachability', 'Safety-first mentality', 'Empowers crew', 'Leads by example'],
+                redFlags: ['Authoritarian', 'Dismissive of crew input', 'Ego-driven decisions', 'Poor communication']
               },
               {
                 id: 'q2',
-                text: 'Tell me about a difficult decision you made in the cockpit.',
-                expectedAnswers: ['Clear situation', 'Gathered information', 'Considered alternatives', 'Made timely decision', 'Reflected on outcome'],
-                redFlags: ['Delayed unnecessarily', 'Did not consult', 'Took unnecessary risks', 'No example']
+                text: 'How do you establish authority while maintaining an open cockpit environment?',
+                expectedAnswers: ['Clear expectations', 'Encourage questions', 'Balance authority with approachability', 'Set tone early', 'Model behavior'],
+                redFlags: ['Too casual', 'Overly strict', 'Discourages input', 'Inconsistent']
               },
               {
                 id: 'q3',
-                text: 'How do you manage fuel decisions on long flights?',
-                expectedAnswers: ['Conservative planning', 'Monitor consumption', 'Consider weather', 'Know alternate airports', 'Communicate with dispatch'],
-                redFlags: ['Minimum fuel attitude', 'No monitoring', 'Ignore weather changes', 'Poor planning']
+                text: 'Describe a time you had to make a difficult command decision under pressure.',
+                expectedAnswers: ['Clear situation assessment', 'Gathered available information', 'Considered crew input', 'Made decisive action', 'Debriefed afterward'],
+                redFlags: ['Indecisive', 'Ignored crew', 'Delayed too long', 'Did not debrief']
               },
               {
                 id: 'q4',
-                text: 'Describe your approach to handling system failures.',
-                expectedAnswers: ['Follow checklists', 'Aviate-Navigate-Communicate', 'Stay calm', 'Use all resources', 'Declare emergency if needed'],
-                redFlags: ['Panic', 'Skip checklists', 'Delay declaring emergency', 'Poor prioritization']
+                text: 'How do you handle a situation where your First Officer disagrees with your decision?',
+                expectedAnswers: ['Listen to concerns', 'Consider their input', 'Explain reasoning', 'Welcome challenge', 'Make final call'],
+                redFlags: ['Dismiss immediately', 'Get defensive', 'Pull rank', 'Ignore valid concerns']
               },
               {
                 id: 'q5',
-                text: 'How do you stay proficient with manual flying skills?',
-                expectedAnswers: ['Regular practice', 'Simulator sessions', 'Hand-fly when appropriate', 'Self-assessment', 'Seek training'],
-                redFlags: ['Rely solely on automation', 'No practice', 'Avoid manual flying', 'Overconfident']
-              },
-              {
-                id: 'q6',
-                text: 'Explain your process for reviewing NOTAMs before a flight.',
-                expectedAnswers: ['Systematic review', 'Prioritize relevant info', 'Discuss with crew', 'Note critical items', 'Re-check before departure'],
-                redFlags: ['Skip NOTAM review', 'Only skim', 'Do not share with crew', 'Miss critical information']
-              },
-              {
-                id: 'q7',
-                text: 'How do you handle flying into unfamiliar airports?',
-                expectedAnswers: ['Thorough briefing', 'Review charts carefully', 'Consider special procedures', 'Brief crew thoroughly', 'Extra margins'],
-                redFlags: ['No additional preparation', 'Overconfident', 'Skip briefing', 'Assume familiarity']
+                text: 'How do you manage cabin crew and coordinate during emergencies?',
+                expectedAnswers: ['Clear briefings', 'Defined roles', 'Regular communication', 'Trust their expertise', 'Debrief afterward'],
+                redFlags: ['Ignore cabin crew', 'Poor communication', 'No coordination', 'Micromanage']
               }
             ]
           },
           {
-            id: 'crm',
-            title: '2. CRM & Communication',
+            id: 'technical-captain',
+            title: '2. Technical Proficiency ({aircraftType})',
             questions: [
               {
+                id: 'q6',
+                text: 'How do you maintain currency and proficiency on the {aircraftType}?',
+                expectedAnswers: ['Regular simulator sessions', 'Self-study of {aircraftType} systems', 'Hand-fly when appropriate', 'Review {aircraftType} procedures', 'Seek additional training'],
+                redFlags: ['Minimum requirements only', 'Over-reliance on automation', 'Complacent', 'No self-improvement']
+              },
+              {
+                id: 'q7',
+                text: 'Describe the {aircraftType} hydraulic system architecture and your approach to hydraulic failures.',
+                expectedAnswers: ['Knowledge of {aircraftType} hydraulic systems', 'Redundancy understanding', 'Use checklists', 'Task delegation', 'Degraded operations awareness'],
+                redFlags: ['Poor system knowledge', 'Skip procedures', 'Cannot explain redundancy', 'Panic']
+              },
+              {
                 id: 'q8',
-                text: 'How do you ensure effective communication with co-pilot and cabin crew?',
-                expectedAnswers: ['Clear briefings', 'Standard phraseology', 'Encourage questions', 'Regular updates', 'Debrief after flights'],
-                redFlags: ['Dismissive of crew input', 'Poor listening', 'Authoritarian', 'Minimal communication']
+                text: 'Walk me through the {aircraftType} engine failure procedure from detection to securing the engine.',
+                expectedAnswers: ['Memory items', 'ECAM/EICAS response', 'Verification steps', 'Checklist completion', 'Decision for landing'],
+                redFlags: ['Wrong sequence', 'Miss memory items', 'Hesitant on procedures', 'Poor understanding']
               },
               {
                 id: 'q9',
-                text: 'How would you handle a disagreement with your captain about safety?',
+                text: 'Explain the {aircraftType} fuel system and how you handle fuel imbalance scenarios.',
+                expectedAnswers: ['Fuel system architecture knowledge', 'Cross-feed procedures', 'Limitations awareness', 'Monitoring practices', 'Emergency procedures'],
+                redFlags: ['Poor system knowledge', 'Incorrect procedures', 'Ignore imbalance', 'No monitoring']
+              },
+              {
+                id: 'q10',
+                text: 'Describe the {aircraftType} electrical system and load shedding in emergency configurations.',
+                expectedAnswers: ['Power sources understanding', 'Bus architecture', 'Load shedding sequence', 'Essential equipment', 'Emergency power procedures'],
+                redFlags: ['Cannot explain system', 'Poor understanding', 'Incorrect information', 'No practical knowledge']
+              }
+            ]
+          },
+          {
+            id: 'decision-captain',
+            title: '3. Decision Making',
+            questions: [
+              {
+                id: 'q11',
+                text: 'Describe your decision-making framework for abnormal situations.',
+                expectedAnswers: ['Structured approach', 'Gather information', 'Consider options', 'Use resources', 'Time management'],
+                redFlags: ['No framework', 'Rushed decisions', 'Ignore crew input', 'No contingency thinking']
+              },
+              {
+                id: 'q12',
+                text: 'How do you handle operational pressure to depart with known aircraft defects?',
+                expectedAnswers: ['Reference MEL/CDL', 'Assess safety impact', 'Consult if needed', 'Document concerns', 'Final authority'],
+                redFlags: ['Succumb to pressure', 'Ignore procedures', 'Not assert authority', 'Poor documentation']
+              },
+              {
+                id: 'q13',
+                text: 'Tell me about a diversion decision you made. Walk me through your process.',
+                expectedAnswers: ['Early consideration', 'Multiple factors assessed', 'Crew involvement', 'Clear communication', 'Safe outcome'],
+                redFlags: ['Delayed too long', 'Pressed on unsafely', 'Poor communication', 'No crew involvement']
+              },
+              {
+                id: 'q14',
+                text: 'How do you manage go-around decisions, especially at minimums?',
+                expectedAnswers: ['Clear criteria', 'No hesitation', 'Brief beforehand', 'Standard calls', 'No ego involvement'],
+                redFlags: ['Press below minimums', 'Hesitate', 'Ego-driven', 'Poor briefing']
+              },
+              {
+                id: 'q15',
+                text: 'How do you balance passenger expectations with safety decisions?',
+                expectedAnswers: ['Safety always first', 'Clear communication', 'Professional approach', 'Company support', 'No compromise'],
+                redFlags: ['Passenger pressure influence', 'Compromise safety', 'Poor communication', 'Avoid decisions']
+              }
+            ]
+          },
+          {
+            id: 'mentoring',
+            title: '4. Mentoring & Development',
+            questions: [
+              {
+                id: 'q16',
+                text: 'How do you develop First Officers who fly with you?',
+                expectedAnswers: ['Give opportunities', 'Constructive feedback', 'Share experience', 'Encourage questions', 'Support their growth'],
+                redFlags: ['Do everything yourself', 'No feedback', 'Condescending', 'Hoard knowledge']
+              },
+              {
+                id: 'q17',
+                text: 'Describe how you debrief after flights.',
+                expectedAnswers: ['Regular practice', 'Two-way discussion', 'Focus on learning', 'Positive and constructive', 'Identify improvements'],
+                redFlags: ['No debriefs', 'One-way criticism', 'Only negative', 'Blame-focused']
+              },
+              {
+                id: 'q18',
+                text: 'How do you handle a First Officer who is struggling?',
+                expectedAnswers: ['Private conversation', 'Understand issues', 'Provide support', 'Work together', 'Escalate if needed'],
+                redFlags: ['Criticize publicly', 'No support', 'Ignore problems', 'Immediate reporting']
+              },
+              {
+                id: 'q19',
+                text: 'How do you stay current with training developments and share with peers?',
+                expectedAnswers: ['Continuous learning', 'Attend updates', 'Share knowledge', 'Peer discussions', 'Industry involvement'],
+                redFlags: ['No development', 'Keep knowledge to self', 'Outdated practices', 'No peer engagement']
+              },
+              {
+                id: 'q20',
+                text: 'Describe your approach to new First Officers on their first flights.',
+                expectedAnswers: ['Thorough briefing', 'Set expectations', 'Supportive environment', 'Appropriate workload', 'Encourage questions'],
+                redFlags: ['Throw in deep end', 'No support', 'Excessive criticism', 'No briefing']
+              }
+            ]
+          }
+        ]
+      },
+      first_officer: {
+        name: "First Officer",
+        categories: [
+          {
+            id: 'technical-fo',
+            title: '1. Technical Competence ({aircraftType})',
+            questions: [
+              {
+                id: 'q1',
+                text: 'Describe your approach to pre-flight preparation on the {aircraftType}.',
+                expectedAnswers: ['Systematic checklists', 'Weather review', '{aircraftType} performance calculations', 'Route alternatives', 'Aircraft status review'],
+                redFlags: ['Rushed preparation', 'Over-reliance on automation', 'Skip steps when pressured', 'No weather consideration']
+              },
+              {
+                id: 'q2',
+                text: 'Explain the {aircraftType} flight control system and how it operates in different flight modes.',
+                expectedAnswers: ['{aircraftType} flight control knowledge', 'Normal law/mode awareness', 'Degraded modes understanding', 'Protections awareness', 'Manual reversion'],
+                redFlags: ['Poor system knowledge', 'Cannot explain modes', 'No understanding of protections', 'Overconfident']
+              },
+              {
+                id: 'q3',
+                text: 'How do you stay proficient with manual flying skills on the {aircraftType}?',
+                expectedAnswers: ['Regular practice', '{aircraftType} simulator sessions', 'Hand-fly when appropriate', 'Self-assessment', 'Seek training'],
+                redFlags: ['Rely solely on automation', 'No practice', 'Avoid manual flying', 'Overconfident']
+              },
+              {
+                id: 'q4',
+                text: 'Describe the {aircraftType} pressurization system and your actions for a cabin altitude warning.',
+                expectedAnswers: ['System architecture knowledge', 'Warning recognition', 'Memory items', 'Emergency descent', 'Checklist completion'],
+                redFlags: ['Poor system knowledge', 'Wrong procedures', 'Hesitant', 'No understanding of physiology']
+              },
+              {
+                id: 'q5',
+                text: 'Walk me through the {aircraftType} approach and landing configuration sequence.',
+                expectedAnswers: ['Speed management', 'Configuration sequence', 'Checklist items', 'Callouts', 'Go-around awareness'],
+                redFlags: ['Wrong sequence', 'Miss items', 'No awareness of speeds', 'Poor checklist discipline']
+              }
+            ]
+          },
+          {
+            id: 'crm-fo',
+            title: '2. CRM & Communication',
+            questions: [
+              {
+                id: 'q6',
+                text: 'How would you handle a disagreement with your Captain about safety?',
                 expectedAnswers: ['Express concerns respectfully', 'Provide evidence', 'Escalate if needed', 'Document', 'Follow chain of command'],
                 redFlags: ['Stay silent', 'Confrontational', 'No authority gradient understanding', 'Would not escalate']
               },
               {
-                id: 'q10',
+                id: 'q7',
                 text: 'Describe a time when CRM helped prevent an incident.',
                 expectedAnswers: ['Specific example', 'Team communication', 'Error caught', 'Positive outcome', 'Lessons learned'],
                 redFlags: ['No understanding of CRM', 'Solo decision making', 'No example', 'Dismisses teamwork']
               },
               {
-                id: 'q11',
-                text: 'How do you handle a captain who does not welcome input?',
+                id: 'q8',
+                text: 'How do you handle a Captain who does not welcome input?',
                 expectedAnswers: ['Continue providing input professionally', 'Document concerns', 'Use assertive communication', 'Report if safety issue', 'Adapt approach'],
                 redFlags: ['Go silent', 'Become confrontational', 'Not report issues', 'Give up trying']
               },
               {
-                id: 'q12',
-                text: 'Describe how you conduct a pre-flight briefing.',
-                expectedAnswers: ['Cover all relevant points', 'Invite questions', 'Discuss concerns', 'Review emergency procedures', 'Set expectations'],
-                redFlags: ['Rush through', 'Discourage questions', 'Skip items', 'No two-way communication']
+                id: 'q9',
+                text: 'How do you ensure effective communication with cabin crew?',
+                expectedAnswers: ['Clear briefings', 'Standard phraseology', 'Regular updates', 'Listen to concerns', 'Professional manner'],
+                redFlags: ['Dismissive', 'Poor listening', 'Minimal communication', 'Ignore cabin crew']
+              },
+              {
+                id: 'q10',
+                text: 'How do you support the Captain during high workload phases?',
+                expectedAnswers: ['Anticipate needs', 'Monitor actively', 'Communicate clearly', 'Take appropriate initiative', 'Know role'],
+                redFlags: ['Passive', 'Wait to be told', 'Miss cues', 'Over-step boundaries']
               }
             ]
           },
           {
-            id: 'decision-making',
-            title: '3. Decision Making & Situational Awareness',
+            id: 'sa-fo',
+            title: '3. Situational Awareness & Decision Making',
             questions: [
               {
-                id: 'q13',
+                id: 'q11',
                 text: 'How do you maintain situational awareness during routine flights?',
                 expectedAnswers: ['Active monitoring', 'Cross-checking', 'Anticipate changes', 'Avoid complacency', 'Regular scanning'],
                 redFlags: ['Over-reliance on automation', 'Complacency', 'Distractions', 'No active monitoring']
               },
               {
-                id: 'q14',
-                text: 'Describe your decision-making process for a go-around.',
-                expectedAnswers: ['Clear criteria', 'No hesitation when needed', 'Communicate clearly', 'Safety first', 'Debrief afterward'],
-                redFlags: ['Hesitate to go around', 'Ego involved', 'Poor communication', 'Land despite unsafe conditions']
-              },
-              {
-                id: 'q15',
+                id: 'q12',
                 text: 'How do you handle pressure from operations to maintain schedule?',
-                expectedAnswers: ['Safety never compromised', 'Clear communication', 'Document pressures', 'Professional pushback', 'Support from peers'],
+                expectedAnswers: ['Safety never compromised', 'Clear communication', 'Document pressures', 'Professional pushback', 'Support from Captain'],
                 redFlags: ['Succumb to pressure', 'Compromise safety', 'No pushback ability', 'Schedule over safety']
               },
               {
-                id: 'q16',
-                text: 'Tell me about a time you had to divert. What was your decision process?',
-                expectedAnswers: ['Assessed situation', 'Considered options', 'Communicated with all parties', 'Made timely decision', 'Prioritized safety'],
-                redFlags: ['Delayed too long', 'Did not consider divert early enough', 'Poor communication', 'Continued despite risks']
-              },
-              {
-                id: 'q17',
+                id: 'q13',
                 text: 'How do you manage fatigue and ensure you are fit to fly?',
                 expectedAnswers: ['Adequate rest', 'Know personal limits', 'Report if fatigued', 'Healthy lifestyle', 'Use fatigue policies'],
                 redFlags: ['Fly when fatigued', 'Ignore regulations', 'No self-awareness', 'Pride over safety']
               },
               {
-                id: 'q18',
-                text: 'Describe a situation where you had to balance multiple priorities in flight.',
-                expectedAnswers: ['Clear prioritization', 'Delegated appropriately', 'Maintained safety focus', 'Communicated decisions', 'Reviewed afterward'],
-                redFlags: ['Lost focus', 'Poor delegation', 'Neglected priorities', 'Did not communicate']
+                id: 'q14',
+                text: 'Describe your approach to monitoring the Captain during their sectors.',
+                expectedAnswers: ['Active monitoring', 'Standard callouts', 'Catch deviations', 'Speak up when needed', 'Professional approach'],
+                redFlags: ['Passive monitoring', 'Miss deviations', 'Hesitant to speak up', 'Over-reliant on Captain']
+              },
+              {
+                id: 'q15',
+                text: 'How do you prepare yourself for upgrade to Captain in the future?',
+                expectedAnswers: ['Learn from Captains', 'Develop decision-making', 'Take opportunities', 'Study and prepare', 'Build experience'],
+                redFlags: ['Not thinking ahead', 'No development plan', 'Passive approach', 'Entitled attitude']
               }
             ]
           },
           {
-            id: 'professionalism',
-            title: '4. Professionalism & Continuous Learning',
+            id: 'professional-fo',
+            title: '4. Professionalism',
             questions: [
               {
-                id: 'q19',
+                id: 'q16',
                 text: 'How do you stay current with changes in aviation regulations?',
                 expectedAnswers: ['Regular study', 'Company updates', 'Industry publications', 'Peer discussions', 'Training courses'],
                 redFlags: ['Only when required', 'No proactive learning', 'Outdated knowledge', 'Dismisses updates']
               },
               {
-                id: 'q20',
+                id: 'q17',
                 text: 'Describe how you handle criticism of your flying from a check pilot.',
                 expectedAnswers: ['Listen openly', 'Ask for specifics', 'Work on improvements', 'No defensiveness', 'Follow up'],
                 redFlags: ['Defensive', 'Make excuses', 'Ignore feedback', 'Argue with examiner']
               },
               {
-                id: 'q21',
+                id: 'q18',
                 text: 'What do you do after a flight that did not go as planned?',
                 expectedAnswers: ['Debrief thoroughly', 'Identify lessons', 'Document if needed', 'Discuss with colleagues', 'Apply learning'],
                 redFlags: ['Move on without reflection', 'Blame others', 'Hide incidents', 'No learning attitude']
               },
               {
-                id: 'q22',
-                text: 'How do you mentor junior pilots?',
-                expectedAnswers: ['Share experience openly', 'Encourage questions', 'Provide constructive feedback', 'Lead by example', 'Support their development'],
-                redFlags: ['Condescending', 'Unwilling to share', 'Critical without support', 'No interest in developing others']
+                id: 'q19',
+                text: 'How do you build good working relationships with Captains?',
+                expectedAnswers: ['Professional approach', 'Reliable performance', 'Good communication', 'Supportive', 'Consistent'],
+                redFlags: ['Inconsistent', 'Poor communication', 'Unreliable', 'Overfamiliar']
+              },
+              {
+                id: 'q20',
+                text: 'Describe your career goals and how this position fits.',
+                expectedAnswers: ['Clear goals', 'Realistic timeline', 'Development focus', 'Company alignment', 'Long-term commitment'],
+                redFlags: ['No goals', 'Unrealistic expectations', 'Just a stepping stone', 'No commitment']
+              }
+            ]
+          }
+        ]
+      },
+      captain_upgrade: {
+        name: "Captain Upgrade",
+        categories: [
+          {
+            id: 'command-readiness',
+            title: '1. Command Readiness',
+            questions: [
+              {
+                id: 'q1',
+                text: 'Why do you feel you are ready for command?',
+                expectedAnswers: ['Experience level', 'Leadership examples', 'Technical confidence', 'Decision-making ability', 'Self-awareness'],
+                redFlags: ['Entitlement', 'No concrete examples', 'Overconfident', 'Not self-aware']
+              },
+              {
+                id: 'q2',
+                text: 'Describe a situation where you had to take command initiative as First Officer.',
+                expectedAnswers: ['Clear situation', 'Appropriate action', 'Good outcome', 'Supported Captain', 'Learned from it'],
+                redFlags: ['No examples', 'Over-stepped inappropriately', 'Poor judgment', 'Did not support Captain']
+              },
+              {
+                id: 'q3',
+                text: 'How will your leadership style differ from being a First Officer?',
+                expectedAnswers: ['Final responsibility', 'Setting tone', 'Decision authority', 'Crew development', 'Accountability'],
+                redFlags: ['No change anticipated', 'Authoritarian shift', 'No crew focus', 'Unaware of differences']
+              },
+              {
+                id: 'q4',
+                text: 'What aspects of command concern you most and how will you address them?',
+                expectedAnswers: ['Honest self-assessment', 'Specific concerns', 'Development plan', 'Seeks support', 'Realistic approach'],
+                redFlags: ['No concerns', 'Overconfident', 'No plan', 'Dismissive']
+              },
+              {
+                id: 'q5',
+                text: 'How have you prepared yourself technically for upgrade?',
+                expectedAnswers: ['Additional study', 'Simulator practice', 'Mentorship sought', 'Self-assessment', 'Company resources'],
+                redFlags: ['No preparation', 'Rely on course alone', 'Overconfident', 'No initiative']
+              }
+            ]
+          },
+          {
+            id: 'technical-upgrade',
+            title: '2. Advanced Technical Knowledge ({aircraftType})',
+            questions: [
+              {
+                id: 'q6',
+                text: 'Explain the {aircraftType} fuel system architecture in detail, including tank arrangement, transfer logic, and your actions for a fuel leak scenario.',
+                expectedAnswers: ['{aircraftType} tank configuration', 'Transfer sequence', 'Cross-feed operation', 'Leak isolation', 'Landing distance considerations'],
+                redFlags: ['Poor system knowledge', 'Cannot explain architecture', 'Incorrect procedures', 'No decision framework']
+              },
+              {
+                id: 'q7',
+                text: 'Describe the {aircraftType} hydraulic system redundancy. What systems are lost with each hydraulic failure and what are your landing considerations?',
+                expectedAnswers: ['{aircraftType} hydraulic architecture', 'Each system function', 'Progressive failure effects', 'Alternate extension', 'Braking/steering limitations'],
+                redFlags: ['Poor knowledge', 'Cannot explain redundancy', 'Wrong system allocation', 'No landing planning']
+              },
+              {
+                id: 'q8',
+                text: 'Walk me through the {aircraftType} dual engine failure procedure and restart criteria.',
+                expectedAnswers: ['Memory items', 'APU usage', 'Windmill restart criteria', 'Optimum relight speed', 'Emergency electrical config'],
+                redFlags: ['Wrong sequence', 'Miss memory items', 'Unknown restart criteria', 'No APU consideration']
+              },
+              {
+                id: 'q9',
+                text: 'Explain the {aircraftType} electrical system architecture. How does emergency power work and what is available in each electrical configuration?',
+                expectedAnswers: ['{aircraftType} electrical architecture', 'Generator/bus relationship', 'RAT deployment criteria', 'Essential vs non-essential', 'Battery endurance'],
+                redFlags: ['Cannot explain bus structure', 'Wrong emergency config', 'No RAT knowledge', 'Poor battery awareness']
+              },
+              {
+                id: 'q10',
+                text: 'Describe the {aircraftType} flight control system in degraded modes. What protections are lost and how does handling change?',
+                expectedAnswers: ['Normal/alternate/direct law', 'Protection availability', 'Handling differences', 'Speed limitations', 'Trim behavior'],
+                redFlags: ['Cannot explain modes', 'Wrong protection status', 'No handling awareness', 'Poor limitation knowledge']
+              }
+            ]
+          },
+          {
+            id: 'scenarios',
+            title: '3. Scenario-Based Decision Making ({aircraftType})',
+            questions: [
+              {
+                id: 'q11',
+                text: 'You have an engine failure at V1 on the {aircraftType}. Walk me through your actions, aircraft handling, and single-engine performance considerations.',
+                expectedAnswers: ['Memory items', '{aircraftType} single-engine handling', 'Performance assessment', 'Obstacle clearance', 'Return decision'],
+                redFlags: ['Wrong actions', 'No performance consideration', 'Indecisive', 'Poor handling awareness']
+              },
+              {
+                id: 'q12',
+                text: 'During cruise on your {aircraftType}, you lose all hydraulic quantity in System A/1. Talk me through your assessment and decision-making.',
+                expectedAnswers: ['System assessment', 'Affected systems', 'Checklist actions', 'Diversion considerations', 'Landing planning'],
+                redFlags: ['Wrong system knowledge', 'No checklist', 'Poor diversion decision', 'No landing planning']
+              },
+              {
+                id: 'q13',
+                text: 'You receive a cabin crew report of smoke in the cabin of your {aircraftType}. What are your immediate actions and how do you prioritize?',
+                expectedAnswers: ['Oxygen/masks', 'Crew coordination', '{aircraftType} smoke checklist', 'Emergency declaration', 'Nearest suitable airport'],
+                redFlags: ['Delayed response', 'No emergency declaration', 'Poor prioritization', 'Continue to destination']
+              },
+              {
+                id: 'q14',
+                text: 'Your First Officer makes a significant error on approach. How do you handle it?',
+                expectedAnswers: ['Ensure safety first', 'Take over if needed', 'Professional debrief', 'Supportive approach', 'Report if needed'],
+                redFlags: ['Public criticism', 'No takeover when needed', 'Blame', 'No debrief']
+              },
+              {
+                id: 'q15',
+                text: 'You suspect your First Officer may be unfit for duty. What do you do?',
+                expectedAnswers: ['Private conversation', 'Assessment', 'Remove from duty if needed', 'Support', 'Report appropriately'],
+                redFlags: ['Ignore', 'Public confrontation', 'Continue flight', 'No reporting']
+              }
+            ]
+          },
+          {
+            id: 'leadership-upgrade',
+            title: '4. Leadership & CRM',
+            questions: [
+              {
+                id: 'q16',
+                text: 'How will you create an environment where First Officers feel comfortable challenging you?',
+                expectedAnswers: ['Open communication', 'Welcome challenges', 'Thank for input', 'Lead by example', 'No ego'],
+                redFlags: ['Discourage input', 'Authority focus', 'Ego-driven', 'Poor communication']
+              },
+              {
+                id: 'q17',
+                text: 'Describe how you would handle a serious error made by yourself in flight.',
+                expectedAnswers: ['Acknowledge error', 'Ensure safety', 'Inform crew', 'File report', 'Learn from it'],
+                redFlags: ['Hide error', 'Blame others', 'No report', 'No learning']
+              },
+              {
+                id: 'q18',
+                text: 'How will you approach your first flights as a new Captain?',
+                expectedAnswers: ['Thorough preparation', 'Good briefings', 'Stay within limits', 'Seek support', 'Reflect and learn'],
+                redFlags: ['Overconfident', 'No preparation', 'Push limits', 'No reflection']
+              },
+              {
+                id: 'q19',
+                text: 'How do you balance being approachable with maintaining command authority?',
+                expectedAnswers: ['Clear communication', 'Professional boundaries', 'Consistent behavior', 'Earn respect', 'Know when to be firm'],
+                redFlags: ['Too casual', 'Too authoritarian', 'Inconsistent', 'No self-awareness']
+              },
+              {
+                id: 'q20',
+                text: 'What will success look like for you as a Captain after your first year?',
+                expectedAnswers: ['Safe record', 'Crew development', 'Professional reputation', 'Continued learning', 'Company contribution'],
+                redFlags: ['Ego metrics', 'No safety focus', 'No development', 'Unrealistic']
               }
             ]
           }

@@ -169,6 +169,7 @@ function logout() {
 // Current selected position
 let currentIndustryId = 'aviation';
 let currentPositionId = 'fleet_admin';
+let currentAircraftType = 'b737_800';
 
 function initializeApp() {
     // Set today's date as default
@@ -181,9 +182,7 @@ function initializeApp() {
     setActivePosition(currentIndustryId, currentPositionId);
 
     // Update position field with current position name
-    const industry = industriesData[currentIndustryId];
-    const position = industry.positions[currentPositionId];
-    document.getElementById('position').value = position.name;
+    updatePositionFieldDisplay();
 
     // Render all questions
     renderQuestions();
@@ -196,6 +195,23 @@ function initializeApp() {
 
     // Update scores
     updateScores();
+}
+
+function updatePositionFieldDisplay() {
+    const industry = industriesData[currentIndustryId];
+    const position = industry.positions[currentPositionId];
+    let displayName = position.name;
+
+    // Add aircraft type for aviation flight crew positions
+    if (currentIndustryId === 'aviation' && industry.aircraftTypes &&
+        ['captain', 'first_officer', 'captain_upgrade'].includes(currentPositionId)) {
+        const aircraftType = industry.aircraftTypes[currentAircraftType];
+        if (aircraftType) {
+            displayName = `${position.name} - ${aircraftType.name}`;
+        }
+    }
+
+    document.getElementById('position').value = displayName;
 }
 
 // ==================== Position Selector ====================
@@ -214,6 +230,9 @@ function renderPositionSelector() {
 
     // Populate position dropdown for current industry
     updatePositionDropdown();
+
+    // Initialize aircraft type dropdown (show/hide based on position)
+    updateAircraftTypeDropdown();
 }
 
 function updatePositionDropdown() {
@@ -225,6 +244,48 @@ function updatePositionDropdown() {
             ${pos.name}
         </option>`
     ).join('');
+}
+
+function updateAircraftTypeDropdown() {
+    const aircraftTypeGroup = document.getElementById('aircraftTypeGroup');
+    const aircraftTypeSelect = document.getElementById('aircraftTypeSelect');
+    const industry = industriesData[currentIndustryId];
+
+    // Only show for aviation flight crew positions
+    const isFlightCrew = currentIndustryId === 'aviation' &&
+        ['captain', 'first_officer', 'captain_upgrade'].includes(currentPositionId);
+
+    if (isFlightCrew && industry.aircraftTypes) {
+        aircraftTypeGroup.style.display = 'block';
+
+        // Populate aircraft type dropdown
+        const types = Object.entries(industry.aircraftTypes);
+        aircraftTypeSelect.innerHTML = types.map(([id, type]) =>
+            `<option value="${id}" ${id === currentAircraftType ? 'selected' : ''}>
+                ${type.name}
+            </option>`
+        ).join('');
+    } else {
+        aircraftTypeGroup.style.display = 'none';
+    }
+}
+
+function onAircraftTypeChange() {
+    const aircraftTypeSelect = document.getElementById('aircraftTypeSelect');
+    currentAircraftType = aircraftTypeSelect.value;
+
+    // Update position display to include aircraft type
+    updatePositionFieldDisplay();
+
+    // Re-render questions with new aircraft type placeholders
+    renderQuestions();
+
+    // Restore any saved data after re-render
+    loadSavedData();
+    updateScores();
+
+    // Save data
+    saveData();
 }
 
 function onIndustryChange() {
@@ -247,8 +308,14 @@ function onIndustryChange() {
     const positions = getPositions(currentIndustryId);
     currentPositionId = positions[0].id;
 
+    // Reset aircraft type to default when changing industry
+    currentAircraftType = 'b737_800';
+
     // Update position dropdown
     updatePositionDropdown();
+
+    // Update aircraft type dropdown (show/hide based on industry)
+    updateAircraftTypeDropdown();
 
     // Apply the change
     applyPositionChange();
@@ -270,6 +337,9 @@ function onPositionChange() {
     // Update current position
     currentPositionId = newPositionId;
 
+    // Update aircraft type dropdown (show/hide based on position)
+    updateAircraftTypeDropdown();
+
     // Apply the change
     applyPositionChange();
 }
@@ -278,10 +348,8 @@ function applyPositionChange() {
     // Set active questions
     setActivePosition(currentIndustryId, currentPositionId);
 
-    // Update position field
-    const industry = industriesData[currentIndustryId];
-    const position = industry.positions[currentPositionId];
-    document.getElementById('position').value = position.name;
+    // Update position field (includes aircraft type for flight crew)
+    updatePositionFieldDisplay();
 
     // Clear and re-render questions
     clearAssessmentData();
@@ -330,11 +398,14 @@ function createCategoryElement(category) {
     div.className = 'category';
     div.id = `category-${category.id}`;
 
+    // Replace aircraft type placeholders in category title
+    const categoryTitle = replaceAircraftPlaceholders(category.title);
+
     div.innerHTML = `
         <div class="category-header" onclick="toggleCategory('${category.id}')">
             <h2>
                 <span class="collapse-icon">▼</span>
-                ${category.title}
+                ${categoryTitle}
             </h2>
             <span class="category-score" id="score-${category.id}">0 / ${category.questions.length * 5}</span>
         </div>
@@ -346,11 +417,29 @@ function createCategoryElement(category) {
     return div;
 }
 
+function getAircraftTypeName() {
+    const industry = industriesData[currentIndustryId];
+    if (currentIndustryId === 'aviation' && industry.aircraftTypes && industry.aircraftTypes[currentAircraftType]) {
+        return industry.aircraftTypes[currentAircraftType].name;
+    }
+    return '';
+}
+
+function replaceAircraftPlaceholders(text) {
+    const aircraftName = getAircraftTypeName();
+    return text.replace(/\{aircraftType\}/g, aircraftName);
+}
+
 function createQuestionCard(question) {
+    // Replace aircraft type placeholders in question text
+    const questionText = replaceAircraftPlaceholders(question.text);
+    const expectedAnswers = question.expectedAnswers.map(a => replaceAircraftPlaceholders(a));
+    const redFlags = question.redFlags.map(r => replaceAircraftPlaceholders(r));
+
     return `
         <div class="question-card" id="card-${question.id}">
             <div class="question-number">${question.id.toUpperCase()}</div>
-            <div class="question-text">${question.text}</div>
+            <div class="question-text">${questionText}</div>
 
             <div class="guidance-section">
                 <button class="guidance-toggle" onclick="toggleGuidance('${question.id}', 'expected')">
@@ -363,14 +452,14 @@ function createQuestionCard(question) {
                 <div class="guidance-content expected-answers" id="expected-${question.id}">
                     <h4>✓ Expected/Good Answers:</h4>
                     <ul>
-                        ${question.expectedAnswers.map(a => `<li>${a}</li>`).join('')}
+                        ${expectedAnswers.map(a => `<li>${a}</li>`).join('')}
                     </ul>
                 </div>
 
                 <div class="guidance-content red-flags" id="redflags-${question.id}">
                     <h4>⚠ Red Flags to Watch For:</h4>
                     <ul>
-                        ${question.redFlags.map(r => `<li>${r}</li>`).join('')}
+                        ${redFlags.map(r => `<li>${r}</li>`).join('')}
                     </ul>
                 </div>
             </div>
@@ -798,15 +887,16 @@ function clearForm() {
     // Reset to default position
     currentIndustryId = 'aviation';
     currentPositionId = 'fleet_admin';
+    currentAircraftType = 'b737_800';
     setActivePosition(currentIndustryId, currentPositionId);
 
     // Reset dropdowns
     document.getElementById('industrySelect').value = currentIndustryId;
     updatePositionDropdown();
+    updateAircraftTypeDropdown();
 
-    const industry = industriesData[currentIndustryId];
-    const position = industry.positions[currentPositionId];
-    document.getElementById('position').value = position.name;
+    // Update position field display
+    updatePositionFieldDisplay();
 
     // Re-render questions for default position
     renderQuestions();
