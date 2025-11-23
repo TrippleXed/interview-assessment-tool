@@ -4744,6 +4744,155 @@ const industriesData = {
             ]
           }
         ]
+      },
+      legal_secretary: {
+        name: "Legal Secretary",
+        categories: [
+          {
+            id: 'admin-skills',
+            title: '1. Administrative Skills',
+            questions: [
+              {
+                id: 'q1',
+                text: 'Describe your experience managing attorney calendars and scheduling.',
+                expectedAnswers: ['Court deadlines', 'Client meetings', 'Conflict checking', 'Reminder systems', 'Priority management'],
+                redFlags: ['Missed deadlines', 'No system', 'Poor organization', 'No proactive management']
+              },
+              {
+                id: 'q2',
+                text: 'How do you handle multiple attorneys with competing priorities?',
+                expectedAnswers: ['Clear communication', 'Prioritization system', 'Transparency', 'Time management', 'Escalation when needed'],
+                redFlags: ['Play favorites', 'No communication', 'Miss deadlines', 'Over-commit']
+              },
+              {
+                id: 'q3',
+                text: 'Describe your experience with legal billing and timekeeping.',
+                expectedAnswers: ['Accurate time entry', 'Billing software', 'Client matter management', 'Expense tracking', 'Invoice review'],
+                redFlags: ['Inaccurate entries', 'No experience', 'Poor tracking', 'Billing errors']
+              },
+              {
+                id: 'q4',
+                text: 'How do you maintain organized filing systems for legal documents?',
+                expectedAnswers: ['Consistent naming', 'Easy retrieval', 'Both physical and electronic', 'Regular maintenance', 'Version control'],
+                redFlags: ['Disorganized', 'Cannot find documents', 'No system', 'No consistency']
+              },
+              {
+                id: 'q5',
+                text: 'How do you prioritize tasks when everything seems urgent?',
+                expectedAnswers: ['Deadline assessment', 'Attorney communication', 'Court deadlines first', 'Client impact', 'Clear communication'],
+                redFlags: ['Panic', 'No prioritization', 'Miss deadlines', 'No communication']
+              }
+            ]
+          },
+          {
+            id: 'legal-docs',
+            title: '2. Legal Document Preparation',
+            questions: [
+              {
+                id: 'q6',
+                text: 'What types of legal documents have you prepared?',
+                expectedAnswers: ['Pleadings', 'Correspondence', 'Contracts', 'Discovery documents', 'Court filings'],
+                redFlags: ['Limited experience', 'No document types', 'Errors in work', 'No attention to detail']
+              },
+              {
+                id: 'q7',
+                text: 'How do you ensure accuracy in legal document preparation?',
+                expectedAnswers: ['Proofreading', 'Spell check', 'Format review', 'Citation checking', 'Attorney review'],
+                redFlags: ['Rush through', 'No proofreading', 'Frequent errors', 'Skip review']
+              },
+              {
+                id: 'q8',
+                text: 'Describe your experience with e-filing in state and federal courts.',
+                expectedAnswers: ['Multiple systems', 'Deadline awareness', 'Technical requirements', 'Confirmation follow-up', 'Troubleshooting'],
+                redFlags: ['No experience', 'Missed filings', 'No follow-up', 'Technical struggles']
+              },
+              {
+                id: 'q9',
+                text: 'How do you handle document production for discovery?',
+                expectedAnswers: ['Organization system', 'Bates numbering', 'Privilege review support', 'Deadline tracking', 'Volume management'],
+                redFlags: ['Disorganized', 'Miss documents', 'No system', 'Deadline issues']
+              },
+              {
+                id: 'q10',
+                text: 'Describe your experience with legal document management software.',
+                expectedAnswers: ['Specific systems', 'Document storage', 'Version control', 'Search capabilities', 'User proficiency'],
+                redFlags: ['No experience', 'Technology resistant', 'Cannot name systems', 'Limited proficiency']
+              }
+            ]
+          },
+          {
+            id: 'communication',
+            title: '3. Communication & Client Service',
+            questions: [
+              {
+                id: 'q11',
+                text: 'How do you handle client communications professionally?',
+                expectedAnswers: ['Prompt response', 'Professional tone', 'Know limits', 'Route appropriately', 'Document interactions'],
+                redFlags: ['Give legal advice', 'Slow response', 'Unprofessional', 'No documentation']
+              },
+              {
+                id: 'q12',
+                text: 'Describe how you handle a difficult or demanding client.',
+                expectedAnswers: ['Stay professional', 'Listen actively', 'Set expectations', 'Involve attorney', 'Document concerns'],
+                redFlags: ['Get defensive', 'Argue', 'Make promises', 'No documentation']
+              },
+              {
+                id: 'q13',
+                text: 'How do you coordinate with outside parties like courts and opposing counsel?',
+                expectedAnswers: ['Professional manner', 'Clear communication', 'Document everything', 'Follow protocols', 'Timely response'],
+                redFlags: ['Unprofessional', 'Confrontational', 'Poor documentation', 'Slow response']
+              },
+              {
+                id: 'q14',
+                text: 'How do you handle confidential information?',
+                expectedAnswers: ['Strict confidentiality', 'Secure handling', 'Need-to-know', 'Proper disposal', 'No discussion'],
+                redFlags: ['Casual about confidentiality', 'Discuss matters', 'Poor security', 'Share information']
+              },
+              {
+                id: 'q15',
+                text: 'Describe your approach to screening and routing phone calls.',
+                expectedAnswers: ['Professional greeting', 'Gather information', 'Appropriate routing', 'Message accuracy', 'Urgent matter handling'],
+                redFlags: ['Unprofessional', 'Lose messages', 'Poor screening', 'Miss urgent calls']
+              }
+            ]
+          },
+          {
+            id: 'professionalism',
+            title: '4. Professionalism & Ethics',
+            questions: [
+              {
+                id: 'q16',
+                text: 'How do you stay current with legal procedures and requirements?',
+                expectedAnswers: ['CLE attendance', 'Rule updates', 'Professional associations', 'Colleague networking', 'Continuous learning'],
+                redFlags: ['Outdated knowledge', 'No learning', 'Rely on others', 'No initiative']
+              },
+              {
+                id: 'q17',
+                text: 'Describe a situation where you had to meet a very tight deadline.',
+                expectedAnswers: ['Prioritized tasks', 'Focused effort', 'Communicated status', 'Met deadline', 'Quality maintained'],
+                redFlags: ['Missed deadline', 'Panic', 'Errors from rushing', 'No communication']
+              },
+              {
+                id: 'q18',
+                text: 'How do you handle stress in a busy legal environment?',
+                expectedAnswers: ['Stay organized', 'Prioritize', 'Ask for help', 'Maintain composure', 'Self-care'],
+                redFlags: ['Get overwhelmed', 'Take it out on others', 'Quality suffers', 'No coping strategies']
+              },
+              {
+                id: 'q19',
+                text: 'What would you do if asked to do something you believed was unethical?',
+                expectedAnswers: ['Clarify request', 'Express concern', 'Know ethical rules', 'Escalate if needed', 'Document'],
+                redFlags: ['Just comply', 'No ethical awareness', 'Ignore concerns', 'No escalation']
+              },
+              {
+                id: 'q20',
+                text: 'How do you maintain professionalism when working long hours under pressure?',
+                expectedAnswers: ['Stay focused', 'Professional demeanor', 'Team support', 'Quality standards', 'Positive attitude'],
+                redFlags: ['Complain', 'Quality drops', 'Negative attitude', 'Affect team']
+              }
+            ]
+          }
+        ]
       }
     }
   },
@@ -4896,6 +5045,155 @@ const industriesData = {
                 text: 'How do you handle continuing education requirements?',
                 expectedAnswers: ['Stay current', 'Beyond minimums', 'Apply learning', 'Specializations', 'Industry involvement'],
                 redFlags: ['Just minimums', 'Last minute', 'No application', 'No growth']
+              }
+            ]
+          }
+        ]
+      },
+      property_manager: {
+        name: "Property Manager",
+        categories: [
+          {
+            id: 'operations',
+            title: '1. Property Operations',
+            questions: [
+              {
+                id: 'q1',
+                text: 'How do you handle day-to-day property management responsibilities?',
+                expectedAnswers: ['Systematic approach', 'Prioritization', 'Tenant communication', 'Vendor coordination', 'Documentation'],
+                redFlags: ['Reactive only', 'Disorganized', 'Poor communication', 'No documentation']
+              },
+              {
+                id: 'q2',
+                text: 'Describe your approach to property inspections.',
+                expectedAnswers: ['Regular schedule', 'Comprehensive checklist', 'Documentation with photos', 'Follow-up on issues', 'Safety focus'],
+                redFlags: ['Infrequent', 'Superficial', 'No documentation', 'No follow-up']
+              },
+              {
+                id: 'q3',
+                text: 'How do you manage maintenance requests?',
+                expectedAnswers: ['Tracking system', 'Priority assessment', 'Vendor management', 'Tenant communication', 'Quality verification'],
+                redFlags: ['No tracking', 'Slow response', 'Poor vendor management', 'No follow-up']
+              },
+              {
+                id: 'q4',
+                text: 'How do you handle emergency maintenance situations?',
+                expectedAnswers: ['24/7 response plan', 'Reliable vendors', 'Quick assessment', 'Tenant safety first', 'Documentation'],
+                redFlags: ['No emergency plan', 'Slow response', 'Unreliable vendors', 'Poor documentation']
+              },
+              {
+                id: 'q5',
+                text: 'Describe your experience with property management software.',
+                expectedAnswers: ['Specific systems', 'Tenant portal', 'Maintenance tracking', 'Financial reporting', 'Document storage'],
+                redFlags: ['No experience', 'Manual processes', 'Technology resistant', 'Limited functionality use']
+              }
+            ]
+          },
+          {
+            id: 'tenant-relations',
+            title: '2. Tenant Relations',
+            questions: [
+              {
+                id: 'q6',
+                text: 'How do you screen prospective tenants?',
+                expectedAnswers: ['Consistent criteria', 'Credit check', 'Background check', 'Income verification', 'References', 'Fair housing compliance'],
+                redFlags: ['Inconsistent screening', 'Skip steps', 'Discrimination risk', 'No verification']
+              },
+              {
+                id: 'q7',
+                text: 'How do you handle tenant complaints?',
+                expectedAnswers: ['Listen actively', 'Document concerns', 'Timely response', 'Follow through', 'Fair resolution'],
+                redFlags: ['Dismiss complaints', 'Slow response', 'No documentation', 'Confrontational']
+              },
+              {
+                id: 'q8',
+                text: 'Describe your approach to lease enforcement.',
+                expectedAnswers: ['Clear communication', 'Consistent enforcement', 'Documentation', 'Progressive action', 'Legal compliance'],
+                redFlags: ['Selective enforcement', 'No documentation', 'Skip procedures', 'Confrontational']
+              },
+              {
+                id: 'q9',
+                text: 'How do you handle the eviction process?',
+                expectedAnswers: ['Follow legal procedures', 'Documentation', 'Attorney involvement', 'Professional approach', 'Proper notice'],
+                redFlags: ['Skip procedures', 'Self-help eviction', 'No documentation', 'Emotional approach']
+              },
+              {
+                id: 'q10',
+                text: 'How do you encourage lease renewals?',
+                expectedAnswers: ['Relationship building', 'Property maintenance', 'Fair pricing', 'Early communication', 'Address concerns'],
+                redFlags: ['No retention effort', 'Ignore tenants', 'Unreasonable increases', 'Last-minute notice']
+              }
+            ]
+          },
+          {
+            id: 'financial',
+            title: '3. Financial Management',
+            questions: [
+              {
+                id: 'q11',
+                text: 'How do you handle rent collection?',
+                expectedAnswers: ['Clear policies', 'Multiple payment options', 'Consistent follow-up', 'Late fee enforcement', 'Documentation'],
+                redFlags: ['Inconsistent', 'No follow-up', 'No enforcement', 'Poor documentation']
+              },
+              {
+                id: 'q12',
+                text: 'Describe your experience with property budgeting.',
+                expectedAnswers: ['Operating budget', 'Capital planning', 'Variance analysis', 'Owner reporting', 'Cost control'],
+                redFlags: ['No budgeting', 'No variance tracking', 'Poor reporting', 'Cost overruns']
+              },
+              {
+                id: 'q13',
+                text: 'How do you manage vendor relationships and costs?',
+                expectedAnswers: ['Competitive bidding', 'Quality assessment', 'Contract management', 'Performance monitoring', 'Cost negotiation'],
+                redFlags: ['No bidding', 'No contracts', 'No monitoring', 'Overpaying']
+              },
+              {
+                id: 'q14',
+                text: 'How do you report to property owners?',
+                expectedAnswers: ['Regular reports', 'Financial statements', 'Occupancy updates', 'Issue communication', 'Recommendations'],
+                redFlags: ['Infrequent reporting', 'Incomplete information', 'Hide problems', 'No recommendations']
+              },
+              {
+                id: 'q15',
+                text: 'How do you handle security deposits?',
+                expectedAnswers: ['Proper documentation', 'Legal compliance', 'Move-in/out inspections', 'Itemized deductions', 'Timely return'],
+                redFlags: ['Poor documentation', 'Illegal deductions', 'Late return', 'No inspections']
+              }
+            ]
+          },
+          {
+            id: 'compliance',
+            title: '4. Legal & Compliance',
+            questions: [
+              {
+                id: 'q16',
+                text: 'How do you ensure fair housing compliance?',
+                expectedAnswers: ['Training', 'Consistent policies', 'Documentation', 'Avoid steering', 'Reasonable accommodations'],
+                redFlags: ['No training', 'Inconsistent treatment', 'Discrimination risk', 'Deny accommodations']
+              },
+              {
+                id: 'q17',
+                text: 'How do you stay current with landlord-tenant laws?',
+                expectedAnswers: ['Regular training', 'Legal resources', 'Industry associations', 'Attorney consultation', 'Policy updates'],
+                redFlags: ['Outdated knowledge', 'No training', 'Ignore changes', 'Non-compliant practices']
+              },
+              {
+                id: 'q18',
+                text: 'Describe your experience with property safety compliance.',
+                expectedAnswers: ['Building codes', 'Fire safety', 'Accessibility', 'Regular inspections', 'Prompt corrections'],
+                redFlags: ['Ignore codes', 'No inspections', 'Delayed corrections', 'Safety hazards']
+              },
+              {
+                id: 'q19',
+                text: 'How do you handle insurance and liability issues?',
+                expectedAnswers: ['Adequate coverage', 'Certificate tracking', 'Incident documentation', 'Claim management', 'Risk mitigation'],
+                redFlags: ['Inadequate coverage', 'No tracking', 'Poor documentation', 'No risk management']
+              },
+              {
+                id: 'q20',
+                text: 'How do you document property-related activities?',
+                expectedAnswers: ['Comprehensive records', 'Organized filing', 'Incident reports', 'Communication logs', 'Retention compliance'],
+                redFlags: ['Poor documentation', 'Disorganized', 'Missing records', 'No retention policy']
               }
             ]
           }
