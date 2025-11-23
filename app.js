@@ -851,18 +851,33 @@ function exportToPdf() {
     doc.text(`Interviewer: ${interviewer}`, margin, yPos);
     yPos += 15;
 
-    // Overall score
-    const overallScore = document.getElementById('overallScore').textContent;
-    const maxScore = document.getElementById('maxScore').textContent;
-    const percentage = document.getElementById('percentage').textContent;
-    const recommendation = document.getElementById('recommendation').textContent;
+    // Overall score and recommendation
+    const assessmentData = getAssessmentData();
+    const recommendation = getRecommendation(assessmentData);
 
     doc.setFontSize(12);
     doc.setFont(undefined, 'bold');
-    doc.text(`Overall Score: ${overallScore}/${maxScore} (${percentage}%)`, margin, yPos);
+    doc.text(`Overall Score: ${assessmentData.totalScore}/${assessmentData.answeredMaxScore} (${assessmentData.percentage}%)`, margin, yPos);
     yPos += 7;
-    doc.text(`Recommendation: ${recommendation}`, margin, yPos);
-    yPos += 15;
+    doc.text(`Questions Answered: ${assessmentData.answeredCount}/${assessmentData.totalQuestions}`, margin, yPos);
+    yPos += 7;
+    doc.text(`Recommendation: ${recommendation.badge}`, margin, yPos);
+    yPos += 5;
+    doc.setFontSize(10);
+    doc.setFont(undefined, 'normal');
+    const recLines = doc.splitTextToSize(recommendation.text, contentWidth);
+    doc.text(recLines, margin, yPos);
+    yPos += recLines.length * 5 + 10;
+
+    // Red flags summary if any
+    if (assessmentData.redFlags.length > 0) {
+        doc.setFontSize(11);
+        doc.setFont(undefined, 'bold');
+        doc.setTextColor(231, 76, 60);
+        doc.text(`Red Flags: ${assessmentData.redFlagCount}`, margin, yPos);
+        doc.setTextColor(0, 0, 0);
+        yPos += 10;
+    }
 
     // Questions and responses
     interviewQuestions.forEach(category => {
