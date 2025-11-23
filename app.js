@@ -754,6 +754,9 @@ function setupEventListeners() {
     // Complete Interview
     document.getElementById('completeInterview').addEventListener('click', completeInterview);
 
+    // Saved Interviews
+    document.getElementById('savedInterviews').addEventListener('click', openSavedInterviewsModal);
+
     // Expand All
     document.getElementById('expandAll').addEventListener('click', () => {
         document.querySelectorAll('.category').forEach(cat => {
@@ -1042,3 +1045,409 @@ document.addEventListener('input', function(e) {
         saveData();
     }
 });
+
+// ==================== Saved Interviews & Comparison ====================
+
+let savedInterviewsCache = [];
+let selectedForComparison = [];
+
+// Save interview to database
+async function saveInterview() {
+    const session = getSession();
+    if (!session) {
+        alert('Please log in to save interviews');
+        return;
+    }
+
+    const candidateName = document.getElementById('candidateName').value;
+    if (!candidateName.trim()) {
+        alert('Please enter a candidate name before saving');
+        return;
+    }
+
+    const assessmentData = getAssessmentData();
+    const recommendation = getRecommendation(assessmentData);
+
+    // Build category scores
+    const categoryScores = {};
+    interviewQuestions.forEach(category => {
+        let score = 0;
+        let answered = 0;
+        category.questions.forEach(q => {
+            const selectedBtn = document.querySelector(`[data-question="${q.id}"].selected`);
+            if (selectedBtn) {
+                score += parseInt(selectedBtn.dataset.score);
+                answered++;
+            }
+        });
+        categoryScores[category.id] = {
+            title: category.title,
+            score: score,
+            max: answered * 5,
+            answered: answered,
+            total: category.questions.length
+        };
+    });
+
+    // Build question scores and notes
+    const questionScores = {};
+    const questionNotes = {};
+    interviewQuestions.forEach(category => {
+        category.questions.forEach(q => {
+            const selectedBtn = document.querySelector(`[data-question="${q.id}"].selected`);
+            if (selectedBtn) {
+                questionScores[q.id] = parseInt(selectedBtn.dataset.score);
+            }
+            const notes = document.getElementById(`notes-${q.id}`);
+            if (notes && notes.value.trim()) {
+                questionNotes[q.id] = notes.value.trim();
+            }
+        });
+    });
+
+    const saveBtn = document.querySelector('.modal-footer .btn-success');
+    saveBtn.disabled = true;
+    saveBtn.textContent = 'Saving...';
+
+    try {
+        const response = await fetch('/api/interviews/save', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                subscriberEmail: session.password, // Using password as identifier
+                interviewerName: document.getElementById('interviewer').value,
+                candidateName: candidateName,
+                position: document.getElementById('position').value,
+                industry: currentIndustryId,
+                positionId: currentPositionId,
+                aircraftType: currentAircraftType,
+                interviewDate: document.getElementById('interviewDate').value,
+                totalScore: assessmentData.totalScore,
+                maxScore: assessmentData.answeredMaxScore,
+                percentage: assessmentData.percentage,
+                questionsAnswered: assessmentData.answeredCount,
+                totalQuestions: assessmentData.totalQuestions,
+                recommendation: recommendation.badge,
+                recommendationText: recommendation.text,
+                categoryScores: categoryScores,
+                questionScores: questionScores,
+                questionNotes: questionNotes,
+                redFlags: assessmentData.redFlags,
+                redFlagCount: assessmentData.redFlagCount
+            })
+        });
+
+        const data = await response.json();
+
+        if (data.success) {
+            alert('Interview saved successfully!');
+            closeSummaryModal();
+        } else {
+            alert('Failed to save interview: ' + (data.error || 'Unknown error'));
+        }
+    } catch (error) {
+        console.error('Save error:', error);
+        alert('Failed to save interview. Please try again.');
+    } finally {
+        saveBtn.disabled = false;
+        saveBtn.textContent = 'Save Interview';
+    }
+}
+
+// Open saved interviews modal
+async function openSavedInterviewsModal() {
+    document.getElementById('savedInterviewsModal').style.display = 'flex';
+    selectedForComparison = [];
+    updateCompareButton();
+    await loadSavedInterviews();
+}
+
+function closeSavedInterviewsModal() {
+    document.getElementById('savedInterviewsModal').style.display = 'none';
+}
+
+// Load saved interviews
+async function loadSavedInterviews() {
+    const listEl = document.getElementById('savedInterviewsList');
+    listEl.innerHTML = '<p class="loading">Loading saved interviews...</p>';
+
+    const session = getSession();
+    if (!session) {
+        listEl.innerHTML = '<p class="no-interviews">Please log in to view saved interviews</p>';
+        return;
+    }
+
+    try {
+        const response = await fetch(`/api/interviews/list?email=${encodeURIComponent(session.password)}`);
+        const data = await response.json();
+
+        if (data.success) {
+            savedInterviewsCache = data.interviews;
+            renderSavedInterviews(savedInterviewsCache);
+            populateFilterDropdown();
+        } else {
+            listEl.innerHTML = '<p class="no-interviews">Failed to load interviews</p>';
+        }
+    } catch (error) {
+        console.error('Load error:', error);
+        listEl.innerHTML = '<p class="no-interviews">Failed to load interviews</p>';
+    }
+}
+
+function populateFilterDropdown() {
+    const filterSelect = document.getElementById('filterPosition');
+    const positions = [...new Set(savedInterviewsCache.map(i => i.position))];
+
+    filterSelect.innerHTML = '<option value="">All Positions</option>' +
+        positions.map(p => `<option value="${p}">${p}</option>`).join('');
+}
+
+function filterSavedInterviews() {
+    const position = document.getElementById('filterPosition').value;
+    const recommendation = document.getElementById('filterRecommendation').value;
+
+    let filtered = savedInterviewsCache;
+
+    if (position) {
+        filtered = filtered.filter(i => i.position === position);
+    }
+    if (recommendation) {
+        filtered = filtered.filter(i => i.recommendation === recommendation);
+    }
+
+    renderSavedInterviews(filtered);
+}
+
+function renderSavedInterviews(interviews) {
+    const listEl = document.getElementById('savedInterviewsList');
+
+    if (!interviews || interviews.length === 0) {
+        listEl.innerHTML = '<p class="no-interviews">No saved interviews found</p>';
+        return;
+    }
+
+    listEl.innerHTML = interviews.map(interview => {
+        const percentClass = interview.percentage >= 70 ? 'high' : interview.percentage >= 50 ? 'medium' : 'low';
+        const recClass = getRecommendationClass(interview.recommendation);
+        const isSelected = selectedForComparison.includes(interview.id);
+        const date = new Date(interview.interview_date).toLocaleDateString();
+
+        return `
+            <div class="saved-interview-item ${isSelected ? 'selected' : ''}" data-id="${interview.id}">
+                <input type="checkbox" class="saved-interview-checkbox"
+                       ${isSelected ? 'checked' : ''}
+                       onchange="toggleCompareSelection('${interview.id}')">
+                <div class="saved-interview-info">
+                    <div class="saved-interview-name">${interview.candidate_name}</div>
+                    <div class="saved-interview-details">
+                        <span>${interview.position}</span>
+                        <span>${date}</span>
+                        <span>${interview.questions_answered}/${interview.total_questions} questions</span>
+                    </div>
+                </div>
+                <div class="saved-interview-score">
+                    <div class="saved-interview-percentage ${percentClass}">${interview.percentage}%</div>
+                    <div class="saved-interview-recommendation ${recClass}">${interview.recommendation}</div>
+                </div>
+                <div class="saved-interview-actions">
+                    <button class="btn btn-danger btn-sm" onclick="deleteInterview('${interview.id}')">Delete</button>
+                </div>
+            </div>
+        `;
+    }).join('');
+}
+
+function getRecommendationClass(rec) {
+    switch(rec) {
+        case 'STRONG HIRE': return 'strong-hire';
+        case 'HIRE': return 'hire';
+        case 'MAYBE': return 'maybe';
+        case 'DO NOT HIRE': return 'no-hire';
+        default: return '';
+    }
+}
+
+function toggleCompareSelection(id) {
+    const index = selectedForComparison.indexOf(id);
+    if (index > -1) {
+        selectedForComparison.splice(index, 1);
+    } else if (selectedForComparison.length < 4) {
+        selectedForComparison.push(id);
+    } else {
+        alert('You can compare up to 4 candidates at a time');
+        return;
+    }
+
+    // Update visual state
+    document.querySelectorAll('.saved-interview-item').forEach(el => {
+        const checkbox = el.querySelector('.saved-interview-checkbox');
+        if (el.dataset.id === id) {
+            el.classList.toggle('selected', selectedForComparison.includes(id));
+            checkbox.checked = selectedForComparison.includes(id);
+        }
+    });
+
+    updateCompareButton();
+}
+
+function updateCompareButton() {
+    const btn = document.getElementById('compareBtn');
+    const count = selectedForComparison.length;
+    btn.textContent = `Compare Selected (${count})`;
+    btn.disabled = count < 2;
+}
+
+async function deleteInterview(id) {
+    if (!confirm('Are you sure you want to delete this interview?')) return;
+
+    try {
+        const response = await fetch(`/api/interviews/delete?id=${id}`, {
+            method: 'DELETE'
+        });
+        const data = await response.json();
+
+        if (data.success) {
+            savedInterviewsCache = savedInterviewsCache.filter(i => i.id !== id);
+            selectedForComparison = selectedForComparison.filter(i => i !== id);
+            renderSavedInterviews(savedInterviewsCache);
+            updateCompareButton();
+        } else {
+            alert('Failed to delete interview');
+        }
+    } catch (error) {
+        console.error('Delete error:', error);
+        alert('Failed to delete interview');
+    }
+}
+
+// Comparison View
+function openComparisonView() {
+    if (selectedForComparison.length < 2) {
+        alert('Please select at least 2 candidates to compare');
+        return;
+    }
+
+    const selectedInterviews = savedInterviewsCache.filter(i => selectedForComparison.includes(i.id));
+
+    // Find best candidate
+    const bestCandidate = selectedInterviews.reduce((best, current) =>
+        current.percentage > best.percentage ? current : best
+    );
+
+    const container = document.getElementById('comparisonContainer');
+    container.innerHTML = selectedInterviews.map(interview => {
+        const isBest = interview.id === bestCandidate.id;
+        const percentClass = interview.percentage >= 70 ? 'high' : interview.percentage >= 50 ? 'medium' : 'low';
+        const recClass = getRecommendationClass(interview.recommendation);
+
+        // Build category bars
+        const categoryBars = Object.entries(interview.category_scores || {}).map(([id, cat]) => {
+            const pct = cat.max > 0 ? Math.round((cat.score / cat.max) * 100) : 0;
+            const barClass = pct >= 70 ? 'high' : pct >= 50 ? 'medium' : 'low';
+            return `
+                <div class="comparison-category">
+                    <div class="comparison-category-name">${cat.title || id}</div>
+                    <div class="comparison-category-bar">
+                        <div class="comparison-category-fill ${barClass}" style="width: ${pct}%"></div>
+                    </div>
+                    <div class="comparison-category-score">${cat.score}/${cat.max} (${pct}%)</div>
+                </div>
+            `;
+        }).join('');
+
+        return `
+            <div class="comparison-card ${isBest ? 'best' : ''}">
+                <div class="comparison-card-header">
+                    <h3>${interview.candidate_name}</h3>
+                    <p>${interview.position}</p>
+                </div>
+                <div class="comparison-card-body">
+                    <div class="comparison-score-summary">
+                        <div class="comparison-percentage ${percentClass}">${interview.percentage}%</div>
+                        <div class="comparison-badge ${recClass}">${interview.recommendation}</div>
+                        <div style="margin-top: 10px; font-size: 0.85rem; color: #666;">
+                            ${interview.total_score}/${interview.max_score} points
+                        </div>
+                    </div>
+                    <div class="comparison-categories">
+                        ${categoryBars}
+                    </div>
+                    ${interview.red_flag_count > 0 ? `
+                        <div class="comparison-red-flags">
+                            <h4>${interview.red_flag_count} Red Flag${interview.red_flag_count > 1 ? 's' : ''}</h4>
+                        </div>
+                    ` : ''}
+                </div>
+            </div>
+        `;
+    }).join('');
+
+    document.getElementById('comparisonModal').style.display = 'flex';
+    closeSavedInterviewsModal();
+}
+
+function closeComparisonModal() {
+    document.getElementById('comparisonModal').style.display = 'none';
+}
+
+function exportComparisonToPdf() {
+    const { jsPDF } = window.jspdf;
+    const doc = new jsPDF('landscape');
+
+    const selectedInterviews = savedInterviewsCache.filter(i => selectedForComparison.includes(i.id));
+
+    let yPos = 20;
+    const margin = 20;
+
+    // Title
+    doc.setFontSize(18);
+    doc.setFont(undefined, 'bold');
+    doc.text('Candidate Comparison Report', margin, yPos);
+    yPos += 15;
+
+    doc.setFontSize(10);
+    doc.setFont(undefined, 'normal');
+    doc.text(`Generated: ${new Date().toLocaleDateString()}`, margin, yPos);
+    yPos += 15;
+
+    // Comparison table
+    const colWidth = (doc.internal.pageSize.width - margin * 2) / selectedInterviews.length;
+    let xPos = margin;
+
+    // Headers
+    doc.setFontSize(11);
+    doc.setFont(undefined, 'bold');
+    selectedInterviews.forEach((interview, idx) => {
+        doc.text(interview.candidate_name, xPos + (colWidth * idx), yPos);
+    });
+    yPos += 10;
+
+    // Position
+    doc.setFont(undefined, 'normal');
+    selectedInterviews.forEach((interview, idx) => {
+        doc.text(interview.position.substring(0, 25), xPos + (colWidth * idx), yPos);
+    });
+    yPos += 10;
+
+    // Score
+    doc.setFont(undefined, 'bold');
+    selectedInterviews.forEach((interview, idx) => {
+        doc.text(`${interview.percentage}%`, xPos + (colWidth * idx), yPos);
+    });
+    yPos += 10;
+
+    // Recommendation
+    selectedInterviews.forEach((interview, idx) => {
+        doc.text(interview.recommendation, xPos + (colWidth * idx), yPos);
+    });
+    yPos += 15;
+
+    // Red flags
+    doc.setFont(undefined, 'normal');
+    selectedInterviews.forEach((interview, idx) => {
+        doc.text(`Red Flags: ${interview.red_flag_count || 0}`, xPos + (colWidth * idx), yPos);
+    });
+
+    const fileName = `Comparison_${new Date().toISOString().split('T')[0]}.pdf`;
+    doc.save(fileName);
+}

@@ -85,6 +85,7 @@
 
         <div class="actions">
             <button id="completeInterview" class="btn btn-success">Complete Interview</button>
+            <button id="savedInterviews" class="btn btn-primary">Saved Interviews</button>
             <button id="expandAll" class="btn btn-secondary">Expand All</button>
             <button id="collapseAll" class="btn btn-secondary">Collapse All</button>
             <button id="exportPdf" class="btn btn-primary">Export to PDF</button>
@@ -140,8 +141,67 @@
                 </div>
             </div>
             <div class="modal-footer">
+                <button class="btn btn-success" onclick="saveInterview()">Save Interview</button>
                 <button class="btn btn-primary" onclick="exportToPdf()">Export to PDF</button>
                 <button class="btn btn-secondary" onclick="closeSummaryModal()">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Saved Interviews Modal -->
+    <div id="savedInterviewsModal" class="modal" style="display: none;">
+        <div class="modal-content saved-interviews-modal">
+            <div class="modal-header">
+                <h2>Saved Interviews</h2>
+                <button class="modal-close" onclick="closeSavedInterviewsModal()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="saved-interviews-filters">
+                    <div class="filter-group">
+                        <label for="filterPosition">Position:</label>
+                        <select id="filterPosition" onchange="filterSavedInterviews()">
+                            <option value="">All Positions</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <label for="filterRecommendation">Recommendation:</label>
+                        <select id="filterRecommendation" onchange="filterSavedInterviews()">
+                            <option value="">All</option>
+                            <option value="STRONG HIRE">Strong Hire</option>
+                            <option value="HIRE">Hire</option>
+                            <option value="MAYBE">Maybe</option>
+                            <option value="DO NOT HIRE">Do Not Hire</option>
+                        </select>
+                    </div>
+                    <button class="btn btn-primary" id="compareBtn" onclick="openComparisonView()" disabled>
+                        Compare Selected (0)
+                    </button>
+                </div>
+                <div class="saved-interviews-list" id="savedInterviewsList">
+                    <p class="loading">Loading saved interviews...</p>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" onclick="closeSavedInterviewsModal()">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Comparison Modal -->
+    <div id="comparisonModal" class="modal" style="display: none;">
+        <div class="modal-content comparison-modal">
+            <div class="modal-header">
+                <h2>Candidate Comparison</h2>
+                <button class="modal-close" onclick="closeComparisonModal()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="comparison-container" id="comparisonContainer">
+                    <!-- Comparison cards will be inserted here -->
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-primary" onclick="exportComparisonToPdf()">Export Comparison to PDF</button>
+                <button class="btn btn-secondary" onclick="closeComparisonModal()">Close</button>
             </div>
         </div>
     </div>
