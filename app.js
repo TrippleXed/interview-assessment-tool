@@ -1196,10 +1196,31 @@ async function loadSavedInterviews() {
 
 function populateFilterDropdown() {
     const filterSelect = document.getElementById('filterPosition');
-    const positions = [...new Set(savedInterviewsCache.map(i => i.position))];
 
-    filterSelect.innerHTML = '<option value="">All Positions</option>' +
-        positions.map(p => `<option value="${p}">${p}</option>`).join('');
+    // Get unique positions from saved interviews (filter out null/undefined)
+    const savedPositions = [...new Set(
+        savedInterviewsCache
+            .map(i => i.position)
+            .filter(p => p && p.trim())
+    )].sort();
+
+    // If no saved positions, show all available positions from industries
+    let positionOptions = '';
+    if (savedPositions.length > 0) {
+        positionOptions = savedPositions.map(p => `<option value="${p}">${p}</option>`).join('');
+    } else {
+        // Build from industriesData
+        const allPositions = [];
+        Object.values(industriesData).forEach(industry => {
+            Object.values(industry.positions).forEach(pos => {
+                allPositions.push(pos.name);
+            });
+        });
+        positionOptions = [...new Set(allPositions)].sort()
+            .map(p => `<option value="${p}">${p}</option>`).join('');
+    }
+
+    filterSelect.innerHTML = '<option value="">All Positions</option>' + positionOptions;
 }
 
 function filterSavedInterviews() {
