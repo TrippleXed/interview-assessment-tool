@@ -2923,6 +2923,1715 @@ const industriesData = {
         ]
       }
     }
+  },
+
+  hospitality: {
+    name: "Hospitality",
+    icon: "🏨",
+    positions: {
+      hotel_manager: {
+        name: "Hotel Manager",
+        categories: [
+          {
+            id: 'operations',
+            title: '1. Operations Management',
+            questions: [
+              {
+                id: 'q1',
+                text: 'Describe your approach to managing daily hotel operations.',
+                expectedAnswers: ['Systematic oversight', 'Department coordination', 'Guest focus', 'Staff management', 'Quality standards'],
+                redFlags: ['Reactive only', 'No systems', 'Ignore guests', 'Poor coordination']
+              },
+              {
+                id: 'q2',
+                text: 'How do you handle overbooking situations?',
+                expectedAnswers: ['Prevention strategies', 'Clear procedures', 'Guest communication', 'Alternative arrangements', 'Compensation'],
+                redFlags: ['No plan', 'Blame staff', 'Poor guest handling', 'No alternatives']
+              },
+              {
+                id: 'q3',
+                text: 'Describe managing hotel revenue and occupancy.',
+                expectedAnswers: ['Revenue management', 'Pricing strategies', 'Forecasting', 'Channel management', 'Data analysis'],
+                redFlags: ['No strategy', 'Ignore data', 'Fixed pricing only', 'No forecasting']
+              },
+              {
+                id: 'q4',
+                text: 'How do you ensure quality standards across departments?',
+                expectedAnswers: ['Clear standards', 'Regular inspections', 'Staff training', 'Guest feedback', 'Continuous improvement'],
+                redFlags: ['No standards', 'No inspections', 'Ignore feedback', 'Inconsistent']
+              },
+              {
+                id: 'q5',
+                text: 'Describe handling a major facility issue during peak occupancy.',
+                expectedAnswers: ['Quick assessment', 'Guest communication', 'Alternative solutions', 'Staff coordination', 'Follow up'],
+                redFlags: ['Panic', 'Hide from guests', 'No solutions', 'Poor communication']
+              }
+            ]
+          },
+          {
+            id: 'guest-service',
+            title: '2. Guest Service',
+            questions: [
+              {
+                id: 'q6',
+                text: 'How do you handle a VIP guest complaint?',
+                expectedAnswers: ['Personal attention', 'Listen fully', 'Quick resolution', 'Follow up', 'Learn from it'],
+                redFlags: ['Delegate away', 'Dismiss complaint', 'No follow up', 'Defensive']
+              },
+              {
+                id: 'q7',
+                text: 'Describe creating memorable guest experiences.',
+                expectedAnswers: ['Personalization', 'Anticipate needs', 'Empower staff', 'Special touches', 'Feedback driven'],
+                redFlags: ['Standard service only', 'No personalization', 'Ignore preferences', 'No empowerment']
+              },
+              {
+                id: 'q8',
+                text: 'How do you handle negative online reviews?',
+                expectedAnswers: ['Respond professionally', 'Address concerns', 'Take offline if needed', 'Learn from feedback', 'Follow up'],
+                redFlags: ['Ignore reviews', 'Defensive responses', 'Argue publicly', 'No learning']
+              },
+              {
+                id: 'q9',
+                text: 'Describe building guest loyalty.',
+                expectedAnswers: ['Recognition programs', 'Personalized service', 'Consistent quality', 'Follow up communication', 'Value creation'],
+                redFlags: ['Transactional focus', 'No recognition', 'Inconsistent service', 'No loyalty program']
+              },
+              {
+                id: 'q10',
+                text: 'How do you train staff on guest service excellence?',
+                expectedAnswers: ['Clear standards', 'Role modeling', 'Ongoing training', 'Feedback culture', 'Recognition'],
+                redFlags: ['No training', 'Poor modeling', 'One-time only', 'No recognition']
+              }
+            ]
+          },
+          {
+            id: 'staff',
+            title: '3. Staff Management',
+            questions: [
+              {
+                id: 'q11',
+                text: 'Describe managing a diverse hospitality team.',
+                expectedAnswers: ['Inclusive culture', 'Clear communication', 'Fair treatment', 'Development opportunities', 'Celebrate diversity'],
+                redFlags: ['Favoritism', 'Poor communication', 'Ignore diversity', 'No development']
+              },
+              {
+                id: 'q12',
+                text: 'How do you handle high staff turnover in hospitality?',
+                expectedAnswers: ['Understand causes', 'Improve culture', 'Competitive benefits', 'Development paths', 'Recognition programs'],
+                redFlags: ['Accept turnover', 'No investigation', 'Blame staff', 'No retention efforts']
+              },
+              {
+                id: 'q13',
+                text: 'Describe scheduling staff for variable demand.',
+                expectedAnswers: ['Forecast demand', 'Flexible scheduling', 'Cross-training', 'Fair distribution', 'Communication'],
+                redFlags: ['Reactive only', 'No forecasting', 'Unfair schedules', 'No flexibility']
+              },
+              {
+                id: 'q14',
+                text: 'How do you handle conflict between departments?',
+                expectedAnswers: ['Understand issues', 'Facilitate discussion', 'Find solutions', 'Improve processes', 'Follow up'],
+                redFlags: ['Take sides', 'Avoid conflict', 'No resolution', 'Let it fester']
+              },
+              {
+                id: 'q15',
+                text: 'Describe developing future leaders in your team.',
+                expectedAnswers: ['Identify potential', 'Mentoring', 'Growth opportunities', 'Feedback', 'Succession planning'],
+                redFlags: ['No development', 'Hold back talent', 'No mentoring', 'No planning']
+              }
+            ]
+          },
+          {
+            id: 'business',
+            title: '4. Business Acumen',
+            questions: [
+              {
+                id: 'q16',
+                text: 'How do you manage hotel budget and costs?',
+                expectedAnswers: ['Budget planning', 'Cost monitoring', 'Variance analysis', 'Cost control', 'Investment decisions'],
+                redFlags: ['No budget focus', 'Overspending', 'No monitoring', 'Poor decisions']
+              },
+              {
+                id: 'q17',
+                text: 'Describe your approach to competitive analysis.',
+                expectedAnswers: ['Monitor competitors', 'Market positioning', 'Differentiation', 'Pricing strategy', 'Service innovation'],
+                redFlags: ['Ignore competition', 'No differentiation', 'Reactive only', 'No analysis']
+              },
+              {
+                id: 'q18',
+                text: 'How do you drive ancillary revenue?',
+                expectedAnswers: ['Identify opportunities', 'Staff training', 'Guest needs focus', 'Package offerings', 'Track results'],
+                redFlags: ['No focus', 'Pushy selling', 'No tracking', 'Miss opportunities']
+              },
+              {
+                id: 'q19',
+                text: 'Describe handling a crisis situation at the hotel.',
+                expectedAnswers: ['Crisis plan', 'Quick response', 'Clear communication', 'Guest safety first', 'Recovery plan'],
+                redFlags: ['No plan', 'Panic', 'Poor communication', 'Delayed response']
+              },
+              {
+                id: 'q20',
+                text: 'How do you stay current with hospitality trends?',
+                expectedAnswers: ['Industry publications', 'Conferences', 'Networking', 'Technology adoption', 'Guest feedback'],
+                redFlags: ['Outdated practices', 'No learning', 'Resist change', 'Ignore trends']
+              }
+            ]
+          }
+        ]
+      },
+      restaurant_manager: {
+        name: "Restaurant Manager",
+        categories: [
+          {
+            id: 'operations',
+            title: '1. Restaurant Operations',
+            questions: [
+              {
+                id: 'q1',
+                text: 'Describe managing a busy dinner service.',
+                expectedAnswers: ['Preparation', 'Staff coordination', 'Guest flow management', 'Problem solving', 'Maintain quality'],
+                redFlags: ['No preparation', 'Chaos management', 'Ignore guests', 'Quality suffers']
+              },
+              {
+                id: 'q2',
+                text: 'How do you handle food quality complaints?',
+                expectedAnswers: ['Apologize sincerely', 'Replace immediately', 'Investigate cause', 'Compensate appropriately', 'Prevent recurrence'],
+                redFlags: ['Defensive', 'Blame kitchen', 'No compensation', 'No investigation']
+              },
+              {
+                id: 'q3',
+                text: 'Describe your approach to inventory and cost control.',
+                expectedAnswers: ['Accurate ordering', 'Waste reduction', 'Portion control', 'Regular counts', 'Variance investigation'],
+                redFlags: ['No control', 'High waste', 'No tracking', 'Ignore variances']
+              },
+              {
+                id: 'q4',
+                text: 'How do you ensure food safety compliance?',
+                expectedAnswers: ['Staff training', 'Regular checks', 'Documentation', 'Lead by example', 'Address issues immediately'],
+                redFlags: ['Lax standards', 'No training', 'Poor documentation', 'Ignore violations']
+              },
+              {
+                id: 'q5',
+                text: 'Describe handling a reservation overbook.',
+                expectedAnswers: ['Prevention strategies', 'Guest communication', 'Creative solutions', 'Compensation', 'Follow up'],
+                redFlags: ['No prevention', 'Blame staff', 'No solutions', 'Lose customers']
+              }
+            ]
+          },
+          {
+            id: 'guest-service',
+            title: '2. Guest Experience',
+            questions: [
+              {
+                id: 'q6',
+                text: 'How do you handle a difficult customer?',
+                expectedAnswers: ['Listen calmly', 'Empathize', 'Find solutions', 'Set boundaries if needed', 'Follow up'],
+                redFlags: ['Match aggression', 'Dismiss concerns', 'No solutions', 'Make scene']
+              },
+              {
+                id: 'q7',
+                text: 'Describe creating a memorable dining experience.',
+                expectedAnswers: ['Attention to detail', 'Personalization', 'Anticipate needs', 'Train staff', 'Gather feedback'],
+                redFlags: ['Transactional only', 'Ignore details', 'No personalization', 'No feedback']
+              },
+              {
+                id: 'q8',
+                text: 'How do you handle dietary restrictions and allergies?',
+                expectedAnswers: ['Take seriously', 'Clear communication', 'Kitchen coordination', 'Double-check', 'Document'],
+                redFlags: ['Dismiss concerns', 'No process', 'Poor communication', 'Risk safety']
+              },
+              {
+                id: 'q9',
+                text: 'Describe managing online reviews and reputation.',
+                expectedAnswers: ['Monitor regularly', 'Respond professionally', 'Address concerns', 'Learn from feedback', 'Encourage reviews'],
+                redFlags: ['Ignore reviews', 'Argue online', 'No response', 'No improvement']
+              },
+              {
+                id: 'q10',
+                text: 'How do you build regular customers?',
+                expectedAnswers: ['Recognition', 'Personalized service', 'Loyalty programs', 'Consistent quality', 'Follow up'],
+                redFlags: ['No recognition', 'Treat all same', 'Inconsistent', 'No loyalty efforts']
+              }
+            ]
+          },
+          {
+            id: 'staff',
+            title: '3. Team Leadership',
+            questions: [
+              {
+                id: 'q11',
+                text: 'Describe your approach to pre-shift meetings.',
+                expectedAnswers: ['Daily priorities', 'Menu updates', 'Team motivation', 'Issue resolution', 'Two-way communication'],
+                redFlags: ['No meetings', 'One-way only', 'No updates', 'Demotivating']
+              },
+              {
+                id: 'q12',
+                text: 'How do you handle an underperforming server?',
+                expectedAnswers: ['Private conversation', 'Understand cause', 'Clear expectations', 'Support improvement', 'Follow up'],
+                redFlags: ['Public criticism', 'No investigation', 'No support', 'Immediate termination']
+              },
+              {
+                id: 'q13',
+                text: 'Describe building teamwork between front and back of house.',
+                expectedAnswers: ['Communication channels', 'Mutual respect', 'Joint problem solving', 'Recognition', 'Team building'],
+                redFlags: ['Us vs them', 'Poor communication', 'Blame culture', 'No teamwork']
+              },
+              {
+                id: 'q14',
+                text: 'How do you schedule staff effectively?',
+                expectedAnswers: ['Forecast demand', 'Balance needs', 'Fair distribution', 'Flexibility', 'Advance notice'],
+                redFlags: ['Last minute', 'Unfair', 'No forecasting', 'Ignore preferences']
+              },
+              {
+                id: 'q15',
+                text: 'Describe training a new server.',
+                expectedAnswers: ['Structured program', 'Shadowing', 'Menu knowledge', 'Service standards', 'Gradual responsibility'],
+                redFlags: ['Sink or swim', 'No structure', 'Rush training', 'No follow up']
+              }
+            ]
+          },
+          {
+            id: 'business',
+            title: '4. Business Management',
+            questions: [
+              {
+                id: 'q16',
+                text: 'How do you manage food costs?',
+                expectedAnswers: ['Menu engineering', 'Portion control', 'Supplier negotiation', 'Waste tracking', 'Regular analysis'],
+                redFlags: ['No tracking', 'Ignore waste', 'No analysis', 'Poor purchasing']
+              },
+              {
+                id: 'q17',
+                text: 'Describe increasing restaurant revenue.',
+                expectedAnswers: ['Marketing strategies', 'Upselling training', 'Special events', 'Menu optimization', 'Customer retention'],
+                redFlags: ['No strategy', 'Cut prices only', 'No marketing', 'Ignore retention']
+              },
+              {
+                id: 'q18',
+                text: 'How do you handle a health inspection?',
+                expectedAnswers: ['Always ready', 'Clear documentation', 'Staff training', 'Address findings immediately', 'Continuous compliance'],
+                redFlags: ['Scramble to prepare', 'Hide issues', 'No documentation', 'Repeat violations']
+              },
+              {
+                id: 'q19',
+                text: 'Describe managing during slow periods.',
+                expectedAnswers: ['Staff appropriately', 'Training time', 'Marketing push', 'Cost control', 'Maintenance tasks'],
+                redFlags: ['Overstaffed', 'Waste time', 'No marketing', 'Let standards slip']
+              },
+              {
+                id: 'q20',
+                text: 'How do you stay competitive in the restaurant industry?',
+                expectedAnswers: ['Know competition', 'Guest feedback', 'Menu innovation', 'Service excellence', 'Industry trends'],
+                redFlags: ['Ignore competition', 'No innovation', 'Static menu', 'Outdated practices']
+              }
+            ]
+          }
+        ]
+      }
+    }
+  },
+
+  manufacturing: {
+    name: "Manufacturing",
+    icon: "🏭",
+    positions: {
+      production_manager: {
+        name: "Production Manager",
+        categories: [
+          {
+            id: 'operations',
+            title: '1. Production Operations',
+            questions: [
+              {
+                id: 'q1',
+                text: 'Describe your approach to production planning and scheduling.',
+                expectedAnswers: ['Demand forecasting', 'Capacity planning', 'Resource allocation', 'Schedule optimization', 'Contingency planning'],
+                redFlags: ['Reactive only', 'No planning', 'Over/under capacity', 'No contingency']
+              },
+              {
+                id: 'q2',
+                text: 'How do you handle production delays or bottlenecks?',
+                expectedAnswers: ['Root cause analysis', 'Quick solutions', 'Communication', 'Prevention measures', 'Resource reallocation'],
+                redFlags: ['Blame others', 'No analysis', 'Poor communication', 'Repeat issues']
+              },
+              {
+                id: 'q3',
+                text: 'Describe implementing lean manufacturing principles.',
+                expectedAnswers: ['Waste identification', 'Continuous improvement', 'Employee involvement', 'Metrics tracking', 'Sustainable changes'],
+                redFlags: ['No lean knowledge', 'Top-down only', 'No measurement', 'One-time effort']
+              },
+              {
+                id: 'q4',
+                text: 'How do you manage production costs while maintaining quality?',
+                expectedAnswers: ['Cost analysis', 'Process optimization', 'Quality standards', 'Supplier management', 'Waste reduction'],
+                redFlags: ['Cut corners', 'Quality suffers', 'No analysis', 'Ignore waste']
+              },
+              {
+                id: 'q5',
+                text: 'Describe handling an equipment breakdown during production.',
+                expectedAnswers: ['Quick assessment', 'Maintenance coordination', 'Production adjustment', 'Communication', 'Prevention planning'],
+                redFlags: ['Panic', 'No backup plan', 'Poor communication', 'No prevention']
+              }
+            ]
+          },
+          {
+            id: 'quality',
+            title: '2. Quality Management',
+            questions: [
+              {
+                id: 'q6',
+                text: 'How do you ensure consistent product quality?',
+                expectedAnswers: ['Quality standards', 'Process controls', 'Regular inspection', 'Training', 'Root cause analysis'],
+                redFlags: ['No standards', 'No inspection', 'Reactive only', 'No training']
+              },
+              {
+                id: 'q7',
+                text: 'Describe handling a quality issue that reached customers.',
+                expectedAnswers: ['Immediate containment', 'Customer communication', 'Root cause analysis', 'Corrective action', 'Prevention'],
+                redFlags: ['Hide issue', 'Blame shift', 'No analysis', 'No prevention']
+              },
+              {
+                id: 'q8',
+                text: 'How do you implement quality control at each production stage?',
+                expectedAnswers: ['Stage gates', 'Clear criteria', 'Documentation', 'Employee responsibility', 'Continuous monitoring'],
+                redFlags: ['End inspection only', 'No documentation', 'No ownership', 'Inconsistent']
+              },
+              {
+                id: 'q9',
+                text: 'Describe your experience with quality certifications (ISO, etc.).',
+                expectedAnswers: ['Implementation experience', 'Audit preparation', 'Documentation systems', 'Continuous compliance', 'Staff training'],
+                redFlags: ['No experience', 'Compliance only', 'Poor documentation', 'Not embedded']
+              },
+              {
+                id: 'q10',
+                text: 'How do you drive quality improvement initiatives?',
+                expectedAnswers: ['Data analysis', 'Employee involvement', 'Systematic approach', 'Measure results', 'Recognize success'],
+                redFlags: ['No initiatives', 'Top-down only', 'No measurement', 'No recognition']
+              }
+            ]
+          },
+          {
+            id: 'safety',
+            title: '3. Safety & Compliance',
+            questions: [
+              {
+                id: 'q11',
+                text: 'How do you ensure workplace safety in production?',
+                expectedAnswers: ['Safety culture', 'Training programs', 'Hazard identification', 'PPE compliance', 'Incident investigation'],
+                redFlags: ['Production over safety', 'No training', 'Ignore hazards', 'No investigation']
+              },
+              {
+                id: 'q12',
+                text: 'Describe handling a workplace safety incident.',
+                expectedAnswers: ['Immediate response', 'Care for injured', 'Investigation', 'Corrective action', 'Communication'],
+                redFlags: ['Hide incidents', 'No investigation', 'Blame victim', 'No correction']
+              },
+              {
+                id: 'q13',
+                text: 'How do you maintain regulatory compliance?',
+                expectedAnswers: ['Know regulations', 'Regular audits', 'Documentation', 'Training', 'Proactive updates'],
+                redFlags: ['Unaware', 'Reactive only', 'Poor documentation', 'Non-compliance']
+              },
+              {
+                id: 'q14',
+                text: 'Describe building a safety-first culture.',
+                expectedAnswers: ['Lead by example', 'Employee involvement', 'Recognition programs', 'Open reporting', 'Continuous improvement'],
+                redFlags: ['Lip service', 'Blame culture', 'Hide issues', 'No involvement']
+              },
+              {
+                id: 'q15',
+                text: 'How do you handle an employee who ignores safety procedures?',
+                expectedAnswers: ['Immediate intervention', 'Understand why', 'Retrain', 'Document', 'Progressive discipline'],
+                redFlags: ['Ignore it', 'Public humiliation', 'No retraining', 'Inconsistent']
+              }
+            ]
+          },
+          {
+            id: 'team',
+            title: '4. Team Management',
+            questions: [
+              {
+                id: 'q16',
+                text: 'How do you manage shift handovers?',
+                expectedAnswers: ['Structured process', 'Information transfer', 'Issue escalation', 'Documentation', 'Accountability'],
+                redFlags: ['No process', 'Information lost', 'No documentation', 'No accountability']
+              },
+              {
+                id: 'q17',
+                text: 'Describe motivating production workers.',
+                expectedAnswers: ['Recognition', 'Fair treatment', 'Development opportunities', 'Communication', 'Team involvement'],
+                redFlags: ['No motivation', 'Unfair treatment', 'No recognition', 'One-way communication']
+              },
+              {
+                id: 'q18',
+                text: 'How do you handle conflict between production teams?',
+                expectedAnswers: ['Listen to both', 'Focus on facts', 'Find resolution', 'Improve processes', 'Follow up'],
+                redFlags: ['Take sides', 'Ignore conflict', 'Blame individuals', 'No resolution']
+              },
+              {
+                id: 'q19',
+                text: 'Describe training workers on new processes or equipment.',
+                expectedAnswers: ['Structured training', 'Hands-on practice', 'Competency verification', 'Support period', 'Feedback'],
+                redFlags: ['Rush training', 'No verification', 'No support', 'Sink or swim']
+              },
+              {
+                id: 'q20',
+                text: 'How do you develop future supervisors?',
+                expectedAnswers: ['Identify potential', 'Mentoring', 'Growth assignments', 'Leadership training', 'Succession planning'],
+                redFlags: ['No development', 'Hold back talent', 'No planning', 'Reactive promotion']
+              }
+            ]
+          }
+        ]
+      }
+    }
+  },
+
+  construction: {
+    name: "Construction",
+    icon: "🏗️",
+    positions: {
+      project_manager: {
+        name: "Construction Project Manager",
+        categories: [
+          {
+            id: 'project',
+            title: '1. Project Management',
+            questions: [
+              {
+                id: 'q1',
+                text: 'Describe your approach to construction project planning.',
+                expectedAnswers: ['Scope definition', 'Schedule development', 'Resource planning', 'Risk identification', 'Stakeholder coordination'],
+                redFlags: ['No planning', 'Unrealistic schedules', 'Ignore risks', 'Poor coordination']
+              },
+              {
+                id: 'q2',
+                text: 'How do you handle project delays?',
+                expectedAnswers: ['Early identification', 'Impact assessment', 'Recovery planning', 'Client communication', 'Document changes'],
+                redFlags: ['Hide delays', 'No recovery plan', 'Poor communication', 'Blame others']
+              },
+              {
+                id: 'q3',
+                text: 'Describe managing multiple subcontractors.',
+                expectedAnswers: ['Clear contracts', 'Coordination meetings', 'Quality oversight', 'Payment management', 'Conflict resolution'],
+                redFlags: ['No coordination', 'Poor contracts', 'No oversight', 'Payment issues']
+              },
+              {
+                id: 'q4',
+                text: 'How do you manage project budget and cost control?',
+                expectedAnswers: ['Detailed budget', 'Regular tracking', 'Change order management', 'Value engineering', 'Forecasting'],
+                redFlags: ['No tracking', 'Overruns ignored', 'Poor change management', 'No forecasting']
+              },
+              {
+                id: 'q5',
+                text: 'Describe handling scope changes during construction.',
+                expectedAnswers: ['Document changes', 'Assess impact', 'Get approval', 'Update schedule/budget', 'Communicate to team'],
+                redFlags: ['Accept without documentation', 'No impact assessment', 'Poor communication', 'No approval process']
+              }
+            ]
+          },
+          {
+            id: 'safety',
+            title: '2. Safety & Compliance',
+            questions: [
+              {
+                id: 'q6',
+                text: 'How do you ensure site safety compliance?',
+                expectedAnswers: ['Safety plan', 'Regular inspections', 'Training requirements', 'PPE enforcement', 'Incident reporting'],
+                redFlags: ['Safety secondary', 'No inspections', 'No training', 'Incidents hidden']
+              },
+              {
+                id: 'q7',
+                text: 'Describe handling a safety incident on site.',
+                expectedAnswers: ['Immediate response', 'Medical attention', 'Investigation', 'Corrective action', 'Reporting'],
+                redFlags: ['Minimize incident', 'No investigation', 'Continue without correction', 'Hide from client']
+              },
+              {
+                id: 'q8',
+                text: 'How do you ensure regulatory and permit compliance?',
+                expectedAnswers: ['Know requirements', 'Proactive permits', 'Inspection preparation', 'Documentation', 'Address deficiencies'],
+                redFlags: ['Unaware of requirements', 'Late permits', 'Failed inspections', 'Poor documentation']
+              },
+              {
+                id: 'q9',
+                text: 'Describe building a safety culture with subcontractors.',
+                expectedAnswers: ['Clear expectations', 'Pre-qualification', 'Site orientations', 'Consistent enforcement', 'Recognition'],
+                redFlags: ['Not their responsibility', 'No expectations', 'Inconsistent', 'No enforcement']
+              },
+              {
+                id: 'q10',
+                text: 'How do you handle a subcontractor with safety violations?',
+                expectedAnswers: ['Stop work', 'Document violation', 'Corrective requirements', 'Follow up', 'Remove if repeated'],
+                redFlags: ['Ignore violations', 'No documentation', 'No consequences', 'Continue work']
+              }
+            ]
+          },
+          {
+            id: 'quality',
+            title: '3. Quality Management',
+            questions: [
+              {
+                id: 'q11',
+                text: 'How do you ensure construction quality?',
+                expectedAnswers: ['Quality plan', 'Inspections', 'Documentation', 'Punch lists', 'Third-party verification'],
+                redFlags: ['No plan', 'Skip inspections', 'Poor documentation', 'Cover defects']
+              },
+              {
+                id: 'q12',
+                text: 'Describe handling defective work from a subcontractor.',
+                expectedAnswers: ['Document issue', 'Require correction', 'Verify fix', 'Hold payment if needed', 'Track patterns'],
+                redFlags: ['Accept defects', 'No documentation', 'Pay anyway', 'No correction']
+              },
+              {
+                id: 'q13',
+                text: 'How do you manage project documentation and records?',
+                expectedAnswers: ['Organized system', 'Version control', 'Regular updates', 'Accessibility', 'Backup'],
+                redFlags: ['No system', 'Lost documents', 'Out of date', 'No backup']
+              },
+              {
+                id: 'q14',
+                text: 'Describe your approach to commissioning and handover.',
+                expectedAnswers: ['Commissioning plan', 'Testing documentation', 'Training for owner', 'Complete records', 'Warranty coordination'],
+                redFlags: ['Rush handover', 'Incomplete testing', 'No training', 'Missing documents']
+              },
+              {
+                id: 'q15',
+                text: 'How do you handle warranty claims?',
+                expectedAnswers: ['Document claim', 'Investigate cause', 'Coordinate repairs', 'Track costs', 'Prevent recurrence'],
+                redFlags: ['Avoid claims', 'Deny responsibility', 'Slow response', 'No tracking']
+              }
+            ]
+          },
+          {
+            id: 'stakeholder',
+            title: '4. Stakeholder Management',
+            questions: [
+              {
+                id: 'q16',
+                text: 'How do you manage client expectations?',
+                expectedAnswers: ['Clear communication', 'Regular updates', 'Honest about issues', 'Document agreements', 'Build relationship'],
+                redFlags: ['Overpromise', 'Hide issues', 'Poor communication', 'Adversarial']
+              },
+              {
+                id: 'q17',
+                text: 'Describe handling disputes with a client.',
+                expectedAnswers: ['Understand concerns', 'Document position', 'Seek resolution', 'Escalate appropriately', 'Maintain relationship'],
+                redFlags: ['Confrontational', 'No documentation', 'Avoid resolution', 'Damage relationship']
+              },
+              {
+                id: 'q18',
+                text: 'How do you coordinate with design professionals during construction?',
+                expectedAnswers: ['Regular communication', 'RFI process', 'Constructability input', 'Change coordination', 'Respect expertise'],
+                redFlags: ['Adversarial', 'No communication', 'Blame designers', 'No process']
+              },
+              {
+                id: 'q19',
+                text: 'Describe managing community relations during construction.',
+                expectedAnswers: ['Proactive communication', 'Address concerns', 'Minimize disruption', 'Contact information', 'Document interactions'],
+                redFlags: ['Ignore community', 'Dismiss concerns', 'No communication', 'Create conflicts']
+              },
+              {
+                id: 'q20',
+                text: 'How do you build and maintain relationships with subcontractors?',
+                expectedAnswers: ['Fair dealing', 'Clear expectations', 'Timely payment', 'Two-way communication', 'Long-term view'],
+                redFlags: ['Adversarial', 'Late payment', 'Blame all issues on subs', 'No relationships']
+              }
+            ]
+          }
+        ]
+      }
+    }
+  },
+
+  logistics: {
+    name: "Logistics & Supply Chain",
+    icon: "🚚",
+    positions: {
+      logistics_manager: {
+        name: "Logistics Manager",
+        categories: [
+          {
+            id: 'operations',
+            title: '1. Operations Management',
+            questions: [
+              {
+                id: 'q1',
+                text: 'Describe your approach to optimizing logistics operations.',
+                expectedAnswers: ['Process analysis', 'Cost reduction', 'Efficiency improvement', 'Technology use', 'Continuous improvement'],
+                redFlags: ['Status quo', 'No analysis', 'Ignore costs', 'Resist technology']
+              },
+              {
+                id: 'q2',
+                text: 'How do you handle supply chain disruptions?',
+                expectedAnswers: ['Risk planning', 'Quick response', 'Alternative suppliers', 'Communication', 'Recovery planning'],
+                redFlags: ['No contingency', 'Slow response', 'Single source', 'Poor communication']
+              },
+              {
+                id: 'q3',
+                text: 'Describe managing warehouse operations.',
+                expectedAnswers: ['Space optimization', 'Inventory accuracy', 'Safety compliance', 'Staff productivity', 'Process efficiency'],
+                redFlags: ['Disorganized', 'Inventory issues', 'Safety ignored', 'Poor productivity']
+              },
+              {
+                id: 'q4',
+                text: 'How do you ensure on-time delivery performance?',
+                expectedAnswers: ['Performance tracking', 'Carrier management', 'Process optimization', 'Issue resolution', 'Customer communication'],
+                redFlags: ['No tracking', 'Poor carrier relations', 'Accept delays', 'No communication']
+              },
+              {
+                id: 'q5',
+                text: 'Describe your experience with logistics technology and systems.',
+                expectedAnswers: ['WMS/TMS experience', 'Implementation involvement', 'Data analysis', 'Technology adoption', 'Integration understanding'],
+                redFlags: ['No tech experience', 'Resist systems', 'Cannot analyze data', 'Manual only']
+              }
+            ]
+          },
+          {
+            id: 'inventory',
+            title: '2. Inventory Management',
+            questions: [
+              {
+                id: 'q6',
+                text: 'How do you manage inventory levels?',
+                expectedAnswers: ['Demand forecasting', 'Safety stock calculation', 'ABC analysis', 'Turnover optimization', 'Carrying cost awareness'],
+                redFlags: ['No method', 'Overstocking', 'Stockouts common', 'Ignore costs']
+              },
+              {
+                id: 'q7',
+                text: 'Describe handling inventory discrepancies.',
+                expectedAnswers: ['Root cause analysis', 'Process improvement', 'Cycle counting', 'Documentation', 'Accountability'],
+                redFlags: ['Adjust without investigation', 'No root cause', 'Ignore discrepancies', 'No accountability']
+              },
+              {
+                id: 'q8',
+                text: 'How do you reduce inventory carrying costs?',
+                expectedAnswers: ['Space optimization', 'Turn improvement', 'Obsolescence management', 'Supplier terms', 'Just-in-time'],
+                redFlags: ['No focus on costs', 'High obsolescence', 'Poor terms', 'No optimization']
+              },
+              {
+                id: 'q9',
+                text: 'Describe your approach to demand forecasting.',
+                expectedAnswers: ['Historical analysis', 'Collaboration with sales', 'Seasonal adjustment', 'Review and adjust', 'System tools'],
+                redFlags: ['No forecasting', 'Work in isolation', 'No review', 'Guess work']
+              },
+              {
+                id: 'q10',
+                text: 'How do you manage slow-moving or obsolete inventory?',
+                expectedAnswers: ['Early identification', 'Prevention strategies', 'Disposition process', 'Write-off tracking', 'Lessons learned'],
+                redFlags: ['Ignore issue', 'No process', 'Hide obsolescence', 'No prevention']
+              }
+            ]
+          },
+          {
+            id: 'vendor',
+            title: '3. Vendor & Carrier Management',
+            questions: [
+              {
+                id: 'q11',
+                text: 'How do you select and evaluate carriers?',
+                expectedAnswers: ['Clear criteria', 'Performance metrics', 'Regular review', 'Relationship management', 'Negotiation'],
+                redFlags: ['Price only', 'No metrics', 'No review', 'Adversarial']
+              },
+              {
+                id: 'q12',
+                text: 'Describe negotiating logistics contracts.',
+                expectedAnswers: ['Market knowledge', 'Clear requirements', 'Total cost focus', 'Performance terms', 'Relationship balance'],
+                redFlags: ['No preparation', 'Price only', 'Poor terms', 'Adversarial approach']
+              },
+              {
+                id: 'q13',
+                text: 'How do you handle carrier performance issues?',
+                expectedAnswers: ['Document issues', 'Root cause discussion', 'Improvement plan', 'Monitor closely', 'Alternative ready'],
+                redFlags: ['Ignore issues', 'No documentation', 'No discussion', 'No alternatives']
+              },
+              {
+                id: 'q14',
+                text: 'Describe building strategic carrier relationships.',
+                expectedAnswers: ['Fair dealing', 'Regular communication', 'Volume commitment', 'Collaborative improvement', 'Long-term view'],
+                redFlags: ['Transactional only', 'Poor communication', 'Squeeze margins', 'Short-term focus']
+              },
+              {
+                id: 'q15',
+                text: 'How do you manage customs and international logistics?',
+                expectedAnswers: ['Compliance knowledge', 'Documentation accuracy', 'Broker relationships', 'Cost optimization', 'Risk management'],
+                redFlags: ['No experience', 'Compliance issues', 'Poor documentation', 'No broker management']
+              }
+            ]
+          },
+          {
+            id: 'team',
+            title: '4. Team Leadership',
+            questions: [
+              {
+                id: 'q16',
+                text: 'How do you manage warehouse staff productivity?',
+                expectedAnswers: ['Clear expectations', 'Performance tracking', 'Training', 'Recognition', 'Fair treatment'],
+                redFlags: ['No expectations', 'No tracking', 'No training', 'Unfair treatment']
+              },
+              {
+                id: 'q17',
+                text: 'Describe ensuring safety in logistics operations.',
+                expectedAnswers: ['Safety culture', 'Training programs', 'Equipment maintenance', 'Incident investigation', 'Compliance'],
+                redFlags: ['Speed over safety', 'No training', 'Poor maintenance', 'Ignore incidents']
+              },
+              {
+                id: 'q18',
+                text: 'How do you handle staffing for variable demand?',
+                expectedAnswers: ['Demand forecasting', 'Flexible staffing', 'Cross-training', 'Temp labor management', 'Advance planning'],
+                redFlags: ['Reactive only', 'No flexibility', 'No cross-training', 'Constant overtime']
+              },
+              {
+                id: 'q19',
+                text: 'Describe improving team skills and capabilities.',
+                expectedAnswers: ['Skills assessment', 'Training programs', 'Career development', 'Cross-functional exposure', 'Succession planning'],
+                redFlags: ['No development', 'No training', 'No succession', 'Dead-end jobs']
+              },
+              {
+                id: 'q20',
+                text: 'How do you communicate changes to your logistics team?',
+                expectedAnswers: ['Clear messaging', 'Explain reasons', 'Two-way dialogue', 'Training if needed', 'Follow up'],
+                redFlags: ['No communication', 'Dictate changes', 'No training', 'No follow up']
+              }
+            ]
+          }
+        ]
+      }
+    }
+  },
+
+  legal: {
+    name: "Legal",
+    icon: "⚖️",
+    positions: {
+      paralegal: {
+        name: "Paralegal",
+        categories: [
+          {
+            id: 'legal-skills',
+            title: '1. Legal Skills',
+            questions: [
+              {
+                id: 'q1',
+                text: 'Describe your experience with legal research.',
+                expectedAnswers: ['Research methods', 'Multiple sources', 'Accuracy focus', 'Summarization skills', 'Citation standards'],
+                redFlags: ['Limited experience', 'Single source', 'Inaccurate', 'Poor summarization']
+              },
+              {
+                id: 'q2',
+                text: 'How do you organize and manage case files?',
+                expectedAnswers: ['Systematic organization', 'Document tracking', 'Deadline management', 'Accessibility', 'Confidentiality'],
+                redFlags: ['Disorganized', 'Missing documents', 'Missed deadlines', 'Security lapses']
+              },
+              {
+                id: 'q3',
+                text: 'Describe your experience with document review and discovery.',
+                expectedAnswers: ['Volume management', 'Accuracy', 'Issue spotting', 'Technology use', 'Confidentiality'],
+                redFlags: ['No experience', 'Errors common', 'Miss issues', 'No tech skills']
+              },
+              {
+                id: 'q4',
+                text: 'How do you prepare for trial or hearings?',
+                expectedAnswers: ['Checklist approach', 'Document organization', 'Witness coordination', 'Attorney support', 'Anticipate needs'],
+                redFlags: ['No preparation', 'Disorganized', 'Miss items', 'Reactive only']
+              },
+              {
+                id: 'q5',
+                text: 'Describe drafting legal documents.',
+                expectedAnswers: ['Clear writing', 'Template use', 'Attention to detail', 'Attorney review', 'Revision process'],
+                redFlags: ['Poor writing', 'No templates', 'Errors', 'Skip review']
+              }
+            ]
+          },
+          {
+            id: 'organization',
+            title: '2. Organization & Time Management',
+            questions: [
+              {
+                id: 'q6',
+                text: 'How do you manage multiple cases with competing deadlines?',
+                expectedAnswers: ['Priority system', 'Calendar management', 'Communication', 'Delegation when possible', 'Stay calm'],
+                redFlags: ['No system', 'Miss deadlines', 'Poor communication', 'Panic']
+              },
+              {
+                id: 'q7',
+                text: 'Describe your approach to tracking deadlines and statutes of limitations.',
+                expectedAnswers: ['Multiple tracking methods', 'Redundancy', 'Early warnings', 'Verification', 'Documentation'],
+                redFlags: ['Single system', 'No redundancy', 'Last minute', 'Missed deadlines']
+              },
+              {
+                id: 'q8',
+                text: 'How do you handle urgent requests when already at capacity?',
+                expectedAnswers: ['Assess priority', 'Communicate with supervisor', 'Reprioritize if needed', 'Meet urgent needs', 'Document changes'],
+                redFlags: ['Take everything', 'No communication', 'Miss commitments', 'Overwhelmed']
+              },
+              {
+                id: 'q9',
+                text: 'Describe maintaining accurate time records and billing.',
+                expectedAnswers: ['Contemporaneous recording', 'Detailed descriptions', 'Accurate allocation', 'Regular submission', 'Billing guidelines'],
+                redFlags: ['Delayed entries', 'Vague descriptions', 'Inaccurate', 'Late submission']
+              },
+              {
+                id: 'q10',
+                text: 'How do you ensure nothing falls through the cracks?',
+                expectedAnswers: ['Checklist systems', 'Regular review', 'Follow up', 'Documentation', 'Verification'],
+                redFlags: ['No system', 'Things missed', 'No follow up', 'Rely on memory']
+              }
+            ]
+          },
+          {
+            id: 'communication',
+            title: '3. Communication',
+            questions: [
+              {
+                id: 'q11',
+                text: 'How do you communicate with clients while maintaining boundaries?',
+                expectedAnswers: ['Professional manner', 'Clear boundaries', 'Refer to attorney', 'Document interactions', 'Responsive'],
+                redFlags: ['Give legal advice', 'Unclear boundaries', 'No documentation', 'Unresponsive']
+              },
+              {
+                id: 'q12',
+                text: 'Describe supporting attorneys with different working styles.',
+                expectedAnswers: ['Adapt to preferences', 'Anticipate needs', 'Clear communication', 'Flexible approach', 'Proactive'],
+                redFlags: ['One style only', 'Cannot adapt', 'Poor communication', 'Reactive only']
+              },
+              {
+                id: 'q13',
+                text: 'How do you handle difficult or emotional clients?',
+                expectedAnswers: ['Empathy', 'Professional boundaries', 'Active listening', 'Refer to attorney', 'Document concerns'],
+                redFlags: ['Impatient', 'No empathy', 'Get involved', 'No boundaries']
+              },
+              {
+                id: 'q14',
+                text: 'Describe coordinating with opposing counsel or court staff.',
+                expectedAnswers: ['Professional demeanor', 'Clear communication', 'Follow procedures', 'Document interactions', 'Build relationships'],
+                redFlags: ['Adversarial', 'Poor communication', 'Ignore procedures', 'No documentation']
+              },
+              {
+                id: 'q15',
+                text: 'How do you present research findings to attorneys?',
+                expectedAnswers: ['Clear summaries', 'Organized information', 'Key points highlighted', 'Citations included', 'Anticipate questions'],
+                redFlags: ['Disorganized', 'No summary', 'Missing citations', 'Cannot explain']
+              }
+            ]
+          },
+          {
+            id: 'ethics',
+            title: '4. Ethics & Professionalism',
+            questions: [
+              {
+                id: 'q16',
+                text: 'How do you maintain client confidentiality?',
+                expectedAnswers: ['Strict protocols', 'Document security', 'Communication care', 'Clear understanding', 'Report concerns'],
+                redFlags: ['Casual approach', 'Security lapses', 'Discuss cases', 'No protocols']
+              },
+              {
+                id: 'q17',
+                text: 'Describe handling a potential conflict of interest.',
+                expectedAnswers: ['Recognize conflicts', 'Report immediately', 'Follow procedures', 'Document', 'Seek guidance'],
+                redFlags: ['Ignore conflicts', 'Not report', 'No awareness', 'Handle alone']
+              },
+              {
+                id: 'q18',
+                text: 'How do you handle requests that may be unethical?',
+                expectedAnswers: ['Recognize issues', 'Refuse appropriately', 'Document concerns', 'Report if needed', 'Know resources'],
+                redFlags: ['Comply blindly', 'No recognition', 'Not report', 'No knowledge']
+              },
+              {
+                id: 'q19',
+                text: 'Describe maintaining professional development in legal field.',
+                expectedAnswers: ['CLE courses', 'Industry updates', 'Professional associations', 'Skill development', 'Stay current'],
+                redFlags: ['No development', 'Outdated knowledge', 'No networking', 'Not current']
+              },
+              {
+                id: 'q20',
+                text: 'How do you handle making an error in your work?',
+                expectedAnswers: ['Report immediately', 'Take responsibility', 'Help correct', 'Learn from it', 'Prevent recurrence'],
+                redFlags: ['Hide errors', 'Blame others', 'Not report', 'No learning']
+              }
+            ]
+          }
+        ]
+      }
+    }
+  },
+
+  real_estate: {
+    name: "Real Estate",
+    icon: "🏠",
+    positions: {
+      real_estate_agent: {
+        name: "Real Estate Agent",
+        categories: [
+          {
+            id: 'sales',
+            title: '1. Sales & Client Management',
+            questions: [
+              {
+                id: 'q1',
+                text: 'Describe your approach to prospecting for new clients.',
+                expectedAnswers: ['Multiple channels', 'Consistent effort', 'Relationship building', 'Follow up systems', 'Track results'],
+                redFlags: ['Wait for leads', 'No system', 'Inconsistent', 'No tracking']
+              },
+              {
+                id: 'q2',
+                text: 'How do you handle buyer clients with unrealistic expectations?',
+                expectedAnswers: ['Educate with data', 'Show market reality', 'Patience', 'Adjust expectations', 'Find alternatives'],
+                redFlags: ['Agree with everything', 'Get frustrated', 'No education', 'Give up']
+              },
+              {
+                id: 'q3',
+                text: 'Describe your listing presentation process.',
+                expectedAnswers: ['Market analysis', 'Marketing plan', 'Pricing strategy', 'Communication plan', 'Professional presentation'],
+                redFlags: ['No preparation', 'Promise anything', 'No market analysis', 'Unprofessional']
+              },
+              {
+                id: 'q4',
+                text: 'How do you handle a difficult negotiation?',
+                expectedAnswers: ['Understand both sides', 'Creative solutions', 'Keep emotions out', 'Focus on interests', 'Document everything'],
+                redFlags: ['Confrontational', 'Give in too easily', 'Take it personally', 'Poor documentation']
+              },
+              {
+                id: 'q5',
+                text: 'Describe building long-term client relationships.',
+                expectedAnswers: ['Stay in touch', 'Provide value', 'Referral requests', 'Remember details', 'Celebrate milestones'],
+                redFlags: ['Transactional only', 'Disappear after closing', 'No follow up', 'No referral system']
+              }
+            ]
+          },
+          {
+            id: 'market',
+            title: '2. Market Knowledge',
+            questions: [
+              {
+                id: 'q6',
+                text: 'How do you stay current with market conditions?',
+                expectedAnswers: ['Daily MLS review', 'Market statistics', 'Preview properties', 'Industry news', 'Networking'],
+                redFlags: ['Outdated knowledge', 'No regular review', 'Guess at values', 'No networking']
+              },
+              {
+                id: 'q7',
+                text: 'Describe conducting a comparative market analysis.',
+                expectedAnswers: ['Recent sales', 'Similar properties', 'Adjustments', 'Market trends', 'Clear presentation'],
+                redFlags: ['No analysis', 'Wrong comparables', 'No adjustments', 'Cannot explain']
+              },
+              {
+                id: 'q8',
+                text: 'How do you advise clients in a changing market?',
+                expectedAnswers: ['Data-driven advice', 'Explain trends', 'Adjust strategy', 'Honest assessment', 'Regular updates'],
+                redFlags: ['Ignore changes', 'Same advice always', 'Mislead clients', 'No updates']
+              },
+              {
+                id: 'q9',
+                text: 'Describe your knowledge of financing options.',
+                expectedAnswers: ['Loan types', 'Qualification basics', 'Lender relationships', 'Refer appropriately', 'Stay current'],
+                redFlags: ['No knowledge', 'Give financial advice', 'No lender network', 'Outdated info']
+              },
+              {
+                id: 'q10',
+                text: 'How do you handle questions about neighborhoods you dont know well?',
+                expectedAnswers: ['Research thoroughly', 'Be honest about limits', 'Connect with local expert', 'Learn quickly', 'Follow up'],
+                redFlags: ['Make things up', 'Pretend to know', 'No research', 'Lose the client']
+              }
+            ]
+          },
+          {
+            id: 'transaction',
+            title: '3. Transaction Management',
+            questions: [
+              {
+                id: 'q11',
+                text: 'Describe managing a complex transaction.',
+                expectedAnswers: ['Timeline management', 'Coordinate parties', 'Anticipate issues', 'Communication', 'Documentation'],
+                redFlags: ['Disorganized', 'Miss deadlines', 'Poor communication', 'No documentation']
+              },
+              {
+                id: 'q12',
+                text: 'How do you handle a transaction falling apart?',
+                expectedAnswers: ['Find solutions', 'Mediate issues', 'Keep parties together', 'Know when to let go', 'Learn from it'],
+                redFlags: ['Give up easily', 'Blame others', 'Make worse', 'No effort to save']
+              },
+              {
+                id: 'q13',
+                text: 'Describe your approach to contract review.',
+                expectedAnswers: ['Attention to detail', 'Know common issues', 'Explain to clients', 'Recommend attorney', 'Follow through'],
+                redFlags: ['Rush through', 'Miss issues', 'Dont explain', 'Practice law']
+              },
+              {
+                id: 'q14',
+                text: 'How do you ensure smooth closings?',
+                expectedAnswers: ['Preparation', 'Communication', 'Anticipate needs', 'Coordinate parties', 'Follow up'],
+                redFlags: ['Surprises common', 'Poor preparation', 'No coordination', 'Show up unprepared']
+              },
+              {
+                id: 'q15',
+                text: 'Describe handling inspection issues.',
+                expectedAnswers: ['Set expectations', 'Review with client', 'Negotiate appropriately', 'Find solutions', 'Keep deal together'],
+                redFlags: ['Panic', 'Over-react', 'Kill deals', 'No negotiation']
+              }
+            ]
+          },
+          {
+            id: 'ethics',
+            title: '4. Ethics & Professionalism',
+            questions: [
+              {
+                id: 'q16',
+                text: 'How do you handle dual agency situations?',
+                expectedAnswers: ['Full disclosure', 'Understand implications', 'Get consent', 'Fair to both', 'Avoid when possible'],
+                redFlags: ['No disclosure', 'Favor one side', 'Not understand', 'Seek dual agency']
+              },
+              {
+                id: 'q17',
+                text: 'Describe handling confidential client information.',
+                expectedAnswers: ['Keep confidential', 'Know what to share', 'Client permission', 'Protect interests', 'Professional boundaries'],
+                redFlags: ['Share freely', 'No boundaries', 'Use against client', 'Poor judgment']
+              },
+              {
+                id: 'q18',
+                text: 'How do you stay compliant with fair housing laws?',
+                expectedAnswers: ['Know the laws', 'Regular training', 'Treat all equally', 'Document interactions', 'Avoid steering'],
+                redFlags: ['No knowledge', 'Steer clients', 'Discriminate', 'No training']
+              },
+              {
+                id: 'q19',
+                text: 'Describe a situation where you put client interests above commission.',
+                expectedAnswers: ['Specific example', 'Client-first attitude', 'Long-term thinking', 'Ethical decision', 'No regrets'],
+                redFlags: ['No example', 'Commission first', 'Justify bad behavior', 'Short-term focus']
+              },
+              {
+                id: 'q20',
+                text: 'How do you handle continuing education requirements?',
+                expectedAnswers: ['Stay current', 'Beyond minimums', 'Apply learning', 'Specializations', 'Industry involvement'],
+                redFlags: ['Just minimums', 'Last minute', 'No application', 'No growth']
+              }
+            ]
+          }
+        ]
+      }
+    }
+  },
+
+  marketing: {
+    name: "Marketing",
+    icon: "📣",
+    positions: {
+      marketing_manager: {
+        name: "Marketing Manager",
+        categories: [
+          {
+            id: 'strategy',
+            title: '1. Strategy & Planning',
+            questions: [
+              {
+                id: 'q1',
+                text: 'Describe developing a marketing strategy.',
+                expectedAnswers: ['Market research', 'Target audience', 'Competitive analysis', 'Goals and KPIs', 'Budget allocation'],
+                redFlags: ['No research', 'No strategy', 'Copy competitors', 'No goals']
+              },
+              {
+                id: 'q2',
+                text: 'How do you prioritize marketing initiatives with limited budget?',
+                expectedAnswers: ['ROI focus', 'Test and learn', 'Data-driven decisions', 'Align with goals', 'Resource optimization'],
+                redFlags: ['Spray and pray', 'No prioritization', 'Ignore ROI', 'Pet projects']
+              },
+              {
+                id: 'q3',
+                text: 'Describe your approach to understanding target audiences.',
+                expectedAnswers: ['Research methods', 'Persona development', 'Customer journey', 'Ongoing learning', 'Data analysis'],
+                redFlags: ['Assumptions only', 'No research', 'Static personas', 'Ignore data']
+              },
+              {
+                id: 'q4',
+                text: 'How do you align marketing with sales objectives?',
+                expectedAnswers: ['Regular communication', 'Shared goals', 'Lead quality focus', 'Feedback loops', 'Collaborative planning'],
+                redFlags: ['Work in silos', 'No communication', 'Blame sales', 'Vanity metrics']
+              },
+              {
+                id: 'q5',
+                text: 'Describe adapting marketing strategy based on results.',
+                expectedAnswers: ['Regular review', 'Test hypotheses', 'Quick pivots', 'Data-informed', 'Document learnings'],
+                redFlags: ['Set and forget', 'Ignore data', 'Slow to change', 'No learning']
+              }
+            ]
+          },
+          {
+            id: 'execution',
+            title: '2. Campaign Execution',
+            questions: [
+              {
+                id: 'q6',
+                text: 'Describe managing a multi-channel marketing campaign.',
+                expectedAnswers: ['Consistent messaging', 'Channel optimization', 'Timeline management', 'Team coordination', 'Performance tracking'],
+                redFlags: ['Disjointed', 'No coordination', 'Miss deadlines', 'No tracking']
+              },
+              {
+                id: 'q7',
+                text: 'How do you ensure brand consistency across channels?',
+                expectedAnswers: ['Brand guidelines', 'Review processes', 'Team training', 'Templates', 'Regular audits'],
+                redFlags: ['No guidelines', 'Inconsistent', 'No review', 'No training']
+              },
+              {
+                id: 'q8',
+                text: 'Describe your experience with digital marketing channels.',
+                expectedAnswers: ['Multiple channels', 'Best practices', 'Testing approach', 'Stay current', 'Integration'],
+                redFlags: ['Limited experience', 'Outdated methods', 'No testing', 'Single channel']
+              },
+              {
+                id: 'q9',
+                text: 'How do you manage external agencies and vendors?',
+                expectedAnswers: ['Clear briefs', 'Regular communication', 'Performance management', 'Relationship building', 'Budget control'],
+                redFlags: ['Poor briefs', 'No oversight', 'Let them run', 'No accountability']
+              },
+              {
+                id: 'q10',
+                text: 'Describe launching a new product or campaign.',
+                expectedAnswers: ['Launch planning', 'Cross-functional coordination', 'Contingency plans', 'Communication plan', 'Post-launch review'],
+                redFlags: ['No planning', 'Poor coordination', 'No backup plan', 'No review']
+              }
+            ]
+          },
+          {
+            id: 'analytics',
+            title: '3. Analytics & Performance',
+            questions: [
+              {
+                id: 'q11',
+                text: 'How do you measure marketing effectiveness?',
+                expectedAnswers: ['Relevant KPIs', 'Attribution understanding', 'Regular reporting', 'Actionable insights', 'Business impact'],
+                redFlags: ['Vanity metrics', 'No measurement', 'No attribution', 'Reports only']
+              },
+              {
+                id: 'q12',
+                text: 'Describe using data to improve marketing performance.',
+                expectedAnswers: ['Hypothesis testing', 'A/B testing', 'Segment analysis', 'Optimization cycles', 'Share learnings'],
+                redFlags: ['No testing', 'Ignore data', 'No optimization', 'No sharing']
+              },
+              {
+                id: 'q13',
+                text: 'How do you report marketing results to leadership?',
+                expectedAnswers: ['Business metrics', 'Clear visualizations', 'Context and insights', 'Recommendations', 'Honest assessment'],
+                redFlags: ['Only good news', 'No insights', 'Confusing reports', 'No recommendations']
+              },
+              {
+                id: 'q14',
+                text: 'Describe calculating and improving marketing ROI.',
+                expectedAnswers: ['Full cost accounting', 'Revenue attribution', 'Benchmarking', 'Optimization focus', 'Communicate value'],
+                redFlags: ['Dont track ROI', 'Incomplete costs', 'No attribution', 'Cannot calculate']
+              },
+              {
+                id: 'q15',
+                text: 'How do you stay current with marketing technology?',
+                expectedAnswers: ['Continuous learning', 'Industry events', 'Test new tools', 'Network', 'Evaluate fit'],
+                redFlags: ['Outdated tools', 'No learning', 'Resist change', 'No evaluation']
+              }
+            ]
+          },
+          {
+            id: 'leadership',
+            title: '4. Team Leadership',
+            questions: [
+              {
+                id: 'q16',
+                text: 'How do you build and develop a marketing team?',
+                expectedAnswers: ['Skills assessment', 'Training plans', 'Growth opportunities', 'Diverse skills', 'Succession planning'],
+                redFlags: ['No development', 'High turnover', 'No training', 'No planning']
+              },
+              {
+                id: 'q17',
+                text: 'Describe managing creative and analytical team members.',
+                expectedAnswers: ['Understand differences', 'Play to strengths', 'Bridge perspectives', 'Common goals', 'Collaborative environment'],
+                redFlags: ['One approach', 'Create silos', 'Favor one type', 'No collaboration']
+              },
+              {
+                id: 'q18',
+                text: 'How do you handle disagreements about creative direction?',
+                expectedAnswers: ['Data when possible', 'Test approaches', 'Respect opinions', 'Make decisions', 'Support chosen direction'],
+                redFlags: ['Always override', 'No testing', 'Avoid decisions', 'Undermine team']
+              },
+              {
+                id: 'q19',
+                text: 'Describe fostering innovation in your team.',
+                expectedAnswers: ['Safe to fail', 'Encourage ideas', 'Test budget', 'Celebrate learning', 'Recognition'],
+                redFlags: ['Punish failure', 'No new ideas', 'No testing', 'Status quo']
+              },
+              {
+                id: 'q20',
+                text: 'How do you manage team workload and prevent burnout?',
+                expectedAnswers: ['Realistic planning', 'Priority setting', 'Resource advocacy', 'Check-ins', 'Work-life balance'],
+                redFlags: ['Overwork team', 'No prioritization', 'Ignore burnout', 'Always urgent']
+              }
+            ]
+          }
+        ]
+      }
+    }
+  },
+
+  insurance: {
+    name: "Insurance",
+    icon: "🛡️",
+    positions: {
+      insurance_agent: {
+        name: "Insurance Agent",
+        categories: [
+          {
+            id: 'sales',
+            title: '1. Sales & Client Acquisition',
+            questions: [
+              {
+                id: 'q1',
+                text: 'Describe your approach to prospecting for new clients.',
+                expectedAnswers: ['Multiple channels', 'Referral system', 'Networking', 'Consistent effort', 'Track results'],
+                redFlags: ['Wait for leads', 'No system', 'Inconsistent', 'No tracking']
+              },
+              {
+                id: 'q2',
+                text: 'How do you conduct a needs assessment with clients?',
+                expectedAnswers: ['Ask questions', 'Listen carefully', 'Understand situation', 'Identify gaps', 'Document needs'],
+                redFlags: ['Assume needs', 'Push products', 'No questions', 'Skip assessment']
+              },
+              {
+                id: 'q3',
+                text: 'Describe presenting insurance options to clients.',
+                expectedAnswers: ['Clear explanation', 'Compare options', 'Match to needs', 'Answer questions', 'No pressure'],
+                redFlags: ['Confusing', 'Push one product', 'Pressure tactics', 'Ignore needs']
+              },
+              {
+                id: 'q4',
+                text: 'How do you handle price objections?',
+                expectedAnswers: ['Understand concern', 'Explain value', 'Coverage options', 'Find solutions', 'Respect decision'],
+                redFlags: ['Argue', 'Only discount', 'Push through', 'Lose the sale']
+              },
+              {
+                id: 'q5',
+                text: 'Describe building a book of business.',
+                expectedAnswers: ['Client retention', 'Cross-selling', 'Referrals', 'Long-term relationships', 'Consistent service'],
+                redFlags: ['New business only', 'High churn', 'No referrals', 'Transactional']
+              }
+            ]
+          },
+          {
+            id: 'service',
+            title: '2. Client Service',
+            questions: [
+              {
+                id: 'q6',
+                text: 'How do you handle a claims situation for a client?',
+                expectedAnswers: ['Guide through process', 'Advocate for client', 'Regular updates', 'Follow up', 'Manage expectations'],
+                redFlags: ['Disappear', 'No advocacy', 'No updates', 'Blame company']
+              },
+              {
+                id: 'q7',
+                text: 'Describe conducting policy reviews.',
+                expectedAnswers: ['Regular schedule', 'Life changes', 'Coverage gaps', 'Update needs', 'Document review'],
+                redFlags: ['Never review', 'Only at renewal', 'No documentation', 'Miss gaps']
+              },
+              {
+                id: 'q8',
+                text: 'How do you retain clients at renewal time?',
+                expectedAnswers: ['Proactive contact', 'Review coverage', 'Address concerns', 'Competitive options', 'Demonstrate value'],
+                redFlags: ['Wait for them', 'No review', 'Only reactive', 'Lose to price']
+              },
+              {
+                id: 'q9',
+                text: 'Describe handling an upset client.',
+                expectedAnswers: ['Listen first', 'Empathize', 'Find solutions', 'Follow up', 'Learn from it'],
+                redFlags: ['Defensive', 'Blame company', 'No solution', 'Dismiss concerns']
+              },
+              {
+                id: 'q10',
+                text: 'How do you stay in touch with your client base?',
+                expectedAnswers: ['Regular touchpoints', 'Value-add content', 'Personal contact', 'Life events', 'Systematic approach'],
+                redFlags: ['Only at renewal', 'No contact', 'No system', 'Spam only']
+              }
+            ]
+          },
+          {
+            id: 'knowledge',
+            title: '3. Product Knowledge',
+            questions: [
+              {
+                id: 'q11',
+                text: 'How do you stay current with insurance products and regulations?',
+                expectedAnswers: ['Continuing education', 'Company training', 'Industry news', 'Peer learning', 'Apply knowledge'],
+                redFlags: ['Just minimums', 'Outdated knowledge', 'No learning', 'Wrong advice']
+              },
+              {
+                id: 'q12',
+                text: 'Describe explaining complex coverage to clients.',
+                expectedAnswers: ['Simple language', 'Real examples', 'Check understanding', 'Written summaries', 'Answer questions'],
+                redFlags: ['Jargon heavy', 'Confuse clients', 'Rush through', 'No verification']
+              },
+              {
+                id: 'q13',
+                text: 'How do you handle questions about coverage you are unsure about?',
+                expectedAnswers: ['Admit uncertainty', 'Research answer', 'Consult resources', 'Follow up', 'Accurate information'],
+                redFlags: ['Guess', 'Make things up', 'No follow up', 'Inaccurate']
+              },
+              {
+                id: 'q14',
+                text: 'Describe your approach to identifying coverage gaps.',
+                expectedAnswers: ['Thorough review', 'Ask questions', 'Common gaps', 'Risk assessment', 'Recommendations'],
+                redFlags: ['No review', 'Miss gaps', 'No recommendations', 'Assume coverage']
+              },
+              {
+                id: 'q15',
+                text: 'How do you handle competing products from multiple carriers?',
+                expectedAnswers: ['Know differences', 'Match to needs', 'Fair comparison', 'Client best interest', 'Document reasons'],
+                redFlags: ['One carrier only', 'Push higher commission', 'No comparison', 'Not client-focused']
+              }
+            ]
+          },
+          {
+            id: 'ethics',
+            title: '4. Ethics & Compliance',
+            questions: [
+              {
+                id: 'q16',
+                text: 'How do you ensure compliance with insurance regulations?',
+                expectedAnswers: ['Know requirements', 'Follow procedures', 'Documentation', 'Continuing education', 'Report concerns'],
+                redFlags: ['Ignore regulations', 'Poor documentation', 'Cut corners', 'No knowledge']
+              },
+              {
+                id: 'q17',
+                text: 'Describe handling a situation where you recommended wrong coverage.',
+                expectedAnswers: ['Admit error', 'Fix immediately', 'Client communication', 'Learn from it', 'Document'],
+                redFlags: ['Hide error', 'Blame client', 'No correction', 'No learning']
+              },
+              {
+                id: 'q18',
+                text: 'How do you balance sales goals with client needs?',
+                expectedAnswers: ['Client first', 'Long-term thinking', 'Right coverage', 'Build trust', 'Sustainable business'],
+                redFlags: ['Sales first', 'Oversell', 'Wrong coverage', 'Short-term focus']
+              },
+              {
+                id: 'q19',
+                text: 'Describe handling confidential client information.',
+                expectedAnswers: ['Secure storage', 'Need-to-know', 'Follow policies', 'Report breaches', 'Training'],
+                redFlags: ['Casual handling', 'Share freely', 'No security', 'No training']
+              },
+              {
+                id: 'q20',
+                text: 'How do you handle pressure to sell inappropriate products?',
+                expectedAnswers: ['Refuse', 'Document concerns', 'Report if needed', 'Client protection', 'Know regulations'],
+                redFlags: ['Comply', 'No pushback', 'Ignore ethics', 'Fear retaliation']
+              }
+            ]
+          }
+        ]
+      }
+    }
+  },
+
+  government: {
+    name: "Government",
+    icon: "🏛️",
+    positions: {
+      policy_analyst: {
+        name: "Policy Analyst",
+        categories: [
+          {
+            id: 'analysis',
+            title: '1. Research & Analysis',
+            questions: [
+              {
+                id: 'q1',
+                text: 'Describe your approach to policy research.',
+                expectedAnswers: ['Multiple sources', 'Evidence-based', 'Stakeholder input', 'Objective analysis', 'Documentation'],
+                redFlags: ['Single source', 'Biased approach', 'No stakeholders', 'Poor documentation']
+              },
+              {
+                id: 'q2',
+                text: 'How do you analyze the impact of proposed policies?',
+                expectedAnswers: ['Impact assessment', 'Stakeholder analysis', 'Cost-benefit', 'Unintended consequences', 'Evidence review'],
+                redFlags: ['No analysis', 'Ignore impacts', 'Confirm bias', 'Miss consequences']
+              },
+              {
+                id: 'q3',
+                text: 'Describe synthesizing complex information for decision-makers.',
+                expectedAnswers: ['Clear summaries', 'Key points', 'Options presented', 'Recommendations', 'Accessible language'],
+                redFlags: ['Information dump', 'No summary', 'Jargon heavy', 'No recommendations']
+              },
+              {
+                id: 'q4',
+                text: 'How do you handle conflicting data or research?',
+                expectedAnswers: ['Evaluate sources', 'Acknowledge uncertainty', 'Present multiple views', 'Transparent about limits', 'Seek additional info'],
+                redFlags: ['Cherry pick', 'Hide conflicts', 'False certainty', 'Ignore contrary evidence']
+              },
+              {
+                id: 'q5',
+                text: 'Describe staying current with policy developments.',
+                expectedAnswers: ['Industry monitoring', 'Academic research', 'Stakeholder engagement', 'Peer networks', 'Continuous learning'],
+                redFlags: ['Outdated knowledge', 'No monitoring', 'Isolated', 'No learning']
+              }
+            ]
+          },
+          {
+            id: 'communication',
+            title: '2. Communication & Stakeholders',
+            questions: [
+              {
+                id: 'q6',
+                text: 'How do you communicate policy recommendations to elected officials?',
+                expectedAnswers: ['Clear and concise', 'Relevant to priorities', 'Options provided', 'Anticipate questions', 'Nonpartisan'],
+                redFlags: ['Too technical', 'Biased presentation', 'No options', 'Cannot answer questions']
+              },
+              {
+                id: 'q7',
+                text: 'Describe gathering stakeholder input on policy.',
+                expectedAnswers: ['Multiple methods', 'Inclusive process', 'Document input', 'Analyze themes', 'Feedback to stakeholders'],
+                redFlags: ['Token input', 'Exclude groups', 'Ignore input', 'No feedback']
+              },
+              {
+                id: 'q8',
+                text: 'How do you handle politically sensitive policy issues?',
+                expectedAnswers: ['Objective analysis', 'Present facts', 'Multiple perspectives', 'Professional demeanor', 'Avoid taking sides'],
+                redFlags: ['Take political sides', 'Biased analysis', 'Avoid issues', 'Leak information']
+              },
+              {
+                id: 'q9',
+                text: 'Describe writing policy briefings and reports.',
+                expectedAnswers: ['Clear structure', 'Evidence-based', 'Accessible language', 'Actionable', 'Appropriate length'],
+                redFlags: ['Unclear', 'No evidence', 'Too long', 'Jargon filled']
+              },
+              {
+                id: 'q10',
+                text: 'How do you handle media inquiries about policy?',
+                expectedAnswers: ['Follow protocol', 'Accurate information', 'Stay in lane', 'Refer appropriately', 'Document'],
+                redFlags: ['Go off script', 'Speculate', 'Overstep authority', 'No documentation']
+              }
+            ]
+          },
+          {
+            id: 'implementation',
+            title: '3. Implementation & Evaluation',
+            questions: [
+              {
+                id: 'q11',
+                text: 'Describe developing policy implementation plans.',
+                expectedAnswers: ['Clear steps', 'Stakeholder coordination', 'Resource needs', 'Timeline', 'Risk assessment'],
+                redFlags: ['No planning', 'Ignore stakeholders', 'Unrealistic', 'No risk assessment']
+              },
+              {
+                id: 'q12',
+                text: 'How do you evaluate policy effectiveness?',
+                expectedAnswers: ['Clear metrics', 'Data collection', 'Objective assessment', 'Report findings', 'Recommend adjustments'],
+                redFlags: ['No evaluation', 'No metrics', 'Biased assessment', 'Ignore results']
+              },
+              {
+                id: 'q13',
+                text: 'Describe handling unintended consequences of a policy.',
+                expectedAnswers: ['Early identification', 'Document impacts', 'Propose solutions', 'Learn from it', 'Transparent reporting'],
+                redFlags: ['Ignore consequences', 'Hide problems', 'No solutions', 'Blame others']
+              },
+              {
+                id: 'q14',
+                text: 'How do you coordinate across government agencies?',
+                expectedAnswers: ['Build relationships', 'Clear communication', 'Understand constraints', 'Find common ground', 'Document agreements'],
+                redFlags: ['Siloed work', 'Poor communication', 'Territorial', 'No coordination']
+              },
+              {
+                id: 'q15',
+                text: 'Describe improving an existing policy or program.',
+                expectedAnswers: ['Evaluate current state', 'Stakeholder input', 'Evidence-based changes', 'Implementation plan', 'Monitor results'],
+                redFlags: ['No evaluation', 'Ignore feedback', 'Arbitrary changes', 'No monitoring']
+              }
+            ]
+          },
+          {
+            id: 'ethics',
+            title: '4. Ethics & Public Service',
+            questions: [
+              {
+                id: 'q16',
+                text: 'How do you maintain objectivity in policy analysis?',
+                expectedAnswers: ['Follow evidence', 'Multiple perspectives', 'Acknowledge bias', 'Peer review', 'Transparent methods'],
+                redFlags: ['Confirm bias', 'Single perspective', 'Hide methods', 'No review']
+              },
+              {
+                id: 'q17',
+                text: 'Describe handling pressure to reach a predetermined conclusion.',
+                expectedAnswers: ['Present facts', 'Document pressure', 'Maintain integrity', 'Escalate if needed', 'Protect analysis'],
+                redFlags: ['Comply with pressure', 'Change findings', 'No documentation', 'Compromise integrity']
+              },
+              {
+                id: 'q18',
+                text: 'How do you handle confidential government information?',
+                expectedAnswers: ['Follow protocols', 'Need-to-know', 'Secure handling', 'Report breaches', 'Training current'],
+                redFlags: ['Casual handling', 'Share inappropriately', 'No protocols', 'Ignore breaches']
+              },
+              {
+                id: 'q19',
+                text: 'Describe your commitment to public service.',
+                expectedAnswers: ['Public interest focus', 'Service motivation', 'Long-term perspective', 'Continuous improvement', 'Ethical standards'],
+                redFlags: ['Self-interest', 'No motivation', 'Short-term thinking', 'Ethical lapses']
+              },
+              {
+                id: 'q20',
+                text: 'How do you handle conflicts of interest?',
+                expectedAnswers: ['Disclose immediately', 'Follow procedures', 'Recuse when needed', 'Document', 'Seek guidance'],
+                redFlags: ['Hide conflicts', 'Ignore procedures', 'Continue working', 'No documentation']
+              }
+            ]
+          }
+        ]
+      }
+    }
+  },
+
+  nonprofit: {
+    name: "Nonprofit",
+    icon: "💚",
+    positions: {
+      program_manager: {
+        name: "Program Manager",
+        categories: [
+          {
+            id: 'programs',
+            title: '1. Program Management',
+            questions: [
+              {
+                id: 'q1',
+                text: 'Describe developing a new program from concept to launch.',
+                expectedAnswers: ['Needs assessment', 'Stakeholder input', 'Logic model', 'Resource planning', 'Launch plan'],
+                redFlags: ['No assessment', 'Skip stakeholders', 'No planning', 'Rush launch']
+              },
+              {
+                id: 'q2',
+                text: 'How do you ensure program quality and fidelity?',
+                expectedAnswers: ['Clear standards', 'Staff training', 'Regular monitoring', 'Feedback loops', 'Continuous improvement'],
+                redFlags: ['No standards', 'No monitoring', 'Ignore quality', 'No training']
+              },
+              {
+                id: 'q3',
+                text: 'Describe managing program budgets.',
+                expectedAnswers: ['Accurate budgeting', 'Regular tracking', 'Grant compliance', 'Expense management', 'Reporting'],
+                redFlags: ['Poor budgeting', 'No tracking', 'Compliance issues', 'Overspending']
+              },
+              {
+                id: 'q4',
+                text: 'How do you handle program challenges or setbacks?',
+                expectedAnswers: ['Identify quickly', 'Root cause analysis', 'Adaptive solutions', 'Transparent communication', 'Learn from it'],
+                redFlags: ['Ignore problems', 'Blame others', 'No solutions', 'Hide from funders']
+              },
+              {
+                id: 'q5',
+                text: 'Describe scaling a successful program.',
+                expectedAnswers: ['Document model', 'Resource needs', 'Quality maintenance', 'Partnership building', 'Measured growth'],
+                redFlags: ['Scale without planning', 'Ignore quality', 'No documentation', 'Rush growth']
+              }
+            ]
+          },
+          {
+            id: 'evaluation',
+            title: '2. Evaluation & Impact',
+            questions: [
+              {
+                id: 'q6',
+                text: 'How do you measure program impact?',
+                expectedAnswers: ['Clear outcomes', 'Data collection', 'Appropriate methods', 'Regular analysis', 'Use findings'],
+                redFlags: ['No measurement', 'Output only', 'Poor methods', 'Ignore data']
+              },
+              {
+                id: 'q7',
+                text: 'Describe developing program metrics and KPIs.',
+                expectedAnswers: ['Outcome-focused', 'Measurable', 'Aligned with mission', 'Balanced scorecard', 'Regular review'],
+                redFlags: ['No metrics', 'Wrong metrics', 'Vanity numbers', 'No review']
+              },
+              {
+                id: 'q8',
+                text: 'How do you use data to improve programs?',
+                expectedAnswers: ['Regular review', 'Identify patterns', 'Test changes', 'Document learning', 'Share insights'],
+                redFlags: ['Collect but dont use', 'No analysis', 'Ignore findings', 'No improvement']
+              },
+              {
+                id: 'q9',
+                text: 'Describe reporting to funders on program outcomes.',
+                expectedAnswers: ['Honest reporting', 'Clear narratives', 'Data supported', 'Challenges included', 'Impact stories'],
+                redFlags: ['Misleading reports', 'Hide challenges', 'No data', 'Only numbers']
+              },
+              {
+                id: 'q10',
+                text: 'How do you gather and incorporate participant feedback?',
+                expectedAnswers: ['Multiple methods', 'Regular collection', 'Analyze feedback', 'Act on input', 'Close loop'],
+                redFlags: ['No feedback', 'Ignore input', 'No action', 'Tokenism']
+              }
+            ]
+          },
+          {
+            id: 'stakeholders',
+            title: '3. Stakeholder Management',
+            questions: [
+              {
+                id: 'q11',
+                text: 'How do you build relationships with community partners?',
+                expectedAnswers: ['Mutual benefit', 'Regular communication', 'Shared goals', 'Collaborative approach', 'Long-term view'],
+                redFlags: ['Transactional', 'Poor communication', 'One-sided', 'Short-term']
+              },
+              {
+                id: 'q12',
+                text: 'Describe managing relationships with funders.',
+                expectedAnswers: ['Regular updates', 'Honest communication', 'Meet commitments', 'Anticipate needs', 'Build trust'],
+                redFlags: ['Only when needed', 'Hide problems', 'Miss deadlines', 'Over-promise']
+              },
+              {
+                id: 'q13',
+                text: 'How do you engage program participants in design and improvement?',
+                expectedAnswers: ['Meaningful involvement', 'Value input', 'Act on feedback', 'Remove barriers', 'Share power'],
+                redFlags: ['Token involvement', 'Ignore input', 'Barriers to participation', 'Top-down only']
+              },
+              {
+                id: 'q14',
+                text: 'Describe coordinating with other departments in your organization.',
+                expectedAnswers: ['Regular communication', 'Shared goals', 'Collaborative problem solving', 'Resource sharing', 'Mutual support'],
+                redFlags: ['Siloed work', 'Competition', 'Poor communication', 'No collaboration']
+              },
+              {
+                id: 'q15',
+                text: 'How do you handle competing stakeholder priorities?',
+                expectedAnswers: ['Understand perspectives', 'Find common ground', 'Mission-focused decisions', 'Transparent communication', 'Balance needs'],
+                redFlags: ['Favor some stakeholders', 'Avoid decisions', 'Poor communication', 'Lose sight of mission']
+              }
+            ]
+          },
+          {
+            id: 'leadership',
+            title: '4. Team Leadership',
+            questions: [
+              {
+                id: 'q16',
+                text: 'How do you manage and develop program staff?',
+                expectedAnswers: ['Clear expectations', 'Regular feedback', 'Development opportunities', 'Recognition', 'Support growth'],
+                redFlags: ['No management', 'No feedback', 'No development', 'High turnover']
+              },
+              {
+                id: 'q17',
+                text: 'Describe managing volunteers effectively.',
+                expectedAnswers: ['Clear roles', 'Training provided', 'Appreciation shown', 'Meaningful work', 'Retention focus'],
+                redFlags: ['No structure', 'No training', 'Take for granted', 'High turnover']
+              },
+              {
+                id: 'q18',
+                text: 'How do you handle limited resources and staff burnout?',
+                expectedAnswers: ['Realistic planning', 'Prioritization', 'Self-care emphasis', 'Advocate for resources', 'Creative solutions'],
+                redFlags: ['Ignore burnout', 'Overwork staff', 'No advocacy', 'Accept limitations']
+              },
+              {
+                id: 'q19',
+                text: 'Describe building a diverse and inclusive program team.',
+                expectedAnswers: ['Intentional hiring', 'Inclusive culture', 'Address barriers', 'Ongoing commitment', 'Reflect community'],
+                redFlags: ['No attention to diversity', 'Exclusionary practices', 'Tokenism', 'No reflection']
+              },
+              {
+                id: 'q20',
+                text: 'How do you maintain mission alignment in day-to-day work?',
+                expectedAnswers: ['Connect work to mission', 'Regular reminders', 'Decision framework', 'Celebrate impact', 'Lead by example'],
+                redFlags: ['Lost connection', 'Mission drift', 'Just tasks', 'No celebration']
+              }
+            ]
+          }
+        ]
+      }
+    }
   }
 };
 
